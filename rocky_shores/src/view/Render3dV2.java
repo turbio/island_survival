@@ -27,6 +27,7 @@ public class Render3dV2 {
 			glDisable(GL_BLEND);
 			glLineWidth(2.0f);
 			glColor3f(1.0f, 0.0f, 0.0f);
+			
 			glBegin(GL_LINES);
 				glVertex3f(model.getMobList().get(i).getX(), 0.005f, model.getMobList().get(i).getZ());
 				glVertex3f(model.getMobList().get(i).getDesX(), 0.005f, model.getMobList().get(i).getDesZ());
@@ -62,7 +63,7 @@ public class Render3dV2 {
 			glRotatef(model.getSpriteList().get(i).getZRot(), 0.0f, 0.0f, 1.0f);
 			glScalef(model.getSpriteList().get(i).getWidth(), model.getSpriteList().get(i).getHeight(), model.getSpriteList().get(i).getDepth());
 				
-			if(model.getSpriteList().get(i).hasMesh()){
+			if(model.getSpriteList().get(i).hasMesh() && model.getSpriteList().get(i).isVisible()){
 				for(int m = 0; m < model.getSpriteList().get(i).getMesh().length; m++){
 					if(model.getSpriteList().get(i).hasMesh() && model.getSpriteList().get(i).getMesh()[0].getMat() != null){
 						model.getSpriteList().get(i).getMesh()[0].getMat().getTexture().bind();

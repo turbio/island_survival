@@ -201,11 +201,11 @@ public class Model {
 		spriteList.add(ship);
 		
 		//testing
-		for(int i = 0; i < 1; i++){
-			addPeasant(0.0f, 0.0f, Task.NONE);
-			addPeasant(0.0f, 0.0f, Task.BUILD);
-			addPeasant(0.0f, 0.0f, Task.WOOD);
-			//addPeasant(0, 0, Task.);
+		for(int i = 0; i < 5; i++){
+			addPeasant(-1.0f, 0.0f, Task.BUILD);
+			addPeasant(-1.0f, 0.0f, Task.NONE);
+			addPeasant(-1.0f, 0.0f, Task.WOOD);
+			addPeasant(-1, 0, Task.STONE);
 		}
 		
 		//add water

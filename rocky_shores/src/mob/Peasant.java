@@ -46,7 +46,7 @@ public class Peasant extends Sprite{
 		head.setZ(z);
 		head.setY(super.getMesh()[0].getTop() * scale);
 		head.setTex(mat);
-		head.setParent(this);
+		//head.setParent(this);
 
 		
 		rightArm = new Sprite(ra);
@@ -132,6 +132,8 @@ public class Peasant extends Sprite{
 		}
 		
 		setTool();
+		
+		//System.out.println(super.getParent());
 	}
 	
 	public void setTool(){
