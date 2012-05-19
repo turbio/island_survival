@@ -1,0 +1,14 @@
+fire1 = 0 0 32 32
+fire2 = 33 0 32 32
+fire3 = 66 0 32 32
+smoke1 = 0 33 32 32
+smoke2 = 33 33 32 32
+smoke3 = 0 66 32 32
+smoke4 = 33 66 32 32
+smoke5 = 66 33 32 32
+smoke6 = 66 66 32 32
+smoke7 = 99 0 32 32
+smoke8 = 99 33 32 32
+water1 = 0 99 4 4
+water2 = 0 104 4 4
+water3 = 5 99 4 4

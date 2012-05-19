@@ -1,0 +1,30 @@
+import org.lwjgl.LWJGLException;
+import org.lwjgl.opengl.Display;
+import org.lwjgl.opengl.DisplayMode;
+
+import static org.lwjgl.util.glu.GLU.*;
+import static org.lwjgl.opengl.GL11.*;
+
+public class Lwjgl_Test {
+	private final int WIDTH = 640, HEIGHT = 480;
+	
+	public static void main(String [] args){
+		new Lwjgl_Test();
+	}
+	
+	public Lwjgl_Test(){
+		initRender();
+	}
+	
+	public void initRender(){
+		try {
+			Display.setDisplayMode(new DisplayMode(WIDTH, HEIGHT));
+			Display.create();
+		} catch (LWJGLException e) {}
+		
+		glMatrixMode(GL_PROJECTION);
+		glLoadIdentity();
+		gluPerspective(45.0f, WIDTH / HEIGHT, 0.1f, 100.0f);
+		glMatrixMode(GL_MODELVIEW);
+	}
+}

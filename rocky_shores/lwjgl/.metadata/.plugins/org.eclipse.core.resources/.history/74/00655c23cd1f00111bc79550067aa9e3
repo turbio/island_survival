@@ -1,0 +1,14 @@
+
+public class Lwjgl_Test {
+	public static void main(String [] args){
+		new Lwjgl_Test();
+	}
+	
+	public Lwjgl_Test(){
+		
+	}
+	
+	public void initRender(){
+		
+	}
+}
