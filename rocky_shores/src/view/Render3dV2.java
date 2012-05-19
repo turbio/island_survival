@@ -25,7 +25,7 @@ public class Render3dV2 {
 			glShadeModel(GL_SMOOTH);
 			glDisable(GL_LIGHTING);
 			glDisable(GL_BLEND);
-			glLineWidth(2.0f);
+			glLineWidth(0.5f);
 			glColor3f(1.0f, 0.0f, 0.0f);
 			
 			glBegin(GL_LINES);

@@ -14,7 +14,7 @@ import mesh.Material;
 import mesh.Mesh;
 import model.Model;
 
-public class Peasant extends Sprite{
+public class Peasant extends Mob{
 	private final float scale = 0.008f;
 	private Sprite head, rightArm, leftArm, rightLeg, leftLeg, item;
 	private Mesh toolMesh;

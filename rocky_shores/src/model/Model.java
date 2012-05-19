@@ -241,14 +241,14 @@ public class Model {
 		
 		//add test buildings
 		
-		addBuilding(BuildingTypes.TOWN_HALL, 0.0f, 0.0f);
+		//addBuilding(BuildingTypes.TOWN_HALL, 0.0f, 0.0f);
 		//addBuilding(BuildingTypes.WORKSHOP, 0.2f, 0.0f);
-		//addBuilding(BuildingTypes.FARM, -0.1f, 0.2f, -0.0f, 0.0f);
-		//addBuilding(BuildingTypes.MILL, 0.3f, 0.2f);
-		//addBuilding(BuildingTypes.BARRAKS, -0.3f, 0.2f);
-		//addBuilding(BuildingTypes.RESIDENCE, 0.1f, 0.2f);
-		//addBuilding(BuildingTypes.MASONRY,-0.2f, 0.0f);
-		//addBuilding(BuildingTypes.DOCK, -0.3f, -0.4f);
+		addBuilding(BuildingTypes.FARM, -0.1f, 0.2f, -0.0f, 0.0f);
+		addBuilding(BuildingTypes.MILL, 0.3f, 0.2f);
+		addBuilding(BuildingTypes.BARRAKS, -0.3f, 0.2f);
+		addBuilding(BuildingTypes.RESIDENCE, 0.1f, 0.2f);
+		//addBuilding(BuildingTypes.MASONRY,-0.1f, 0.2f);
+		addBuilding(BuildingTypes.DOCK, -0.3f, -0.4f);
 		
 		//setup global vars
 		menu.FOV = menu.START_FOV;
