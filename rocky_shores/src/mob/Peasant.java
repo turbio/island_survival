@@ -21,7 +21,7 @@ public class Peasant extends Sprite{
 	private double d = 0;
 	private int time = (int) ((Math.random() * 1800) % 1800);
 	private Model model;
-	private boolean faceCam = false, walk = false, idle = false, hitAnime = false, hasResource = false;
+	private boolean faceCam = false, walk = false, idle = false, hitAnime = false, hasResource = false, swim = false;
 	private float desX = 0.0f, desZ = 0.0f, originX = 0, originZ = 0, baseRot, distance, wanderDistance = 0.08f, speed = 0.001f;
 	private Object target;
 	private Task task = Task.NONE;
@@ -46,6 +46,7 @@ public class Peasant extends Sprite{
 		head.setZ(z);
 		head.setY(super.getMesh()[0].getTop() * scale);
 		head.setTex(mat);
+		head.setParent(this);
 
 		
 		rightArm = new Sprite(ra);
@@ -489,6 +490,14 @@ public class Peasant extends Sprite{
 			leftArm.setZRot((float)Math.sin(time / 20.0f) * 10.0f + 100.0f);
 			rightArm.setZRot((float)Math.sin(-time / 20.0f) * 10.0f + 100.0f);
 		}
+		
+		if(swim){
+			super.setY((float)Math.sin(time / 20.0f) * 0.005f - 0.03f);
+		}else{
+			super.setY(0.0f);
+		}
+		
+		//swim = true;
 	}
 	
 	public void setTask(Task t){

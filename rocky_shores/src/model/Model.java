@@ -182,16 +182,6 @@ public class Model {
 		
 		loadAll();	//load resources
 		
-		//random = new Random();
-		
-		//testing
-		for(int i = 0; i < 1; i++){
-			addPeasant(0, 0, Task.STONE);
-			addPeasant(0, 0, Task.BUILD);
-			addPeasant(0, 0, Task.WOOD);
-			//addPeasant(0, 0, Task.);
-		}
-		
 		//load island image used to generate terain
 		BufferedImage island = null;
 		try{
@@ -209,6 +199,14 @@ public class Model {
 		//add start ship
 		ship = new Ship(getModel("ship"), null, null, -1.5f, 0.0f, -0.8f, 0.003f, 0, 0, this);
 		spriteList.add(ship);
+		
+		//testing
+		for(int i = 0; i < 1; i++){
+			addPeasant(0.0f, 0.0f, Task.NONE);
+			addPeasant(0.0f, 0.0f, Task.BUILD);
+			addPeasant(0.0f, 0.0f, Task.WOOD);
+			//addPeasant(0, 0, Task.);
+		}
 		
 		//add water
 		//String[] resPath= {"water1", "water2", "water3"};
@@ -243,7 +241,7 @@ public class Model {
 		
 		//add test buildings
 		
-		//addBuilding(BuildingTypes.TOWN_HALL, 0.5f, 0.0f);
+		addBuilding(BuildingTypes.TOWN_HALL, 0.0f, 0.0f);
 		//addBuilding(BuildingTypes.WORKSHOP, 0.2f, 0.0f);
 		//addBuilding(BuildingTypes.FARM, -0.1f, 0.2f, -0.0f, 0.0f);
 		//addBuilding(BuildingTypes.MILL, 0.3f, 0.2f);
