@@ -31,6 +31,16 @@ public class Farm extends Building{
 		}else{
 			fence = new Fence((m.getRight() * scale) + x, z, (m.getRight() * scale) + x, z2, x2, z2, x2, z, model.getMaterial("fence"));
 		}
+		fence.setVisible(false);
+		
 		model.getSpriteList().add(fence);
+	}
+	
+	public void update(){
+		super.update();
+		
+		if(super.isBuilt()){
+			fence.setVisible(true);
+		}
 	}
 }

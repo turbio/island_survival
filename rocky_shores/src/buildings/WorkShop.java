@@ -13,4 +13,7 @@ public class WorkShop extends Building{
 		super.setDepth(scale);
 	}
 
+	public void addResource(){
+		System.out.println("wood get");
+	}
 }

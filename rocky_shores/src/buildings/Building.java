@@ -8,7 +8,7 @@ import model.Model;
 
 public class Building extends Sprite{
 	private boolean isBuilt = false;
-	private double buildAmount = 1;	//0 = none, 1 = all
+	private double buildAmount = 0;	//0 = none, 1 = all
 	private double buildSpeed = 0.0005f;
 	private int workers = 0;
 	private Fence fence = null;
@@ -136,5 +136,9 @@ public class Building extends Sprite{
 	
 	public BuildingTypes getBuildingType(){
 		return buildingTypes;
+	}
+	
+	public void addResource(){
+		//que++;
 	}
 }

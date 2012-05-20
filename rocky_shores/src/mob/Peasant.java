@@ -25,9 +25,8 @@ public class Peasant extends Mob{
 	private float desX = 0.0f, desZ = 0.0f, originX = 0, originZ = 0, baseRot, distance, wanderDistance = 0.08f, speed = 0.001f;
 	private Object target;
 	private Task task = Task.NONE;
-	private World world;
 	
-	public Peasant(float x, float z, Mesh h, Mesh body, Material mat, Model m, Mesh ra, Mesh la, Mesh rl, Mesh ll, Mesh itemMesh, Task t, World w){
+	public Peasant(float x, float z, Mesh h, Mesh body, Material mat, Model m, Mesh ra, Mesh la, Mesh rl, Mesh ll, Mesh itemMesh, Task t){
 		super(body);
 		super.setTex(mat);
 		originX = x;
@@ -36,7 +35,6 @@ public class Peasant extends Mob{
 		super.setHeight(scale);
 		super.setDepth(scale);
 		model = m;
-		world = w;
 		
 		head = new Sprite(h);
 		head.setWidth(scale);
@@ -176,6 +174,7 @@ public class Peasant extends Mob{
 		
 		if(!idle){
 			walk = true;
+			/*
 			if(task == Task.BUILD){
 				desX = ((Orientation) target).getX();
 				desZ = ((Orientation) target).getZ();	
@@ -183,6 +182,29 @@ public class Peasant extends Mob{
 				desX = ((Orientation) target).getX();
 				desZ = ((Orientation) target).getZ();
 			}
+			*/
+			
+			float cX = 0, cZ = 0;
+			
+			cX = ((Sprite) target).getMesh()[0].getFaces().get(0).getVertex().get(0).getX() * ((Sprite) target).getWidth();
+			cZ = ((Sprite) target).getMesh()[0].getFaces().get(0).getVertex().get(0).getZ() * ((Sprite) target).getDepth();
+			
+			for(int f = 0; f < ((Sprite) target).getMesh()[0].getFaces().size(); f++){
+				for(int v = 0; v < ((Sprite) target).getMesh()[0].getFaces().get(f).getVertex().size(); v++){
+					if(getDistance(
+							(((Sprite) target).getMesh()[0].getFaces().get(f).getVertex().get(v).getX() * ((Sprite) target).getWidth()) - getX(),
+							(((Sprite) target).getMesh()[0].getFaces().get(f).getVertex().get(v).getZ() * ((Sprite) target).getDepth()) - getZ())
+							<
+							getDistance(cX - getX(), cX - getZ())){
+						
+						cX = ((Sprite) target).getMesh()[0].getFaces().get(f).getVertex().get(v).getX() * ((Sprite) target).getWidth();
+						cZ = ((Sprite) target).getMesh()[0].getFaces().get(f).getVertex().get(v).getZ() * ((Sprite) target).getDepth();
+					}
+				}
+			}
+			
+			desX = cX + ((Sprite) target).getX();
+			desZ = cZ + ((Sprite) target).getZ();
 		}else{
 			if(time % 100 == 0){
 				desX = originX + (new Random().nextFloat() * (wanderDistance * 2) - wanderDistance);
@@ -242,6 +264,12 @@ public class Peasant extends Mob{
 			return;
 		}
 		
+		float xDistance = getX() - ((Orientation) target).getX();
+		float zDistance = getZ() - ((Orientation) target).getZ();
+		super.setYRot(-((float)Math.toDegrees(Math.atan2(zDistance, xDistance)) - 180));
+		//System.out.println();
+		//double angleToTurn = ;
+		
 		switch(task){
 		case BUILD:{
 			walk = false;
@@ -259,7 +287,7 @@ public class Peasant extends Mob{
 			
 			if(hasResource){
 				hasResource = false;
-				world.ROCK++;
+				((Building) target).addResource();
 				findTarget();
 				calcTarget();
 			}
@@ -278,7 +306,7 @@ public class Peasant extends Mob{
 			
 			if(hasResource){
 				hasResource = false;
-				world.WOOD++;
+				((Building) target).addResource();
 				findTarget();
 				calcTarget();
 			}

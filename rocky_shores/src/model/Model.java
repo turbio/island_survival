@@ -84,7 +84,7 @@ public class Model {
 	//textures
 	private String texturePath[] = {"res/pack.png", "res/fence.png", "res/island.png", "res/water1.png", "res/pickaxe.png",
 			"res/water2.png", "res/water3.png", "res/hammer.png", "res/sword.png", "res/woodaxe.png",
-			"res/particles/water1.png", "res/particles/water2.png", "res/particles/water3.png", "res/particles/tree.png"};	//holds textures
+			"res/particles/water1.png", "res/particles/water2.png", "res/particles/water3.png", "res/particles/tree.png", "res/matr.png"};	//holds textures
 	private Texture texturePack[];	//holds raw texture data
 	private ArrayList<Material> materials;	//holds textures
 	private ArrayList<Material> mobMats = new ArrayList<Material>();
@@ -103,7 +103,8 @@ public class Model {
 			"res/models/mob/mob.obj",
 			"res/models/dock/dock.obj",
 			"res/models/rock/rock.obj",
-			"res/models/tree/tree1.obj"
+			"res/models/tree/tree1.obj",
+			"res/models/wheat/wheat.obj"
 	};
 	private ArrayList<Mesh> models;	//loaded models
 	
@@ -241,13 +242,13 @@ public class Model {
 		
 		//add test buildings
 		
-		//addBuilding(BuildingTypes.TOWN_HALL, 0.0f, 0.0f);
-		//addBuilding(BuildingTypes.WORKSHOP, 0.2f, 0.0f);
+		addBuilding(BuildingTypes.TOWN_HALL, 0.1f, -0.2f);
+		addBuilding(BuildingTypes.WORKSHOP, 0.2f, 0.0f);
 		addBuilding(BuildingTypes.FARM, -0.1f, 0.2f, -0.0f, 0.0f);
 		addBuilding(BuildingTypes.MILL, 0.3f, 0.2f);
 		addBuilding(BuildingTypes.BARRAKS, -0.3f, 0.2f);
 		addBuilding(BuildingTypes.RESIDENCE, 0.1f, 0.2f);
-		//addBuilding(BuildingTypes.MASONRY,-0.1f, 0.2f);
+		addBuilding(BuildingTypes.MASONRY,-0.1f, 0.35f);
 		addBuilding(BuildingTypes.DOCK, -0.3f, -0.4f);
 		
 		//setup global vars
@@ -284,6 +285,9 @@ public class Model {
 		//hei = var * wid;
 		//gameMenuBg = new ImageIcon((int)(width / 2) - (int)(wid / 2), 0, (int)wid, (int)hei, texture[15][0]);
 		//gui.add(gameMenuBg);
+		
+		//spriteList.add(new Sprite(getModel("wheat")));
+		//spriteList.get(spriteList.size() - 1).cullFace(false);;
 		
 		view.init(cycle, water, gui, menu, camera);	//add resources to view
 	}
@@ -647,7 +651,7 @@ public class Model {
 		
 		peasant = new Peasant(x, z, getModel("head"), getModel("body"), mobMats.get((int)((Math.random() * 100) % (mobMats.size()))), this,
 				getModel("right_arm"), getModel("left_arm"), getModel("right_leg"), getModel("left_leg"),
-				getModel("item"), task, menu);
+				getModel("item"), task);
 		
 		mobList.add(peasant);
 		spriteList.add(peasant);
