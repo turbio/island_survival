@@ -84,7 +84,7 @@ public class Model {
 	//textures
 	private String texturePath[] = {"res/pack.png", "res/fence.png", "res/island.png", "res/water1.png", "res/pickaxe.png",
 			"res/water2.png", "res/water3.png", "res/hammer.png", "res/sword.png", "res/woodaxe.png",
-			"res/particles/water1.png", "res/particles/water2.png", "res/particles/water3.png", "res/particles/tree.png", "res/matr.png"};	//holds textures
+			"res/particles/water1.png", "res/particles/water2.png", "res/particles/water3.png", "res/particles/tree.png"};	//holds textures
 	private Texture texturePack[];	//holds raw texture data
 	private ArrayList<Material> materials;	//holds textures
 	private ArrayList<Material> mobMats = new ArrayList<Material>();
@@ -353,11 +353,12 @@ public class Model {
 		for(int i = 0; i < spriteList.size(); i++){
 			if(spriteList.get(i) == null){
 				System.out.println("null sprite @: " + i);
-			}
-			if(!spriteList.get(i).isAlive()){
 				spriteList.remove(i);
+			}else if(!spriteList.get(i).isAlive()){
+				spriteList.remove(i);
+			}else{
+				spriteList.get(i).update();
 			}
-			spriteList.get(i).update();
 		}
 		
 		for(int i = 0; i < miters.size(); i++){

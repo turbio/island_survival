@@ -9,7 +9,6 @@ import resorsers.Resource;
 import sprite.Orientation;
 import sprite.Sprite;
 import sprite.SpriteTypes;
-import world.World;
 import mesh.Material;
 import mesh.Mesh;
 import model.Model;
@@ -287,7 +286,7 @@ public class Peasant extends Mob{
 			
 			if(hasResource){
 				hasResource = false;
-				((Building) target).addResource();
+				((Building) target).addResource(item);
 				findTarget();
 				calcTarget();
 			}
@@ -306,7 +305,7 @@ public class Peasant extends Mob{
 			
 			if(hasResource){
 				hasResource = false;
-				((Building) target).addResource();
+				((Building) target).addResource(item);
 				findTarget();
 				calcTarget();
 			}

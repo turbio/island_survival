@@ -1,5 +1,7 @@
 package buildings;
 
+import java.util.ArrayList;
+
 import mesh.Material;
 import mesh.Mesh;
 import sprite.Sprite;
@@ -8,12 +10,14 @@ import model.Model;
 
 public class Building extends Sprite{
 	private boolean isBuilt = false;
-	private double buildAmount = 0;	//0 = none, 1 = all
+	private double buildAmount = 1;	//0 = none, 1 = all
 	private double buildSpeed = 0.0005f;
 	private int workers = 0;
 	private Fence fence = null;
 	private float padding = 0.02f;
 	private BuildingTypes buildingTypes;
+	private Model model;
+	private ArrayList<Sprite> resource = new ArrayList<Sprite>();
 	
 	public Building(BuildingTypes t, Material tex[], float x, float z){
 		super(tex, x, 0.0f, z);
@@ -25,12 +29,13 @@ public class Building extends Sprite{
 		super.setType(SpriteTypes.BUILDING);
 	}
 	
-	public Building(BuildingTypes t, Mesh m, float x, float z, Model model, float scale){
+	public Building(BuildingTypes t, Mesh m, float x, float z, Model mod, float scale){
 		super(m);
 		super.setType(SpriteTypes.BUILDING);
 		super.setMesh(m);
 		super.setX(x);
 		super.setZ(z);
+		model = mod;
 		
 		fence = new Fence(m.getLeft() * scale - padding, m.getBack() * scale - padding,
 				m.getRight() * scale + padding, m.getBack() * scale - padding,
@@ -46,11 +51,12 @@ public class Building extends Sprite{
 		buildingTypes = t;
 	}
 	
-	public Building(BuildingTypes t, float x, float z, float scale, Model model, Mesh... m){
+	public Building(BuildingTypes t, float x, float z, float scale, Model mod, Mesh... m){
 		super(m);
 		super.setType(SpriteTypes.BUILDING);
 		super.setX(x);
 		super.setZ(z);
+		model = mod;
 		
 		fence = new Fence(m[0].getLeft() * scale - padding, m[0].getBack() * scale - padding,
 				m[0].getRight() * scale + padding, m[0].getBack() * scale - padding,
@@ -138,7 +144,26 @@ public class Building extends Sprite{
 		return buildingTypes;
 	}
 	
-	public void addResource(){
-		//que++;
+	public ArrayList<Sprite> getResource(){
+		return resource;
+	}
+	
+	public void addResource(Sprite m){
+		Sprite res;
+		res = new Sprite(m.getMesh()[0]);
+		res.setWidth(m.getWidth());
+		res.setHeight(m.getHeight());
+		res.setDepth(m.getDepth());
+		
+		res.setX(super.getX());
+		res.setZ(super.getZ());
+		
+		model.getSpriteList().add(res);
+		resource.add(res);
+		//s.setParent(null);
+	}
+	
+	public Model getMod(){
+		return model;
 	}
 }
