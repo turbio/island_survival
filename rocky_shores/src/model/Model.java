@@ -53,7 +53,7 @@ import world.World;
 public class Model {
 	public int width = 1000, height = 800, guiScale = 850;	//window width height
 	public String title = "RS v:null";	//window title
-	public long loopDelay = 0;	//delay between updates normally 16
+	//public long loopDelay = 0;	//delay between updates normally 16
 	public float shipCrashX = -0.6f, shipCrashY = -0.8f;	//position the ship crashes at
 	
 	private View view;	//holds all render info
@@ -120,7 +120,7 @@ public class Model {
 		
 		generate();	//setup game
 		
-		loop = new Loop(this, loopDelay);	//setup main loop
+		loop = new Loop(this);	//setup main loop
 		loop.run();	//star loop
 
 	}
@@ -293,7 +293,7 @@ public class Model {
 	}
 	
 	//update all objects
-	public void update(){
+	public void update(long time){
 		
 		//camera.setX(ship.getX());
 		frames++;
