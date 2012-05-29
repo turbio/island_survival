@@ -8,7 +8,7 @@ Ks 0.500000 0.500000 0.500000
 Ni 1.000000
 d 1.000000
 illum 2
-map_Kd wind_mill.blend\wind_mill_tex.png
+map_Kd wind_mill.blend/wind_mill_tex.png
 
 
 newmtl _texture
@@ -18,6 +18,6 @@ Kd 0.8 0.8 0.8
 Ks 0.8 0.8 0.8
 d 1
 illum 2
-map_Kd wind_mill.blend\wind_mill_tex.png
+map_Kd wind_mill.blend/wind_mill_tex.png
 
 
