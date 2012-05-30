@@ -163,7 +163,7 @@ public class ObjLoader {
 						s += file.split("/")[i] + "/";
 					}
 					
-					materials.get(materials.size() - 1).setTexture(TextureLoader.getTexture("PNG", ResourceLoader.getResourceAsStream(s + line.split("\\\\")[1]), GL_NEAREST));
+					materials.get(materials.size() - 1).setTexture(TextureLoader.getTexture("PNG", ResourceLoader.getResourceAsStream(s + line.split("/")[1]), GL_NEAREST));
 					//System.exit(0);
 				}
 			}
