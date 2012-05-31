@@ -51,7 +51,7 @@ import world.Camera;
 import world.World;
 
 public class Model {
-	public int width = 1000, height = 800, guiScale = 850;	//window width height
+	public int width = 900, height = 600, guiScale = 850;	//window width height
 	public String title = "RS v:null";	//window title
 	//public long loopDelay = 0;	//delay between updates normally 16
 	public float shipCrashX = -0.6f, shipCrashY = -0.8f;	//position the ship crashes at
