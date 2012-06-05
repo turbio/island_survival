@@ -310,12 +310,16 @@ public class Peasant extends Mob{
 				calcTarget();
 			}
 			
-			if(((Sprite) target).getType() == SpriteTypes.TREE){
-				if(((Resource) target).harvest()){
-					hasResource = true;
-					findTarget();
-					calcTarget();
+			if(target != null){
+				if(((Sprite) target).getType() == SpriteTypes.TREE){
+					if(((Resource) target).harvest()){
+						hasResource = true;
+						findTarget();
+						calcTarget();
+					}
 				}
+			}else{
+				idle = true;
 			}
 		}break;
 		default:{
@@ -546,6 +550,10 @@ public class Peasant extends Mob{
 		}break;
 		case SOLDIER:{
 			item.setTex(model.getMaterial("sword"));
+		}break;
+		case TRANSPORT:{
+			item.setTex(model.getMaterial("c"));
+			idle = true;
 		}break;
 		default:{
 			idle = true;

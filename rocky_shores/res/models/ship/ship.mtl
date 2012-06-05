@@ -7,7 +7,7 @@ Kd 0.8 0.8 0.8
 Ks 0.8 0.8 0.8
 d 1
 illum 2
-map_Kd ship.blend/ship_tex.png
+map_Kd ship.blend\ship_tex.png
 
 
 newmtl _ship_tex.png
@@ -17,7 +17,7 @@ Kd 0.8 0.8 0.8
 Ks 0.8 0.8 0.8
 d 1
 illum 2
-map_Kd ship.blend/ship_tex.png
+map_Kd ship.blend\ship_tex.png
 
 
 newmtl _ship_texture
@@ -27,6 +27,6 @@ Kd 0.8 0.8 0.8
 Ks 0.8 0.8 0.8
 d 1
 illum 2
-map_Kd ship.blend/ship_tex.png
+map_Kd ship.blend\ship_tex.png
 
 

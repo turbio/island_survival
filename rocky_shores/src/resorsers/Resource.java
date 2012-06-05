@@ -5,7 +5,7 @@ import mob.Peasant;
 import sprite.Sprite;
 
 public abstract class Resource extends Sprite{
-	private int health = 500, amount = 5;
+	private int health = 500, amount = 100;
 	private boolean harvested = false, harvestable = true;
 	private Peasant owner = null;
 	private float scale;

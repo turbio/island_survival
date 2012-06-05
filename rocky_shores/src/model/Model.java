@@ -84,7 +84,8 @@ public class Model {
 	//textures
 	private String texturePath[] = {"res/pack.png", "res/fence.png", "res/island.png", "res/water1.png", "res/pickaxe.png",
 			"res/water2.png", "res/water3.png", "res/hammer.png", "res/sword.png", "res/woodaxe.png",
-			"res/particles/water1.png", "res/particles/water2.png", "res/particles/water3.png", "res/particles/tree.png"};	//holds textures
+			"res/particles/water1.png", "res/particles/water2.png", "res/particles/water3.png", "res/particles/tree.png",
+			"res/carry.png"};	//holds textures
 	private Texture texturePack[];	//holds raw texture data
 	private ArrayList<Material> materials;	//holds textures
 	private ArrayList<Material> mobMats = new ArrayList<Material>();
@@ -96,7 +97,6 @@ public class Model {
 			"res/models/windmill/wind_mill.obj",
 			"res/models/farm/farm_house.obj",
 			"res/models/barraks/barraks.obj",
-			"res/models/ship/ship.obj",
 			"res/models/residence/res.obj",
 			"res/models/masonry/masonry.obj",
 			"res/models/ship/ship.obj",
@@ -207,6 +207,7 @@ public class Model {
 			addPeasant(-1.0f, 0.0f, Task.NONE);
 			addPeasant(-1.0f, 0.0f, Task.WOOD);
 			addPeasant(-1, 0, Task.STONE);
+			addPeasant(-1, 0, Task.TRANSPORT);
 		}
 		
 		//add water

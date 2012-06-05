@@ -18,7 +18,7 @@ public class ObjLoader {
 		try {
 			return loadObject(new BufferedReader(new FileReader(s)), s);
 		} catch (FileNotFoundException e) {
-			System.out.println("fiel not found");
+			System.out.println("fiel not found: " + s);
 		}
 		return null;
 	}

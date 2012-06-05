@@ -1,5 +1,15 @@
 # Blender MTL File: 'rock.blend'
-# Material Count: 1
+# Material Count: 2
+newmtl _stone_tex
+Ns 0
+Ka 0.000000 0.000000 0.000000
+Kd 0.8 0.8 0.8
+Ks 0.8 0.8 0.8
+d 1
+illum 2
+map_Kd rock.blend/stone.png
+
+
 newmtl _untitled
 Ns 0
 Ka 0.000000 0.000000 0.000000

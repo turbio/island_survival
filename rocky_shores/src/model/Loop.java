@@ -18,6 +18,8 @@ public class Loop implements Runnable{
 	}
 	
 	public void run(){
+		int rc = 0;
+		
 		long startTime, endTime, delta = 0;
 		
 		while(running){
@@ -25,7 +27,13 @@ public class Loop implements Runnable{
 			
 			controll.update(delta);
 			
-			controll.render();
+			if(rc > 0){
+				rc = 0;
+				
+				controll.render();
+			}
+			
+			rc++;
 			
 			endTime = System.currentTimeMillis();
 			

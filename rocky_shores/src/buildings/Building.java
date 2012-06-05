@@ -12,7 +12,7 @@ public class Building extends Sprite{
 	private boolean isBuilt = false;
 	private double buildAmount = 0;	//0 = none, 1 = all
 	private double buildSpeed = 0.0005f;
-	private int workers = 0;
+	private int workers = 0, que = 0;
 	private Fence fence = null;
 	private float padding = 0.02f;
 	private BuildingTypes buildingTypes;
@@ -163,7 +163,25 @@ public class Building extends Sprite{
 		//s.setParent(null);
 	}
 	
+	public void addQue(){
+		que++;
+	}
+	
 	public Model getMod(){
 		return model;
+	}
+	
+	public int getQue(){
+		return que;
+	}
+	
+	public void removeQue(){
+		if(que > 0){
+			que--;
+		}else{
+			try {
+				throw new Exception("cannot remove que item");
+			} catch (Exception e) {}
+		}
 	}
 }

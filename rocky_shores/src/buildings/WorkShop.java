@@ -6,7 +6,6 @@ import model.Model;
 
 public class WorkShop extends Building{
 	private final static float scale = 0.025f;
-	private int que = 0, timeRemain = 50;
 	
 	public WorkShop(Mesh m, float x, float z, Model model) {
 		super(BuildingTypes.WORKSHOP, x, z, scale, model,  m);
@@ -34,14 +33,8 @@ public class WorkShop extends Building{
 		for(int i = 0; i < super.getResource().size(); i++){
 			if(super.getResource().get(i).getX() > super.getX() - 0.04f){
 				super.getResource().get(i).setAlive(false);
-			}
-		}
-		
-		if(que > 0){
-			timeRemain--;
-			if(timeRemain <= 0){
-				timeRemain = 200;
-				//super.getMod().getSpriteList().add(new Sprite)
+				super.addQue();
+				super.getResource().remove(i);
 			}
 		}
 	}
