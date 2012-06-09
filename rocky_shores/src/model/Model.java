@@ -198,7 +198,7 @@ public class Model {
 		camera = new Camera(0.0f, 0.1f, -2.3f, 45.0f, 0.0f, 0.0f, menu.FOV_NORM);
 		
 		//add start ship
-		ship = new Ship(getModel("ship"), null, null, -1.5f, 0.0f, -0.8f, 0.003f, 0, 0, this);
+		ship = new Ship(getModel("shipnorm"), null, null, -1.5f, 0.0f, -0.8f, 0.003f, 0, 0, this);
 		spriteList.add(ship);
 		
 		//testing
