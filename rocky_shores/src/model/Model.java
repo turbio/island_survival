@@ -85,7 +85,7 @@ public class Model {
 	private String texturePath[] = {"res/pack.png", "res/fence.png", "res/island.png", "res/water1.png", "res/pickaxe.png",
 			"res/water2.png", "res/water3.png", "res/hammer.png", "res/sword.png", "res/woodaxe.png",
 			"res/particles/water1.png", "res/particles/water2.png", "res/particles/water3.png", "res/particles/tree.png",
-			"res/carry.png"};	//holds textures
+			"res/carry.png", "res/gui/in_game_options_bg.png", "res/gui/main_in_game_menu_bg.png"};	//holds textures
 	private Texture texturePack[];	//holds raw texture data
 	private ArrayList<Material> materials;	//holds textures
 	private ArrayList<Material> mobMats = new ArrayList<Material>();
@@ -115,7 +115,6 @@ public class Model {
 		view = new View(this, title, width, height);	//create view / renderer
 		view.initGL();	//setup opengl for view
 		gui = new Gui("res/font.ttf", width, height);	//setup gui
-		input = new Input(this);	//call input constructor
 		menu = new World();	//setup golobal vars
 		
 		generate();	//setup game
@@ -280,8 +279,8 @@ public class Model {
 		
 		bg = new Solide(labels.get(0).getX(), labels.get(0).getY(), w, h, new Color(0.0f, 0.0f, 0.0f, 1.0f));
 		
-		gui.add(bg);
-		gui.add(labels);
+		//gui.add(bg);
+		//gui.add(labels);
 		//double wid = guiScale, hei = 0, var = (double)texture[15][0].getImageHeight() / (double)texture[15][0].getImageWidth();
 		//hei = var * wid;
 		//gameMenuBg = new ImageIcon((int)(width / 2) - (int)(wid / 2), 0, (int)wid, (int)hei, texture[15][0]);
@@ -289,6 +288,9 @@ public class Model {
 		
 		//spriteList.add(new Sprite(getModel("wheat")));
 		//spriteList.get(spriteList.size() - 1).cullFace(false);;
+		
+		input = new Input(this, gui);	//call input constructor
+		
 		
 		view.init(cycle, water, gui, menu, camera);	//add resources to view
 	}

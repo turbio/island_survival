@@ -16,6 +16,11 @@ public class Render2d {
 	@SuppressWarnings("deprecation")
 	public void render(int WIDTH, int HEIGHT){
 		for(int i = 0; i < gui.getGuiList().size(); i++){
+			glLoadIdentity();
+			if(gui.getGuiList().get(i).getType() == GuiElementType.IMAGEICON){
+				glScalef(gui.getScale(), gui.getScale(), gui.getScale());
+			}
+			
 			if(gui.getGuiList().get(i).getType() == GuiElementType.SOLIDE){
 				glBlendFunc(GL_SRC_ALPHA, GL_SRC_COLOR);
 				glColor3f(gui.getGuiList().get(i).getColor().getRed(), gui.getGuiList().get(i).getColor().getGreen(), gui.getGuiList().get(i).getColor().getBlue());
@@ -38,7 +43,7 @@ public class Render2d {
 				glEnable(GL_BLEND);
 				gui.getGuiList().get(i).getTexture().bind();
 				glBegin(GL_QUADS);
-					glTexCoord2f(0, 0);	glVertex2f(gui.getGuiList().get(i).getX(), gui.getGuiList().get(i).getY());	//top left
+					glTexCoord2f(0, 0);	glVertex2f(gui.getGuiList().get(i).getX() * (gui.getScale()), gui.getGuiList().get(i).getY());	//top left
 					glTexCoord2f(1, 0);	glVertex2f(gui.getGuiList().get(i).getX() + gui.getGuiList().get(i).getWidth(), gui.getGuiList().get(i).getY());	//top right
 					glTexCoord2f(1, 1);	glVertex2f(gui.getGuiList().get(i).getX() + gui.getGuiList().get(i).getWidth(), gui.getGuiList().get(i).getY() + gui.getGuiList().get(i).getHeight());	//bottom right
 					glTexCoord2f(0, 1);	glVertex2f(gui.getGuiList().get(i).getX(), gui.getGuiList().get(i).getY() + gui.getGuiList().get(i).getHeight());	//bottom left

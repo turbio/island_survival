@@ -12,6 +12,7 @@ public class Gui {
 	private ArrayList<GuiElement> elements;
 	private int width, height;
 	private TrueTypeFont font;
+	private float scale = 1;
 	
 	public Gui(String fontPath, int w, int h){
 		setWidth(w);
@@ -69,5 +70,17 @@ public class Gui {
 
 	public void setHeight(int height) {
 		this.height = height;
+	}
+	
+	public void addGuiElement(GuiElement gui){
+		elements.add(gui);
+	}
+	
+	public float getScale(){
+		return scale;
+	}
+	
+	public void setScale(float f){
+		scale = f;
 	}
 }

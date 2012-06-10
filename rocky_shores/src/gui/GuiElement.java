@@ -7,12 +7,17 @@ import org.newdawn.slick.opengl.Texture;
 
 @SuppressWarnings("deprecation")
 public abstract class GuiElement {
+	public static int POSITION_TOP_LEFT = 0, POSITION_TOP = 1, POSITION_TOP_RIGHT = 2, POSITION_RIGHT = 3,
+			POSITION_BOTTOM_RIGHT = 4, POSITION_BOTTOM = 5, POSITION_BOTTOM_LEFT = 6, 
+			POSITION_LEFT = 7;
+	
 	private int xPos, yPos, width, height, currentTex;
 	private Texture[] texture;
 	private String text;
 	private Color color;
 	private String string;
 	private GuiElementType type;
+	private int positioning = -1;
 	private TrueTypeFont font;
 	
 	public GuiElement(int x, int y, int w, int h, GuiElementType t){
@@ -160,5 +165,9 @@ public abstract class GuiElement {
 		   }else{
 		   return true;
 		}
+	}
+	
+	public void setPosition(int i){
+		positioning = i;
 	}
 }

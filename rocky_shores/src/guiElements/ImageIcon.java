@@ -16,9 +16,22 @@ public class ImageIcon extends GuiElement{
 		super.setTex(0);
 	}
 	
+	public ImageIcon(int x, int y, Texture... t){
+		super(x, y, t[0].getImageWidth(), t[0].getImageHeight(), GuiElementType.IMAGEICON);
+		tex = t;
+		super.setTex(t);
+		super.setTex(0);
+	}
+	
 	public Texture getTex(){
 		return tex[activeTexture];
 	}
 	
+	public void setTex(int i){
+		activeTexture = i;
+	}
 	
+	public int getCurrentTex(){
+		return activeTexture;
+	}
 }
