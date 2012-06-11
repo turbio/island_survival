@@ -23,7 +23,7 @@ public class Input {
 		pauseGameMenuBg = new ImageIcon(0, 0, m.getMaterial("gui/in_game_options_bg").getTexture());
 		pauseGameMenuBg.setPosition(GuiElement.POSITION_TOP_LEFT);
 		
-		mainGameMenuBg = new ImageIcon(model.width / 2, 0, m.getMaterial("gui/main_in_game_menu_bg").getTexture());
+		mainGameMenuBg = new ImageIcon(0, 0, m.getMaterial("gui/main_in_game_menu_bg").getTexture());
 		mainGameMenuBg.setPosition(GuiElement.POSITION_TOP);
 		
 		gui.add(pauseGameMenuBg);
