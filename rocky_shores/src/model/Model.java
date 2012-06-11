@@ -51,7 +51,7 @@ import world.Camera;
 import world.World;
 
 public class Model {
-	public int width = 1000, height = 700, guiScale = 850;	//window width height
+	public static int width = 1000, height = 700, guiScale = 850;	//window width height
 	public String title = "RS v:null";	//window title
 	//public long loopDelay = 0;	//delay between updates normally 16
 	public float shipCrashX = -0.6f, shipCrashY = -0.8f;	//position the ship crashes at
@@ -64,11 +64,11 @@ public class Model {
 	private Generate gen;	//random world generation
 	private Input input;	//keyboard/ mouse input
 	private Gui gui;	//all gui info (interaction, events, displaylist)
-	private World menu;	//holds global variables (probobaly should remove this)
+	private World menu;	//holds global variables (probably should remove this)
 	//private Random random;
-	private Camera camera;	//controlls view position
+	private Camera camera;	//Controls view position
 	
-	private ArrayList <Sprite> spriteList;	//all sprites on stage that will be drawn
+	private ArrayList <Sprite> spriteList;	//all spites on stage that will be drawn
 	private ArrayList <Peasant> mobList;	//all mobs
 	private ArrayList <Building> buildingList;	//all buildings
 	private ArrayList <Emitter> miters;	//holds all particle emiters
@@ -114,7 +114,7 @@ public class Model {
 	public Model(){
 		view = new View(this, title, width, height);	//create view / renderer
 		view.initGL();	//setup opengl for view
-		gui = new Gui("res/font.ttf", width, height);	//setup gui
+		gui = new Gui("res/font.ttf");	//setup gui
 		menu = new World();	//setup golobal vars
 		
 		generate();	//setup game
@@ -170,6 +170,10 @@ public class Model {
 				e.printStackTrace();
 			}
 		}
+	}
+	
+	public void resize(){
+		gui.resize();
 	}
 	
 	//reset variables and generate island terrain

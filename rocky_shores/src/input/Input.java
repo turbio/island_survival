@@ -19,7 +19,7 @@ public class Input {
 	public Input(Model m, Gui gui){
 		model = m;
 		
-		gui.setScale(2f);
+		gui.setScale(2);
 		pauseGameMenuBg = new ImageIcon(0, 0, m.getMaterial("gui/in_game_options_bg").getTexture());
 		pauseGameMenuBg.setPosition(GuiElement.POSITION_TOP_LEFT);
 		

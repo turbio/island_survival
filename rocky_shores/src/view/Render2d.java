@@ -19,6 +19,8 @@ public class Render2d {
 			glLoadIdentity();
 			if(gui.getGuiList().get(i).getType() == GuiElementType.IMAGEICON){
 				glScalef(gui.getScale(), gui.getScale(), gui.getScale());
+				
+				glTranslatef(gui.getGuiList().get(i).getX(), gui.getGuiList().get(i).getY(), 0);
 			}
 			
 			if(gui.getGuiList().get(i).getType() == GuiElementType.SOLIDE){
@@ -43,10 +45,10 @@ public class Render2d {
 				glEnable(GL_BLEND);
 				gui.getGuiList().get(i).getTexture().bind();
 				glBegin(GL_QUADS);
-					glTexCoord2f(0, 0);	glVertex2f(gui.getGuiList().get(i).getX() * (gui.getScale()), gui.getGuiList().get(i).getY());	//top left
-					glTexCoord2f(1, 0);	glVertex2f(gui.getGuiList().get(i).getX() + gui.getGuiList().get(i).getWidth(), gui.getGuiList().get(i).getY());	//top right
-					glTexCoord2f(1, 1);	glVertex2f(gui.getGuiList().get(i).getX() + gui.getGuiList().get(i).getWidth(), gui.getGuiList().get(i).getY() + gui.getGuiList().get(i).getHeight());	//bottom right
-					glTexCoord2f(0, 1);	glVertex2f(gui.getGuiList().get(i).getX(), gui.getGuiList().get(i).getY() + gui.getGuiList().get(i).getHeight());	//bottom left
+					glTexCoord2f(0, 0);	glVertex2f(0, 0);	//top left
+					glTexCoord2f(1, 0);	glVertex2f(gui.getGuiList().get(i).getWidth(), 0);	//top right
+					glTexCoord2f(1, 1);	glVertex2f(gui.getGuiList().get(i).getWidth(), gui.getGuiList().get(i).getHeight());	//bottom right
+					glTexCoord2f(0, 1);	glVertex2f(0, gui.getGuiList().get(i).getHeight());	//bottom left
 				glEnd();
 			}
 		}

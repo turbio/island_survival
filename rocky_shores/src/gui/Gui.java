@@ -4,19 +4,18 @@ import java.awt.Font;
 import java.io.InputStream;
 import java.util.ArrayList;
 
+import model.Model;
+
 import org.newdawn.slick.TrueTypeFont;
 import org.newdawn.slick.util.ResourceLoader;
 
 @SuppressWarnings("deprecation")
 public class Gui {
 	private ArrayList<GuiElement> elements;
-	private int width, height;
 	private TrueTypeFont font;
-	private float scale = 1;
+	private int scale = 1;
 	
-	public Gui(String fontPath, int w, int h){
-		setWidth(w);
-		setHeight(h);
+	public Gui(String fontPath){
 		elements = new ArrayList<GuiElement>();
 		try{
 			InputStream inputStream = ResourceLoader.getResourceAsStream(fontPath);
@@ -33,54 +32,33 @@ public class Gui {
 		return font;
 	}
 	
-	public int getWidth(String s){
-		return font.getWidth(s);
-		
-	}
-	
-	public int getHeight(String s){
-		return font.getHeight(s);
-	}
-	
 	public void add(GuiElement e){
 		elements.add(e);
+		resize();
 	}
 	
 	public void add(ArrayList<GuiElement> e){
 		for(int i = 0; i < e.size(); i++){
 			elements.add(e.get(i));
 		}
+		resize();
 	}
 	
 	public ArrayList<GuiElement> getGuiList(){
 		return elements;
 	}
-
-	public int getWidth() {
-		return width;
-	}
-
-	public void setWidth(int width) {
-		this.width = width;
-	}
-
-	public int getHeight() {
-		return height;
-	}
-
-	public void setHeight(int height) {
-		this.height = height;
+	
+	public void resize(){
+		for(int i = 0; i < elements.size(); i++){
+			elements.get(i).setPosition(Model.width, Model.height, scale);
+		}
 	}
 	
-	public void addGuiElement(GuiElement gui){
-		elements.add(gui);
-	}
-	
-	public float getScale(){
+	public int getScale(){
 		return scale;
 	}
 	
-	public void setScale(float f){
+	public void setScale(int f){
 		scale = f;
 	}
 }

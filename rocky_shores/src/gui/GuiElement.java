@@ -17,7 +17,7 @@ public abstract class GuiElement {
 	private Color color;
 	private String string;
 	private GuiElementType type;
-	private int positioning = -1;
+	private int positioning = 0;
 	private TrueTypeFont font;
 	
 	public GuiElement(int x, int y, int w, int h, GuiElementType t){
@@ -47,6 +47,24 @@ public abstract class GuiElement {
 		font = f;
 		width = font.getWidth(s);
 		height = font.getHeight(s);
+	}
+	
+	public void setPosition(int w, int h, int s){
+		switch(positioning){
+		case 0:{
+			
+		}break;
+		case 1:{
+			xPos = ((w / (2 * s)) - (width / 2));
+		}break;
+		case 2:{
+			System.out.println(w);
+			xPos = (w / s) - width;
+		}break;
+		default:{
+			
+		}break;
+		}
 	}
 	
 	//get methods

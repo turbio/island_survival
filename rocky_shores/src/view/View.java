@@ -49,7 +49,7 @@ public class View {
 	}
 	
 	public void initGL(){
-		new InitGL(controll.width, controll.height, ambientLight, diffuseLight, lightPosition);
+		new InitGL(Model.width, Model.height, ambientLight, diffuseLight, lightPosition);
 	}
 	
 	public void init(DayNightCycle dnc, Sprite w, Gui i, World m, Camera c) {
@@ -73,11 +73,11 @@ public class View {
 		fogColor.put(0.3f * cycle.getFogColor()).put(.7f * cycle.getFogColor()).put(1.0f * cycle.getFogColor()).put(1.0f).flip();
 		glFog(GL_FOG_COLOR, fogColor);
 		
-		if(Display.getWidth() != controll.width && !Display.wasResized()){
+		if(Display.getWidth() != Model.width && !Display.wasResized()){
 			resize(Display.getWidth(), Display.getHeight());
 		}
 		
-		if(Display.getHeight() != controll.height && !Display.wasResized()){
+		if(Display.getHeight() != Model.height && !Display.wasResized()){
 			resize(Display.getWidth(), Display.getHeight());
 		}
 	}
@@ -137,10 +137,12 @@ public class View {
 	}
 	
 	public void resize(int w, int h){
-		controll.width = w;
-		controll.height = h;
+		Model.width = w;
+		Model.height = h;
 		
-		glViewport(0, 0, controll.width, controll.height);
+		controll.resize();
+		
+		glViewport(0, 0, Model.width, Model.height);
 	}
 	
 	public void setFog(boolean b){
@@ -157,7 +159,7 @@ public class View {
 		//setup display to render 3d
 		glMatrixMode(GL_PROJECTION);
 		glLoadIdentity();
-		gluPerspective(menu.FOV, (float)controll.width / controll.height, 0.1f, 15.0f);
+		gluPerspective(menu.FOV, (float)Model.width / Model.height, 0.1f, 15.0f);
 		glMatrixMode(GL_MODELVIEW);
 		glLoadIdentity();
 		glEnable(GL_ALPHA_TEST);
@@ -170,13 +172,13 @@ public class View {
 		glDisable(GL_CULL_FACE);
 		glMatrixMode(GL_PROJECTION);
 		glLoadIdentity();
-		glOrtho(0, controll.width, controll.height, 0, 0, -1);
+		glOrtho(0, Model.width, Model.height, 0, 0, -1);
 		glMatrixMode(GL_MODELVIEW);
 		glLoadIdentity();
 		glDisable(GL_ALPHA_TEST);
 		glDisable(GL_LIGHTING);
 		glDisable(GL_BLEND);
-		gui.render(controll.width, controll.height);
+		gui.render(Model.width, Model.height);
 		Display.update();
 	}
 }
