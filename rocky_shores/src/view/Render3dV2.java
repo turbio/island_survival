@@ -19,6 +19,7 @@ public class Render3dV2 {
 	public void render(){
 		//model.getMaterial("matr").getTexture().bind();
 		
+		/*
 		glTranslatef(camera.getX(), camera.getY(), camera.getZ());	//align cords with floor		
 		glRotatef(camera.getXRot(), 1.0f, 0.0f, 0.0f);	//align x rot to camera
 		glRotatef(camera.getYRot(), 0.0f, 1.0f, 0.0f);	//align y rot to camera
@@ -39,6 +40,7 @@ public class Render3dV2 {
 			glVertex3f(-1.0f, 0.005f, -0.3f);
 			glVertex3f(1.0f, 0.005f, -0.3f);
 		glEnd();
+		*/
 		
 		glEnable(GL_LIGHTING);
 		

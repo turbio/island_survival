@@ -21,6 +21,7 @@ public class Render2d {
 				glScalef(gui.getScale(), gui.getScale(), gui.getScale());
 				
 				glTranslatef(gui.getGuiList().get(i).getX(), gui.getGuiList().get(i).getY(), 0);
+				glRotatef(0.0f, 1.0f, 1.0f, gui.getGuiList().get(i).getRotation());
 			}
 			
 			if(gui.getGuiList().get(i).getType() == GuiElementType.SOLIDE){

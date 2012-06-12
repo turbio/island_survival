@@ -11,7 +11,7 @@ public abstract class GuiElement {
 			POSITION_BOTTOM_RIGHT = 4, POSITION_BOTTOM = 5, POSITION_BOTTOM_LEFT = 6, 
 			POSITION_LEFT = 7;
 	
-	private int xPos, yPos, width, height, currentTex;
+	private int xPos, yPos, width, height, currentTex, rot;
 	private Texture[] texture;
 	private String text;
 	private Color color;
@@ -74,6 +74,14 @@ public abstract class GuiElement {
 	
 	public int getY(){
 		return yPos;
+	}
+	
+	public int getRotation(){
+		return rot;
+	}
+	
+	public void changeRotation(int i){
+		rot += i;
 	}
 	
 	public int getWidth(){
