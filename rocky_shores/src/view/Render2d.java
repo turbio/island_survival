@@ -14,15 +14,21 @@ public class Render2d {
 	}
 	
 	@SuppressWarnings("deprecation")
+	
 	public void render(int WIDTH, int HEIGHT){
+		
 		for(int i = 0; i < gui.getGuiList().size(); i++){
 			glLoadIdentity();
 			if(gui.getGuiList().get(i).getType() == GuiElementType.IMAGEICON){
 				glScalef(gui.getScale(), gui.getScale(), gui.getScale());
 				
 				glTranslatef(gui.getGuiList().get(i).getX(), gui.getGuiList().get(i).getY(), 0);
-				glRotatef(0.0f, 1.0f, 1.0f, gui.getGuiList().get(i).getRotation());
-			}
+				glRotatef(gui.getGuiList().get(i).getRotation(), 0.0f, 0.0f, 1.0f);
+				
+				if(gui.getGuiList().get(i).getPivit() == 1){
+					glTranslatef(-gui.getGuiList().get(i).getTexture().getImageWidth() / 2, -gui.getGuiList().get(i).getTexture().getImageHeight() / 2, 0.0f);
+				}
+			};
 			
 			if(gui.getGuiList().get(i).getType() == GuiElementType.SOLIDE){
 				glBlendFunc(GL_SRC_ALPHA, GL_SRC_COLOR);

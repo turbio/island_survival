@@ -12,6 +12,7 @@ public abstract class GuiElement {
 	public static int POSITION_TOP_LEFT = 0, POSITION_TOP = 1, POSITION_TOP_RIGHT = 2, POSITION_RIGHT = 3,
 			POSITION_BOTTOM_RIGHT = 4, POSITION_BOTTOM = 5, POSITION_BOTTOM_LEFT = 6, 
 			POSITION_LEFT = 7;
+	public static int PIVIT_TOP_LEFT = 0, PIVIT_CENTER = 1;
 	
 	private int xPos, yPos, width, height, currentTex, rot;
 	private Texture[] texture;
@@ -19,7 +20,7 @@ public abstract class GuiElement {
 	private Color color;
 	private String string;
 	private GuiElementType type;
-	private int positioning = 0;
+	private int positioning = 0, pivitPoint;
 	private TrueTypeFont font;
 	
 	public GuiElement(int x, int y, int w, int h, GuiElementType t){
@@ -76,8 +77,8 @@ public abstract class GuiElement {
 		return rot;
 	}
 	
-	public void changeRotation(int i){
-		rot += i;
+	public void setRotation(int i){
+		rot = i;
 	}
 	
 	public int getWidth(){
@@ -196,5 +197,13 @@ public abstract class GuiElement {
 	public void setPosition(int i){
 		positioning = i;
 		setPosition(Model.width, Model.height, 2);
+	}
+	
+	public int getPivit(){
+		return pivitPoint;
+	}
+	
+	public void setPivitPoint(int p){
+		pivitPoint = p;
 	}
 }

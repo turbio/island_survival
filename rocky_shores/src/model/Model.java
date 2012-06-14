@@ -85,7 +85,7 @@ public class Model {
 	private String texturePath[] = {"res/pack.png", "res/fence.png", "res/island.png", "res/water1.png", "res/pickaxe.png",
 			"res/water2.png", "res/water3.png", "res/hammer.png", "res/sword.png", "res/woodaxe.png",
 			"res/particles/water1.png", "res/particles/water2.png", "res/particles/water3.png", "res/particles/tree.png",
-			"res/carry.png", "res/gui/in_game_options_bg.png", "res/gui/main_in_game_menu_bg.png"};	//holds textures
+			"res/carry.png", "res/gui/in_game_options_bg.png", "res/gui/main_in_game_menu_bg.png", "res/gui/dialhand.png"};	//holds textures
 	private Texture texturePack[];	//holds raw texture data
 	private ArrayList<Material> materials;	//holds textures
 	private ArrayList<Material> mobMats = new ArrayList<Material>();
@@ -295,7 +295,7 @@ public class Model {
 		spriteList.add(new Sprite(getModel("wheat")));
 		spriteList.get(spriteList.size() - 1).cullFace(false);;
 		
-		input = new Input(this, gui);	//call input constructor
+		input = new Input(this, gui, cycle);	//call input constructor
 		
 		
 		view.init(cycle, water, gui, menu, camera);	//add resources to view

@@ -1,24 +1,29 @@
 package gui;
 
+import model.DayNightCycle;
 import model.Model;
 
 import org.lwjgl.input.Keyboard;
 import org.lwjgl.input.Mouse;
 import org.newdawn.slick.Color;
 
+import world.World;
+
 public class Input {
 	private int mouseX, mouseY;
 	private float wheel;
 	private boolean mouseDown;
 	private Model model;
+	private DayNightCycle cycle;
 	
 	private Color textWhite = Color.white;
 	
-	private ImageIcon pauseGameMenuBg, mainGameMenuBg;
+	private ImageIcon pauseGameMenuBg, mainGameMenuBg, timeDialHand;
 	private Label foodCount, rockCount, woodCount, villagerCount, soldierCount;
 	
-	public Input(Model m, Gui gui){
+	public Input(Model m, Gui gui, DayNightCycle c){
 		model = m;
+		cycle = c;
 		
 		gui.setScale(2);
 		
@@ -28,6 +33,10 @@ public class Input {
 		pauseGameMenuBg = new ImageIcon(0, 0, m.getMaterial("gui/in_game_options_bg").getTexture());
 		pauseGameMenuBg.setPosition(GuiElement.POSITION_TOP_LEFT);
 		
+		timeDialHand = new ImageIcon(mainGameMenuBg.getX() + 165, 29, m.getMaterial("gui/dial").getTexture());
+		timeDialHand.setRotation(0);
+		timeDialHand.setPivitPoint(GuiElement.PIVIT_CENTER);
+		
 		foodCount = new Label(mainGameMenuBg.getX() + 20, 9, "food", textWhite);
 		rockCount = new Label(foodCount.getX(), 22, "rock", textWhite);
 		woodCount = new Label(foodCount.getX(), 35, "wood", textWhite);
@@ -36,6 +45,7 @@ public class Input {
 		
 		gui.add(pauseGameMenuBg);
 		gui.add(mainGameMenuBg);
+		gui.add(timeDialHand);
 		gui.add(foodCount);
 		gui.add(rockCount);
 		gui.add(woodCount);
@@ -44,6 +54,7 @@ public class Input {
 	}
 	
 	public void updatePos(){
+		timeDialHand.setX(mainGameMenuBg.getX() + 163);
 		foodCount.setX(mainGameMenuBg.getX() + 20);
 		rockCount.setX(foodCount.getX());
 		woodCount.setX(foodCount.getX());
@@ -52,6 +63,8 @@ public class Input {
 	}
 	
 	public void update(){
+		//timeDialHand.setRotation();
+		
 		while(Keyboard.next()){
 			if(Keyboard.getEventKeyState()){
 				model.keyPressed(Keyboard.getEventKey());
