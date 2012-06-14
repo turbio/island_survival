@@ -1,8 +1,6 @@
-package guiElements;
+package gui;
 import org.newdawn.slick.Color;
 
-import gui.GuiElement;
-import gui.GuiElementType;
 
 public class Solide extends GuiElement{
 	public Solide(int x, int y, int w, int h){

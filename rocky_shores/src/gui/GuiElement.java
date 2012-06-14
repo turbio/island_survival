@@ -1,5 +1,7 @@
 package gui;
 
+import model.Model;
+
 import org.lwjgl.input.Mouse;
 import org.newdawn.slick.Color;
 import org.newdawn.slick.TrueTypeFont;
@@ -28,25 +30,19 @@ public abstract class GuiElement {
 		type = t;
 	}
 	
-	public GuiElement(int x, int y, String s, TrueTypeFont f,  GuiElementType t){
+	public GuiElement(int x, int y, String s,  GuiElementType t){
 		xPos = x;
 		yPos = y;
 		string = s;
 		type = t;
-		font = f;
-		width = font.getWidth(s);
-		height = font.getHeight(s);
 	}
 	
-	public GuiElement(int x, int y, String s, TrueTypeFont f, Color c, GuiElementType t){
+	public GuiElement(int x, int y, String s, Color c, GuiElementType t){
 		xPos = x;
 		yPos = y;
 		string = s;
 		type = t;
 		color = c;
-		font = f;
-		width = font.getWidth(s);
-		height = font.getHeight(s);
 	}
 	
 	public void setPosition(int w, int h, int s){
@@ -165,6 +161,10 @@ public abstract class GuiElement {
 	
 	public void setFont(TrueTypeFont f){
 		font = f;
+		if(type == GuiElementType.LABEL && text != null){
+			width = font.getWidth(text);
+			height = font.getHeight(text);
+		}
 	}
 	
 	public boolean isMouseOver(){
@@ -195,5 +195,6 @@ public abstract class GuiElement {
 	
 	public void setPosition(int i){
 		positioning = i;
+		setPosition(Model.width, Model.height, 2);
 	}
 }

@@ -1,12 +1,10 @@
-package input;
+package gui;
 
 import model.Model;
-import gui.Gui;
-import gui.GuiElement;
-import guiElements.*;
 
 import org.lwjgl.input.Keyboard;
 import org.lwjgl.input.Mouse;
+import org.newdawn.slick.Color;
 
 public class Input {
 	private int mouseX, mouseY;
@@ -14,20 +12,43 @@ public class Input {
 	private boolean mouseDown;
 	private Model model;
 	
+	private Color textWhite = Color.white;
+	
 	private ImageIcon pauseGameMenuBg, mainGameMenuBg;
+	private Label foodCount, rockCount, woodCount, villagerCount, soldierCount;
 	
 	public Input(Model m, Gui gui){
 		model = m;
 		
 		gui.setScale(2);
-		pauseGameMenuBg = new ImageIcon(0, 0, m.getMaterial("gui/in_game_options_bg").getTexture());
-		pauseGameMenuBg.setPosition(GuiElement.POSITION_TOP_LEFT);
 		
 		mainGameMenuBg = new ImageIcon(0, 0, m.getMaterial("gui/main_in_game_menu_bg").getTexture());
 		mainGameMenuBg.setPosition(GuiElement.POSITION_TOP);
 		
+		pauseGameMenuBg = new ImageIcon(0, 0, m.getMaterial("gui/in_game_options_bg").getTexture());
+		pauseGameMenuBg.setPosition(GuiElement.POSITION_TOP_LEFT);
+		
+		foodCount = new Label(mainGameMenuBg.getX() + 20, 9, "food", textWhite);
+		rockCount = new Label(foodCount.getX(), 22, "rock", textWhite);
+		woodCount = new Label(foodCount.getX(), 35, "wood", textWhite);
+		villagerCount = new Label(mainGameMenuBg.getX() + 203, 9, "villager", textWhite);
+		soldierCount = new Label(villagerCount.getX(), 22, "soldier", textWhite);
+		
 		gui.add(pauseGameMenuBg);
 		gui.add(mainGameMenuBg);
+		gui.add(foodCount);
+		gui.add(rockCount);
+		gui.add(woodCount);
+		gui.add(villagerCount);
+		gui.add(soldierCount);
+	}
+	
+	public void updatePos(){
+		foodCount.setX(mainGameMenuBg.getX() + 20);
+		rockCount.setX(foodCount.getX());
+		woodCount.setX(foodCount.getX());
+		villagerCount.setX(mainGameMenuBg.getX() + 203);
+		soldierCount.setX(villagerCount.getX());
 	}
 	
 	public void update(){

@@ -36,7 +36,7 @@ public class Render2d {
 			}else if(gui.getGuiList().get(i).getType() == GuiElementType.LABEL){
 				glEnable(GL_BLEND);
 				glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-				gui.getGuiList().get(i).getFont().drawString(gui.getGuiList().get(i).getX(), gui.getGuiList().get(i).getY(), gui.getGuiList().get(i).getString(),
+				gui.getGuiList().get(i).getFont().drawString(gui.getGuiList().get(i).getX() * gui.getScale(), gui.getGuiList().get(i).getY() * gui.getScale(), gui.getGuiList().get(i).getString(),
 						gui.getGuiList().get(i).getColor());
 				glDisable(GL_BLEND);
 			}else if(gui.getGuiList().get(i).getType() == GuiElementType.IMAGEICON){

@@ -3,9 +3,9 @@ import static org.lwjgl.opengl.GL11.*;
 
 import gui.Gui;
 import gui.GuiElement;
-import guiElements.Label;
-import guiElements.Solide;
-import input.Input;
+import gui.Input;
+import gui.Label;
+import gui.Solide;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -163,6 +163,7 @@ public class Model {
 		String path = "res/models/mob/skins";
 		File[] files = new File(path).listFiles();
 		
+		mobMats.clear();
 		for(int i = 0; i < files.length; i++){
 			try {
 				mobMats.add(new Material(TextureLoader.getTexture("PNG", ResourceLoader.getResourceAsStream(path + "/" + files[i].getName()), GL_NEAREST)));
@@ -174,6 +175,7 @@ public class Model {
 	
 	public void resize(){
 		gui.resize();
+		input.updatePos();
 	}
 	
 	//reset variables and generate island terrain
@@ -267,7 +269,7 @@ public class Model {
 		labels = new ArrayList<GuiElement>();
 		
 		for(int i = 0; i < 16; i++){
-			labels.add(new Label(0, 0, "null", gui.getFont(), Color.white));
+			labels.add(new Label(0, 0, "null", Color.white));
 		}
 		
 		
@@ -290,8 +292,8 @@ public class Model {
 		//gameMenuBg = new ImageIcon((int)(width / 2) - (int)(wid / 2), 0, (int)wid, (int)hei, texture[15][0]);
 		//gui.add(gameMenuBg);
 		
-		//spriteList.add(new Sprite(getModel("wheat")));
-		//spriteList.get(spriteList.size() - 1).cullFace(false);;
+		spriteList.add(new Sprite(getModel("wheat")));
+		spriteList.get(spriteList.size() - 1).cullFace(false);;
 		
 		input = new Input(this, gui);	//call input constructor
 		
@@ -409,6 +411,7 @@ public class Model {
 				Mouse.setGrabbed(false);
 			}
 		}
+		
 	}
 	
 	public void render(){

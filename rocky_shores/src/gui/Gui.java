@@ -21,7 +21,7 @@ public class Gui {
 			InputStream inputStream = ResourceLoader.getResourceAsStream(fontPath);
 			
 			Font tempFont = Font.createFont(Font.TRUETYPE_FONT, inputStream);
-			tempFont = tempFont.deriveFont(16.0f);
+			tempFont = tempFont.deriveFont(8.0f);
 			font = new TrueTypeFont(tempFont, true);
 		}catch(Exception e){
 			System.out.println("font load error");
@@ -33,15 +33,17 @@ public class Gui {
 	}
 	
 	public void add(GuiElement e){
+		if(e.getType() == GuiElementType.LABEL){
+			e.setFont(font);
+		}
 		elements.add(e);
 		resize();
 	}
 	
 	public void add(ArrayList<GuiElement> e){
 		for(int i = 0; i < e.size(); i++){
-			elements.add(e.get(i));
+			add(e.get(i));
 		}
-		resize();
 	}
 	
 	public ArrayList<GuiElement> getGuiList(){

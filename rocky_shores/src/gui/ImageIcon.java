@@ -1,7 +1,5 @@
-package guiElements;
+package gui;
 
-import gui.GuiElement;
-import gui.GuiElementType;
 
 import org.newdawn.slick.opengl.Texture;
 
