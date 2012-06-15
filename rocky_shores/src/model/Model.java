@@ -19,6 +19,7 @@ import mesh.Material;
 import mesh.Mesh;
 import mesh.ObjLoader;
 import mesh.Vertex;
+import mob.Mob;
 import mob.Peasant;
 import mob.Task;
 
@@ -69,7 +70,7 @@ public class Model {
 	private Camera camera;	//Controls view position
 	
 	private ArrayList <Sprite> spriteList;	//all spites on stage that will be drawn
-	private ArrayList <Peasant> mobList;	//all mobs
+	private ArrayList <Mob> mobList;	//all mobs
 	private ArrayList <Building> buildingList;	//all buildings
 	private ArrayList <Emitter> miters;	//holds all particle emiters
 	
@@ -182,7 +183,7 @@ public class Model {
 	public void generate(){
 		//setup lists
 		spriteList = new ArrayList<Sprite>();
-		mobList = new ArrayList<Peasant>();
+		mobList = new ArrayList<Mob>();
 		buildingList = new ArrayList<Building>();
 		miters = new ArrayList<Emitter>();
 		
@@ -207,13 +208,11 @@ public class Model {
 		spriteList.add(ship);
 		
 		//testing
-		for(int i = 0; i < 5; i++){
-			addPeasant(-1.0f, 0.0f, Task.BUILD);
-			addPeasant(-1.0f, 0.0f, Task.NONE);
-			addPeasant(-1.0f, 0.0f, Task.WOOD);
-			addPeasant(-1, 0, Task.STONE);
-			addPeasant(-1, 0, Task.TRANSPORT);
-		}
+		addPeasant(-1.0f, 0.0f, Task.NONE);
+		addPeasant(-1.0f, 0.0f, Task.NONE);
+		addPeasant(-1.0f, 0.0f, Task.NONE);
+		//addPeasant(-1.0f, 0.0f, Task.SOLDIER);
+		//addPeasant(-1.0f, 0.0f, Task.SOLDIER);
 		
 		//add water
 		//String[] resPath= {"water1", "water2", "water3"};
@@ -295,7 +294,7 @@ public class Model {
 		spriteList.add(new Sprite(getModel("wheat")));
 		spriteList.get(spriteList.size() - 1).cullFace(false);;
 		
-		input = new Input(this, gui, cycle);	//call input constructor
+		input = new Input(this, gui, cycle, menu);	//call input constructor
 		
 		
 		view.init(cycle, water, gui, menu, camera);	//add resources to view
@@ -599,7 +598,7 @@ public class Model {
 		return spriteList;
 	}
 	
-	public ArrayList<Peasant> getMobList(){
+	public ArrayList<Mob> getMobList(){
 		return mobList;
 	}
 	
@@ -667,5 +666,16 @@ public class Model {
 		mobList.add(peasant);
 		spriteList.add(peasant);
 		
+	}
+	
+	public int villagerCount(int type){
+		int count = 0;
+		for(int i = 0; i < mobList.size(); i++){
+			if(mobList.get(i).getMobType() == type){
+				count++;
+			}
+		}
+		
+		return count;
 	}
 }

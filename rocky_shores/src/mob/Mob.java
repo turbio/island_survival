@@ -6,6 +6,9 @@ import sprite.Sprite;
 
 
 public abstract class Mob extends Sprite{
+	public final static int PEASANT = 0, SOLDIER = 1, MONSTER = 2;
+	private int type = -1;
+	
 	private Sprite target;
 	
 	private int health;
@@ -28,5 +31,13 @@ public abstract class Mob extends Sprite{
 	
 	public void update(){
 		super.update();
+	}
+	
+	public void setMobType(int i){
+		type = i;
+	}
+	
+	public int getMobType(){
+		return type;
 	}
 }

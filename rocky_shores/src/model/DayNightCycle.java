@@ -11,6 +11,7 @@ public class DayNightCycle {
 	private float Time = 0, Brightness = 3, FogColor;
 	private float iterator;
 	private boolean Brighten =  true, PM = false, Night = false, Day = true;
+	private long startTime;
 	
 	private int dayCount = 1;
 	
@@ -19,6 +20,7 @@ public class DayNightCycle {
 	public DayNightCycle(float i, float start){
 		iterator = i;
 		Time = start;
+		startTime = System.currentTimeMillis();
 	}
 	
 	public void update(){
@@ -98,5 +100,54 @@ public class DayNightCycle {
 	
 	public boolean isNight(){
 		return Night;
+	}
+	
+	public int getDayCount(){
+		return dayCount;
+	}
+	
+	public boolean isMoring(){
+		return Brighten;
+	}
+	
+	public String gameTime(){
+		long total = System.currentTimeMillis() - startTime;
+		
+		long hour, minute, second;
+		
+		total /= 1000;
+		
+		second = total % 60;
+		
+		minute = (total / 60) % 60;
+		
+		hour = ((total / 3600)) % 12;
+		
+		String time = "";
+		
+		if(hour > 0){
+			if(hour < 10){
+				time += "0" + hour;
+			}else{
+				time += hour;
+			}
+			time += ':';
+		}
+		
+		if(minute < 10){
+			time += "0" + minute;
+		}else{
+			time += minute;
+		}
+		
+		time += ':';
+		
+		if(second < 10){
+			time += "0" + second;
+		}else{
+			time += second;
+		}
+		
+		return time;
 	}
 }
