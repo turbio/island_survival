@@ -66,6 +66,7 @@ public class Model {
 	private Input input;	//keyboard/ mouse input
 	private Gui gui;	//all gui info (interaction, events, displaylist)
 	private World menu;	//holds global variables (probably should remove this)
+	BufferedImage island = null;
 	//private Random random;
 	private Camera camera;	//Controls view position
 	
@@ -86,7 +87,8 @@ public class Model {
 	private String texturePath[] = {"res/pack.png", "res/fence.png", "res/island.png", "res/water1.png", "res/pickaxe.png",
 			"res/water2.png", "res/water3.png", "res/hammer.png", "res/sword.png", "res/woodaxe.png",
 			"res/particles/water1.png", "res/particles/water2.png", "res/particles/water3.png", "res/particles/tree.png",
-			"res/carry.png", "res/gui/in_game_options_bg.png", "res/gui/main_in_game_menu_bg.png", "res/gui/dialhand.png"};	//holds textures
+			"res/carry.png", "res/gui/in_game_options_bg.png", "res/gui/main_in_game_menu_bg.png", "res/gui/dialhand.png",
+			"res/gui/scrollbar.png"};	//holds textures
 	private Texture texturePack[];	//holds raw texture data
 	private ArrayList<Material> materials;	//holds textures
 	private ArrayList<Material> mobMats = new ArrayList<Material>();
@@ -190,7 +192,6 @@ public class Model {
 		loadAll();	//load resources
 		
 		//load island image used to generate terain
-		BufferedImage island = null;
 		try{
 			island = ImageIO.read(new File("res/island.png"));
 		}catch(IOException e){}
@@ -677,5 +678,10 @@ public class Model {
 		}
 		
 		return count;
+	}
+	
+	public Color getColorAt(float x, float z){
+		//hey
+		return null;
 	}
 }

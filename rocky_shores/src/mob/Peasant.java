@@ -43,7 +43,7 @@ public class Peasant extends Mob{
 		head.setZ(z);
 		head.setY(super.getMesh()[0].getTop() * scale);
 		head.setTex(mat);
-		//head.setParent(this);
+		head.setParent(this);
 
 		
 		rightArm = new Sprite(ra);
@@ -136,7 +136,7 @@ public class Peasant extends Mob{
 		
 		setTool();
 		
-		//System.out.println(super.getParent());
+
 	}
 	
 	public void setTool(){
@@ -531,7 +531,7 @@ public class Peasant extends Mob{
 		}
 		
 		if(swim){
-			super.setY((float)Math.sin(time / 20.0f) * 0.005f - 0.03f);
+			super.setY((float)Math.sin(time / 20.0f) * 0.005f - 0.04f);
 		}else{
 			super.setY(0.0f);
 		}

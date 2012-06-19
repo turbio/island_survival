@@ -20,7 +20,7 @@ public class Input {
 	
 	private Color textWhite = Color.white;
 	
-	private ImageIcon pauseGameMenuBg, mainGameMenuBg, timeDialHand;
+	private ImageIcon pauseGameMenuBg, mainGameMenuBg, timeDialHand, listScrollBar;
 	private Label foodCount, rockCount, woodCount, villagerCount, soldierCount, gameTime;
 	
 	public Input(Model m, Gui gui, DayNightCycle c, World w){
@@ -47,6 +47,12 @@ public class Input {
 		villagerCount = new Label(mainGameMenuBg.getX() + 203, 9, "villager", textWhite);
 		soldierCount = new Label(villagerCount.getX(), 22, "soldier", textWhite);
 		
+		//villagerList
+		listScrollBar = new ImageIcon(0, 0, m.getMaterial("gui/scrollbar").getTexture());
+		listScrollBar.setPosition(GuiElement.POSITION_TOP_RIGHT);
+		listScrollBar.setX(-100);
+		//listScrollBar.setY(10);
+		
 		gui.add(mainGameMenuBg);
 		gui.add(timeDialHand);
 		gui.add(foodCount);
@@ -56,6 +62,7 @@ public class Input {
 		gui.add(soldierCount);
 		gui.add(pauseGameMenuBg);
 		gui.add(gameTime);
+		gui.add(listScrollBar);
 	}
 	
 	public void updatePos(){
