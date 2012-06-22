@@ -210,10 +210,10 @@ public class Model {
 		
 		//testing
 		addPeasant(-1.0f, 0.0f, Task.BUILD);
-		addPeasant(-1.0f, 0.0f, Task.BUILD);
-		addPeasant(-1.0f, 0.0f, Task.BUILD);
 		addPeasant(-1.0f, 0.0f, Task.STONE);
 		addPeasant(-1.0f, 0.0f, Task.WOOD);
+		//addPeasant(-1.0f, 0.0f, Task.STONE);
+		//addPeasant(-1.0f, 0.0f, Task.WOOD);
 		
 		//add water
 		//String[] resPath= {"water1", "water2", "water3"};
