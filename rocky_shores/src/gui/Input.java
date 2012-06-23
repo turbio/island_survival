@@ -1,5 +1,7 @@
 package gui;
 
+import java.util.ArrayList;
+
 import mob.Mob;
 import model.DayNightCycle;
 import model.Model;
@@ -24,7 +26,8 @@ public class Input {
 	private Label foodCount, rockCount, woodCount, villagerCount, soldierCount, gameTime;
 	
 	//villager list bg
-	private Solide bg, rightBorder, LeftBorder ;
+	private Solide bottom, top;
+	public ArrayList<GuiElement> bg;
 	
 	public Input(Model m, Gui gui, DayNightCycle c, World w){
 		model = m;
@@ -54,6 +57,12 @@ public class Input {
 		listScrollBar = new ImageIcon(0, 0, m.getMaterial("gui/scrollbar").getTexture());
 		listScrollBar.setPosition(GuiElement.POSITION_TOP_RIGHT);
 		listScrollBar.setX(-100);
+		
+		bg = new ArrayList<GuiElement>();
+		for(int i = 0; i < m.villagerCount(Mob.PEASANT) + m.villagerCount(Mob.SOLDIER); i++){
+			addBgObj();
+		}
+		
 		//listScrollBar.setY(10);
 		
 		gui.add(mainGameMenuBg);
@@ -66,6 +75,11 @@ public class Input {
 		gui.add(pauseGameMenuBg);
 		gui.add(gameTime);
 		gui.add(listScrollBar);
+		gui.add(bg);
+	}
+	
+	private void addBgObj(){
+		ImageIcon ico = new ImageIcon(0, 0, model.getMaterial("item_bg").getTexture());
 	}
 	
 	public void updatePos(){
