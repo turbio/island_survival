@@ -26,7 +26,7 @@ public class Input {
 	private Label foodCount, rockCount, woodCount, villagerCount, soldierCount, gameTime;
 	
 	//villager list bg
-	private Solide bottom, top;
+	private ImageIcon bottom, top;
 	public ArrayList<GuiElement> bg;
 	
 	public Input(Model m, Gui gui, DayNightCycle c, World w){
@@ -58,10 +58,18 @@ public class Input {
 		listScrollBar.setPosition(GuiElement.POSITION_TOP_RIGHT);
 		listScrollBar.setX(-100);
 		
+		top = new ImageIcon(0, 0, m.getMaterial("item_top").getTexture());
+		top.setPosition(ImageIcon.POSITION_TOP_RIGHT);
+		
+		bottom = new ImageIcon(0, 0, m.getTexture("item_bottom"));
+		bottom.setPosition(ImageIcon.POSITION_TOP_RIGHT);
+		
 		bg = new ArrayList<GuiElement>();
 		for(int i = 0; i < m.villagerCount(Mob.PEASANT) + m.villagerCount(Mob.SOLDIER); i++){
 			addBgObj();
 		}
+		
+		bottom.setY(bottom.getHeight() * bg.size());
 		
 		//listScrollBar.setY(10);
 		
@@ -74,12 +82,18 @@ public class Input {
 		gui.add(soldierCount);
 		gui.add(pauseGameMenuBg);
 		gui.add(gameTime);
-		gui.add(listScrollBar);
+		//gui.add(listScrollBar);
 		gui.add(bg);
+		gui.add(top);
+		gui.add(bottom);
 	}
 	
 	private void addBgObj(){
 		ImageIcon ico = new ImageIcon(0, 0, model.getMaterial("item_bg").getTexture());
+		ico.setPosition(ImageIcon.POSITION_TOP_RIGHT);
+		ico.setY(bg.size() * ico.getHeight() + (ico.getHeight() * 1));
+		
+		bg.add(ico);
 	}
 	
 	public void updatePos(){

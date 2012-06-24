@@ -88,7 +88,7 @@ public class Model {
 			"res/water2.png", "res/water3.png", "res/hammer.png", "res/sword.png", "res/woodaxe.png",
 			"res/particles/water1.png", "res/particles/water2.png", "res/particles/water3.png", "res/particles/tree.png",
 			"res/carry.png", "res/gui/in_game_options_bg.png", "res/gui/main_in_game_menu_bg.png", "res/gui/dialhand.png",
-			"res/gui/scrollbar.png", "res/gui/item_bg.png"};	//holds textures
+			"res/gui/scrollbar.png", "res/gui/item_bg.png", "res/gui/item_top.png", "res/gui/item_bottom.png"};	//holds textures
 	private Texture texturePack[];	//holds raw texture data
 	private ArrayList<Material> materials;	//holds textures
 	private ArrayList<Material> mobMats = new ArrayList<Material>();
