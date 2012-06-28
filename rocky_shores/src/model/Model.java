@@ -201,10 +201,10 @@ public class Model {
 		
 		//add island
 		//camera = new Sprite(texture[0], 0.0f, 0.1f, -2.7f, 45.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f);	//add camera
-		camera = new Camera(0.0f, 0.1f, -2.3f, 45.0f, 0.0f, 0.0f, menu.FOV_NORM);
+		camera = new Camera(0.0f, -1.5f, -2.3f, 45.0f, 0.0f, 0.0f, menu.FOV_NORM);
 		
 		//add start ship
-		ship = new Ship(getModel("shipnorm"), null, null, -1.5f, 0.0f, -0.8f, 0.003f, 0, 0, this);
+		ship = new Ship(getModel("shipnorm"), null, null, -2.5f, 0.0f, -0.8f, 0.003f, 0, 0, this);
 		spriteList.add(ship);
 		
 		//testing
@@ -403,7 +403,7 @@ public class Model {
 		//}
 		
 		if(rotateView){
-			camera.setYRot(camera.getYRot() + ((width / 2) - ((float)Mouse.getX())) / 5);
+			camera.setYRot(-(-camera.getYRot() + ((width / 2) - ((float)Mouse.getX())) / 5));
 			camera.setXRot(camera.getXRot() + ((height / 2) - ((float)Mouse.getY())) / 5);
 			Mouse.setCursorPosition(width / 2, height / 2);
 		}else{
@@ -472,18 +472,22 @@ public class Model {
 		}else if(key == Keyboard.KEY_W){
 			if(Keyboard.getEventKeyState()){
 				camera.setZVel(0.03f);
+				camera.setXVel(0.03f);
 			}
 		}else if(key == Keyboard.KEY_A){
 			if(Keyboard.getEventKeyState()){
+				//camera.setZVel(0.03f);
 				camera.setXVel(0.03f);
 			}
 		}else if(key == Keyboard.KEY_S){
 			if(Keyboard.getEventKeyState()){
-				camera.setZVel(-0.03f);
+				camera.setZVel(-(float)(Math.cos(Math.toRadians(camera.getYRot()))) * 0.03f);
+				camera.setXVel((float)(Math.sin(Math.toRadians(camera.getYRot()))) * 0.03f);
 			}
 		}else if(key == Keyboard.KEY_D){
 			if(Keyboard.getEventKeyState()){
-				camera.setXVel(-0.03f);
+				camera.setZVel(-(float)(Math.sin(Math.toRadians(camera.getYRot()))) * 0.03f);
+				camera.setXVel(-(float)(Math.cos(Math.toRadians(camera.getYRot()))) * 0.03f);
 			}
 		}else if(key == Keyboard.KEY_B){
 			addBuilding(BuildingTypes.TOWN_HALL, 0.0f, 0.0f);
@@ -492,9 +496,9 @@ public class Model {
 	
 	//keyboard released
 	public void keyReleased(int key){
-		if(key == Keyboard.KEY_W || key == Keyboard.KEY_S){
+		if(key == Keyboard.KEY_W || key == Keyboard.KEY_S 
+				|| key == Keyboard.KEY_A || key == Keyboard.KEY_D){
 			camera.setZVel(0);
-		}else if(key == Keyboard.KEY_A || key == Keyboard.KEY_D){
 			camera.setXVel(0);
 		}
 	}

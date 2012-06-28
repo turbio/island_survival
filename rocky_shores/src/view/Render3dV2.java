@@ -54,9 +54,10 @@ public class Render3dV2 {
 			
 			glLoadIdentity();	//reset
 			
-			glTranslatef(camera.getX(), camera.getY(), camera.getZ());	//align cords with floor		
 			glRotatef(camera.getXRot(), 1.0f, 0.0f, 0.0f);	//align x rot to camera
 			glRotatef(camera.getYRot(), 0.0f, 1.0f, 0.0f);	//align y rot to camera
+			glTranslatef(camera.getX(), camera.getY(), camera.getZ());	//align cords with floor		
+			
 			glTranslatef(model.getSpriteList().get(i).getX(), model.getSpriteList().get(i).getY(), model.getSpriteList().get(i).getZ());	//translate the object
 			if(!model.getSpriteList().get(i).hasMesh()){
 				glRotatef(-camera.getYRot(), 0.0f, 1.0f, 0.0f);	//align y rot to camera
@@ -124,9 +125,11 @@ public class Render3dV2 {
 				glLoadIdentity();
 				if(part.getTexture() != null){
 					part.getTexture().bind();
-					glTranslatef(camera.getX(), camera.getY(), camera.getZ());	//align cords with camera		
+					
 					glRotatef(camera.getXRot(), 1.0f, 0.0f, 0.0f);	//align x rot to camera
 					glRotatef(camera.getYRot(), 0.0f, 1.0f, 0.0f);	//align y rot to camera
+					glTranslatef(camera.getX(), camera.getY(), camera.getZ());	//align cords with camera		
+					
 					glTranslatef(part.getX(), part.getY(), part.getZ());
 					glRotatef(-camera.getYRot(), 0.0f, 1.0f, 0.0f);	//align y rot to camera
 					glRotatef(-camera.getXRot(), 1.0f, 0.0f, 0.0f);	//align x rot to floor
