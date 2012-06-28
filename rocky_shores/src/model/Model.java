@@ -84,7 +84,7 @@ public class Model {
 	private long frames, totalFrames, startTime = System.currentTimeMillis(), frameStart = System.currentTimeMillis();
 	
 	//textures
-	private String texturePath[] = {"res/pack.png", "res/fence.png", "res/island.png", "res/water1.png", "res/pickaxe.png",
+	private String texturePath[] = {"res/pack.png", "res/fence2.png", "res/island.png", "res/water1.png", "res/pickaxe.png",
 			"res/water2.png", "res/water3.png", "res/hammer.png", "res/sword.png", "res/woodaxe.png",
 			"res/particles/water1.png", "res/particles/water2.png", "res/particles/water3.png", "res/particles/tree.png",
 			"res/carry.png", "res/gui/in_game_options_bg.png", "res/gui/main_in_game_menu_bg.png", "res/gui/dialhand.png",
@@ -158,7 +158,6 @@ public class Model {
 				materials.add(new Material(texturePack[i], texturePath[i]));
 			} catch (Exception e) {
 				e.printStackTrace();
-				System.out.println();
 			}
 			
 		}
@@ -193,7 +192,7 @@ public class Model {
 		
 		//load island image used to generate terain
 		try{
-			island = ImageIO.read(new File("res/island.png"));
+			island = ImageIO.read(new File("res/island_key.png"));
 		}catch(IOException e){}
 		
 		//generate terain
@@ -244,6 +243,8 @@ public class Model {
 		me.addFace(f);
 		Sprite isl = new Sprite(me);
 		isl.cullFace(false);
+		isl.setWidth((float)getMaterial("island").getTexture().getImageWidth() * (1.0f / 512.0f));
+		isl.setDepth((float)getMaterial("island").getTexture().getImageHeight() * (1.0f / 512.0f));
 		spriteList.add(isl);
 		
 		//add test buildings
@@ -472,8 +473,6 @@ public class Model {
 		}else if(key == Keyboard.KEY_W){
 			if(Keyboard.getEventKeyState()){
 				camera.setZVel(0.03f);
-			}else{
-				camera.setZVel(0.0f);
 			}
 		}else if(key == Keyboard.KEY_A){
 			if(Keyboard.getEventKeyState()){

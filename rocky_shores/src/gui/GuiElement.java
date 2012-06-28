@@ -55,7 +55,6 @@ public abstract class GuiElement {
 			xPos = ((w / (2 * s)) - (width / 2));
 		}break;
 		case 2:{
-			System.out.println(w);
 			xPos = (w / s) - width;
 		}break;
 		default:{

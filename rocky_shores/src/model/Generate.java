@@ -21,7 +21,7 @@ public class Generate {
 	// rock gen options
 	private int maxGroupSize = 200, maxGroups = 5;
 
-	private int treeCount = 0;
+	private int treeCount = 0, genTrys = 0;;
 
 	private Random random = new Random();
 	private BufferedImage island;
@@ -62,19 +62,21 @@ public class Generate {
 				groupX = random.nextInt(island.getWidth());
 				groupY = random.nextInt(island.getHeight());
 				Color color = new Color(island.getRGB(groupX, groupY));
-				if (color.getRed() == 50 && color.getGreen() == 165
-						&& color.getBlue() == 0) {
+				if (color.getRed() == 255 && color.getGreen() == 255
+						&& color.getBlue() == 255) {
 					colorDen = false;
 				} else if (color.getRed() == 45 && color.getGreen() == 157
 						&& color.getBlue() == 0) {
 
 				} else {
-					trys++;
+					if(overGen()){
+						return;
+					}
 				}
 			}
 			while (maxGroupSize > groupRocks) {
-				int x = groupX + (random.nextInt(50) + 1), y = groupY
-						+ (random.nextInt(50) + 1);
+				int x = groupX + (random.nextInt(100) + 1), y = groupY
+						+ (random.nextInt(100) + 1);
 
 				Color color = Color.BLACK;
 				try {
@@ -82,18 +84,26 @@ public class Generate {
 				} catch (Exception e) {
 				}
 
-				if (color.getRed() == 50 && color.getGreen() == 165
-						&& color.getBlue() == 0) {
+				if (color.getRed() == 255 && color.getGreen() == 255
+						&& color.getBlue() == 255) {
 					addRock = true;
+				}else{
+					if(overGen()){
+						return;
+					}
 				}
 
-				float xpos = (((float) x * 2f) / (float) island.getWidth()) - 1f, zpos = -(((float) y * 2f) / (float) island
-						.getWidth()) + 1f;
+				float xpos = ((((float) x * 2f) / (float) island.getWidth()) - 1f) * (float)island.getWidth() * (1.0f / 512.0f),
+						zpos = -(((((float) y * 2f) / (float) island.getWidth()) + 1f) * (float)island.getHeight() * (1.0f / 512.0f) - ((((float)island.getHeight()) * (1.0f / 512.0f)) * 2));
 
 				if (addRock) {
 					controll.getSpriteList().add(new Rock(controll.getModel("rock"), xpos, 0.0f,zpos, controll));
 					addRock = false;
 					groupRocks++;
+				}else{
+					if(overGen()){
+						return;
+					}
 				}
 				if (trys > island.getWidth() * island.getHeight()) {
 					break;
@@ -111,10 +121,19 @@ public class Generate {
 			controll.getSpriteList().get(controll.getSpriteList().size() - 1).setY(-0.005f);
 		}
 	}
+	
+	public boolean overGen(){
+		genTrys++;
+		if(genTrys > Integer.MAX_VALUE / 1000){
+			System.out.println("overgen!!!");
+			genTrys = 0;
+			return true;
+		}
+		return false;
+	}
 
 	public void addTree() {
 		// generate trees
-		int trys = 0;
 		boolean addTree = false;
 
 		while (treeCount < maxGenTrees) {
@@ -122,16 +141,18 @@ public class Generate {
 					.nextInt(island.getHeight());
 
 			Color color = new Color(island.getRGB(x, y));
-			float xpos = (((float) x * 2f) / (float) island.getWidth()) - 1f, zpos = -(((float) y * 2f) / (float) island
-					.getWidth()) + 1f;
-			if (color.getRed() == 50 && color.getGreen() == 165
-					&& color.getBlue() == 0) {
+			float xpos = ((((float) x * 2f) / (float) island.getWidth()) - 1f) * (((float)island.getWidth()) * (1.0f / 512.0f)),
+					zpos = -(((((float) y * 2f) / (float) island.getWidth()) + 1f) * (((float)island.getHeight()) * (1.0f / 512.0f)) - ((((float)island.getHeight()) * (1.0f / 512.0f)) * 2) );
+			if (color.getRed() == 255 && color.getGreen() == 255
+					&& color.getBlue() == 255) {
 				addTree = true;
 			} else if (color.getRed() == 45 && color.getGreen() == 157
 					&& color.getBlue() == 0) {
 				// addTree = true;
 			} else {
-				trys++;
+				if(overGen()){
+					return;
+				}
 			}
 
 			boolean collision = false;
@@ -159,10 +180,10 @@ public class Generate {
 				addTree = false;
 				treeCount++;
 
-			}
-			if (trys > island.getWidth() * island.getHeight()) {
-				System.out.println("caution sprites overwriten");
-				break;
+			}else{
+				if(overGen()){
+					return;
+				}
 			}
 		}
 	}
@@ -181,8 +202,8 @@ public class Generate {
 			
 			float xpos = ((((float) x * 2f) / (float) island.getWidth()) - 1f), zpos = -(((float) y * 2f) / (float) island.getWidth()) + 1f;
 			
-			if (color.getRed() == 50 && color.getGreen() == 165
-					&& color.getBlue() == 0) {
+			if (color.getRed() == 255 && color.getGreen() == 255
+					&& color.getBlue() == 255) {
 				addTree = true;
 			} else if (color.getRed() == 45 && color.getGreen() == 157 && color.getBlue() == 0) {
 				addTree = true;
