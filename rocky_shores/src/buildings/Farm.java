@@ -27,11 +27,12 @@ public class Farm extends Building{
 		//x = m.getLeft() * scale;
 		
 		if(x2 - x > 0){
-			fence = new Fence((m.getLeft() * scale) + x, z, (m.getLeft() * scale) + x, z2, x2, z2, x2, z, model.getMaterial("fence"));
+			fence = new Fence((m.getLeft() * scale) + x, z, (m.getLeft() * scale) + x, z2, x2, z2, x2, z, model.getMaterial("fence_farm"));
 		}else{
-			fence = new Fence((m.getRight() * scale) + x, z, (m.getRight() * scale) + x, z2, x2, z2, x2, z, model.getMaterial("fence"));
+			fence = new Fence((m.getRight() * scale) + x, z, (m.getRight() * scale) + x, z2, x2, z2, x2, z, model.getMaterial("fence_farm"));
 		}
-		fence.setVisible(false);
+		//fence.setVisible(false);
+		fence.setY(-fence.getHeight() * .05f);
 		
 		model.getSpriteList().add(fence);
 	}
@@ -41,6 +42,14 @@ public class Farm extends Building{
 		
 		if(super.isBuilt()){
 			fence.setVisible(true);
+			
+			if(fence.getY() >= 0.0f){
+				fence.setY(0.0f);
+				fence.setYVel(0.0f);
+				
+			}else{
+				fence.setYVel(0.001f);
+			}
 		}
 	}
 }

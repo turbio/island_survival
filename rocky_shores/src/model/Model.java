@@ -84,7 +84,7 @@ public class Model {
 	private long frames, totalFrames, startTime = System.currentTimeMillis(), frameStart = System.currentTimeMillis();
 	
 	//textures
-	private String texturePath[] = {"res/pack.png", "res/fence2.png", "res/island.png", "res/water1.png", "res/pickaxe.png",
+	private String texturePath[] = {"res/pack.png", "res/fence_build.png", "res/fence_farm.png", "res/island.png", "res/water1.png", "res/pickaxe.png",
 			"res/water2.png", "res/water3.png", "res/hammer.png", "res/sword.png", "res/woodaxe.png",
 			"res/particles/water1.png", "res/particles/water2.png", "res/particles/water3.png", "res/particles/tree.png",
 			"res/carry.png", "res/gui/in_game_options_bg.png", "res/gui/main_in_game_menu_bg.png", "res/gui/dialhand.png",
@@ -256,7 +256,6 @@ public class Model {
 		addBuilding(BuildingTypes.BARRAKS, -0.3f, 0.2f);
 		addBuilding(BuildingTypes.RESIDENCE, 0.1f, 0.2f);
 		addBuilding(BuildingTypes.MASONRY,-0.1f, 0.35f);
-		addBuilding(BuildingTypes.DOCK, -0.3f, -0.4f);
 		
 		//setup global vars
 		menu.FOV = menu.START_FOV;
