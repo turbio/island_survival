@@ -20,11 +20,7 @@ public class Camera extends Orientation{
 	
 	public void update(){
 		
-		//setZVel();
-		//setXVel(-(float)(Math.sin(Math.toRadians(camera.getYRot()))) * 0.03f);
-		
-		super.setZ(super.getZ() + ((float)(Math.cos(Math.toRadians(super.getYRot()))) * super.getZVel()));
-		super.setX(-(-super.getX() + ((float)(Math.sin(Math.toRadians(super.getYRot()))) * super.getXVel())));
+		super.update();
 		
 		if(super.getXRot() > maxX){
 			super.setXRot(maxX);

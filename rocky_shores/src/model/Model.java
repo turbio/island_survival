@@ -208,9 +208,9 @@ public class Model {
 		spriteList.add(ship);
 		
 		//testing
-		addPeasant(-1.0f, 0.0f, Task.BUILD);
-		addPeasant(-1.0f, 0.0f, Task.STONE);
-		addPeasant(-1.0f, 0.0f, Task.WOOD);
+		for(int i = 0; i < 100; i++){
+			addPeasant(-1.0f, 0.0f, Task.BUILD);
+		}
 		//addPeasant(-1.0f, 0.0f, Task.STONE);
 		//addPeasant(-1.0f, 0.0f, Task.WOOD);
 		
@@ -420,6 +420,8 @@ public class Model {
 		
 	}
 	
+	float speed = 0.03f;
+	
 	//keyboard pressed
 	public void keyPressed(int key){
 		System.out.println("key pressed: " + key);
@@ -471,24 +473,28 @@ public class Model {
 			generate();
 		}else if(key == Keyboard.KEY_W){
 			if(Keyboard.getEventKeyState()){
-				camera.setZVel(0.03f);
-				camera.setXVel(0.03f);
+				camera.setZVel((float)(Math.cos(Math.toRadians(camera.getYRot()))) * speed);
+				camera.setXVel(-(float)(Math.sin(Math.toRadians(camera.getYRot()))) * speed);
 			}
 		}else if(key == Keyboard.KEY_A){
 			if(Keyboard.getEventKeyState()){
-				//camera.setZVel(0.03f);
-				camera.setXVel(0.03f);
+				camera.setZVel((float)(Math.sin(Math.toRadians(camera.getYRot()))) * speed);
+				camera.setXVel((float)(Math.cos(Math.toRadians(camera.getYRot()))) * speed);
 			}
 		}else if(key == Keyboard.KEY_S){
 			if(Keyboard.getEventKeyState()){
-				camera.setZVel(-(float)(Math.cos(Math.toRadians(camera.getYRot()))) * 0.03f);
-				camera.setXVel((float)(Math.sin(Math.toRadians(camera.getYRot()))) * 0.03f);
+				camera.setZVel(-(float)(Math.cos(Math.toRadians(camera.getYRot()))) * speed);
+				camera.setXVel((float)(Math.sin(Math.toRadians(camera.getYRot()))) * speed);
 			}
 		}else if(key == Keyboard.KEY_D){
 			if(Keyboard.getEventKeyState()){
-				camera.setZVel(-(float)(Math.sin(Math.toRadians(camera.getYRot()))) * 0.03f);
-				camera.setXVel(-(float)(Math.cos(Math.toRadians(camera.getYRot()))) * 0.03f);
+				camera.setZVel(-(float)(Math.sin(Math.toRadians(camera.getYRot()))) * speed);
+				camera.setXVel(-(float)(Math.cos(Math.toRadians(camera.getYRot()))) * speed);
 			}
+		}else if(key == Keyboard.KEY_E){
+			camera.setYVel(-speed);
+		}else if(key == Keyboard.KEY_C){
+			camera.setYVel(speed);
 		}else if(key == Keyboard.KEY_B){
 			addBuilding(BuildingTypes.TOWN_HALL, 0.0f, 0.0f);
 		}
@@ -497,9 +503,11 @@ public class Model {
 	//keyboard released
 	public void keyReleased(int key){
 		if(key == Keyboard.KEY_W || key == Keyboard.KEY_S 
-				|| key == Keyboard.KEY_A || key == Keyboard.KEY_D){
+				|| key == Keyboard.KEY_A || key == Keyboard.KEY_D
+				|| key == Keyboard.KEY_E || key == Keyboard.KEY_C){
 			camera.setZVel(0);
 			camera.setXVel(0);
+			camera.setYVel(0);
 		}
 	}
 	
