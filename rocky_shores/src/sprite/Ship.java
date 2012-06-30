@@ -61,8 +61,8 @@ public class Ship extends Sprite{
 	}
 
 	
-	public void update(){
-		super.update();
+	public void update(long d){
+		super.update(d);
 		miterRight.setX(super.getX() - 0.08f);
 		miterRight.setZ(super.getZ() + 0.05f);
 		miterLeft.setX(super.getX() - 0.08f);
@@ -107,7 +107,7 @@ public class Ship extends Sprite{
 			tilt -= tiltinc;
 		}
 		
-		bob += 0.06f;
+		bob += (float)d / 500f;
 		if(bob > 360){
 			bob = 0;
 		}

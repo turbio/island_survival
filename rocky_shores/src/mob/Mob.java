@@ -29,8 +29,8 @@ public abstract class Mob extends Sprite{
 		return health;
 	}
 	
-	public void update(){
-		super.update();
+	public void update(long d){
+		super.update(d);
 	}
 	
 	public void setMobType(int i){

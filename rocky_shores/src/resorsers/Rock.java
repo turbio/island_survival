@@ -48,8 +48,8 @@ public class Rock extends Resource{
 		m.getMiters().add(miter);
 	}
 	
-	public void update(){
-		super.update();
+	public void update(long d){
+		super.update(d);
 		if(maxGrow){
 			if(reprodTime > 0){
 				reprodTime--;

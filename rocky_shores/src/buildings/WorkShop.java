@@ -27,8 +27,8 @@ public class WorkShop extends Building{
 		//super.getResource().setYVel(0.001f);
 	}
 	
-	public void update(){
-		super.update();
+	public void update(long d){
+		super.update(d);
 		
 		for(int i = 0; i < super.getResource().size(); i++){
 			if(super.getResource().get(i).getX() > super.getX() - 0.04f){

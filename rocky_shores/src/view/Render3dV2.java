@@ -1,6 +1,7 @@
 package view;
 
 import static org.lwjgl.opengl.GL11.*;
+
 import particles.Particle;
 
 import world.Camera;
@@ -41,9 +42,7 @@ public class Render3dV2 {
 			glVertex3f(1.0f, 0.005f, -0.3f);
 		glEnd();
 		*/
-		
 		glEnable(GL_LIGHTING);
-		
 		glEnable(GL_BLEND);
 		for(int i = 0; i < model.getSpriteList().size(); i++){
 			if(model.getSpriteList().get(i).cullFace()){
@@ -67,7 +66,7 @@ public class Render3dV2 {
 			glRotatef(model.getSpriteList().get(i).getXRot(), 1.0f, 0.0f, 0.0f);
 			glRotatef(model.getSpriteList().get(i).getZRot(), 0.0f, 0.0f, 1.0f);
 			glScalef(model.getSpriteList().get(i).getWidth(), model.getSpriteList().get(i).getHeight(), model.getSpriteList().get(i).getDepth());
-				
+			
 			if(model.getSpriteList().get(i).hasMesh() && model.getSpriteList().get(i).isVisible()){
 				for(int m = 0; m < model.getSpriteList().get(i).getMesh().length; m++){
 					if(model.getSpriteList().get(i).hasMesh() && model.getSpriteList().get(i).getMesh()[0].getMat() != null){

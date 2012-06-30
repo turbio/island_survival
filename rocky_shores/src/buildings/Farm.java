@@ -37,8 +37,8 @@ public class Farm extends Building{
 		model.getSpriteList().add(fence);
 	}
 	
-	public void update(){
-		super.update();
+	public void update(long d){
+		super.update(d);
 		
 		if(super.isBuilt()){
 			fence.setVisible(true);

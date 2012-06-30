@@ -228,12 +228,12 @@ public class Emitter{
 	}
 	
 	//update all particles and variables
-	public void update(){
+	public void update(long d){
 		for(int i = 0; i < particles.size(); i++){
 			if(!particles.get(i).isAlive()){
 				particles.remove(i);
 			}else{
-				particles.get(i).update();
+				particles.get(i).update(d);
 			}
 		}
 		if(pendingDeath && particles.size() == 0){

@@ -77,9 +77,9 @@ public class Sprite extends Orientation{
 		frameTimeRemain = frameTime;
 	}
 	
-	public void update(){
+	public void update(long d){
 		if(parent == null){
-			super.update();
+			super.update(d);
 		}else{
 			super.setX(parent.getX() + originalX);
 			super.setY(parent.getY() + originalY);

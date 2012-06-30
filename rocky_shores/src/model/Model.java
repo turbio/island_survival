@@ -81,7 +81,7 @@ public class Model {
 	private ArrayList<GuiElement> labels;
 	private Solide bg;
 	//private ImageIcon gameMenuBg;
-	private long frames, totalFrames, startTime = System.currentTimeMillis(), frameStart = System.currentTimeMillis();
+	private long frames, updates, totalFrames, startTime = System.currentTimeMillis(), frameStart = System.currentTimeMillis();
 	
 	//textures
 	private String texturePath[] = {"res/pack.png", "res/fence_build.png", "res/fence_farm.png", "res/island.png", "res/water1.png", "res/pickaxe.png",
@@ -208,7 +208,7 @@ public class Model {
 		spriteList.add(ship);
 		
 		//testing
-		for(int i = 0; i < 100; i++){
+		for(int i = 0; i < 5; i++){
 			addPeasant(-1.0f, 0.0f, Task.BUILD);
 		}
 		//addPeasant(-1.0f, 0.0f, Task.STONE);
@@ -243,8 +243,8 @@ public class Model {
 		me.addFace(f);
 		Sprite isl = new Sprite(me);
 		isl.cullFace(false);
-		isl.setWidth((float)getMaterial("island").getTexture().getImageWidth() * (1.0f / 512.0f));
-		isl.setDepth((float)getMaterial("island").getTexture().getImageHeight() * (1.0f / 512.0f));
+		isl.setWidth((float)getMaterial("island").getTexture().getImageWidth() * (1.0f / 256.0f));
+		isl.setDepth((float)getMaterial("island").getTexture().getImageHeight() * (1.0f / 256.0f));
 		spriteList.add(isl);
 		
 		//add test buildings
@@ -302,10 +302,10 @@ public class Model {
 	}
 	
 	//update all objects
-	public void update(long time){
+	public void update(long d){
 		
 		//camera.setX(ship.getX());
-		frames++;
+		updates++;
 		totalFrames++;
 		int particleCount = 0;
 		for(int i = 0; i < miters.size(); i++){
@@ -339,8 +339,15 @@ public class Model {
 		//gameMenuBg.setX((int)(width / 2) - (int)(guiScale / 2));
 		
 		if(System.currentTimeMillis() - frameStart > 1000){
+			
+			System.out.print("FPS: " + ((float)frames / (float)(System.currentTimeMillis() - frameStart)) * 1000);
+			System.out.print("\tUPS: " + ((float)updates / (float)(System.currentTimeMillis() - frameStart)) * 1000);
+			System.out.print("\t" + "spriteCount: " + spriteList.size());
+			System.out.println();
+			
 			frameStart = System.currentTimeMillis();
 			frames = 0;
+			updates = 0;
 		}
 		
 		
@@ -350,8 +357,8 @@ public class Model {
 		
 		view.update();
 		
-		camera.update();
-		water.update();
+		camera.update(d);
+		water.update(d);
 		cycle.update();
 		input.update();
 		
@@ -366,7 +373,7 @@ public class Model {
 			}else if(!spriteList.get(i).isAlive()){
 				spriteList.remove(i);
 			}else{
-				spriteList.get(i).update();
+				spriteList.get(i).update(d);
 			}
 		}
 		
@@ -374,7 +381,7 @@ public class Model {
 			if(miters.get(i) == null || !miters.get(i).isAlive()){
 				miters.remove(i);
 			}else{
-				miters.get(i).update();
+				miters.get(i).update(d);
 			}
 		}
 		
@@ -415,7 +422,7 @@ public class Model {
 	}
 	
 	public void render(){
-		
+		frames++;
 		view.render();
 		
 	}

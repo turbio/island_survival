@@ -49,8 +49,8 @@ public class Ship extends Sprite{
 		return alphakey;
 	}
 	
-	public void update(){
-		super.update();
+	public void update(long d){
+		super.update(d);
 		
 		if(crash){
 			super.setXVel(0.0f);

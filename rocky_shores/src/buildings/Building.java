@@ -105,8 +105,8 @@ public class Building extends Sprite{
 		}
 	}
 	
-	public void update(){
-		super.update();
+	public void update(long d){
+		super.update(d);
 		
 		if(!isBuilt){
 			super.setY(interpolate(-(super.getMesh()[0].getTop() * super.getHeight()) - 0.002, 0.0, buildAmount));

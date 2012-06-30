@@ -53,7 +53,5 @@ public class InitGL {
 		glEnable(GL_FOG);
 		
 		glEnable(GL_DEPTH);
-		
-		//Display.sync(60);
 	}
 }

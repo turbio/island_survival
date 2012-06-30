@@ -15,11 +15,11 @@ public class Generate {
 	// tree gen options
 	private int growTimeMax = 5000, growTimeMin = 1000, lifeTimeMax = 10000,
 		lifeTimeMin = 1000, reprodTimeMax = 3000, reprodTimeMin = 1000,
-		maxReprodChance = 20, maxTrees = 1000, maxGenTrees = 300;
+		maxReprodChance = 20, maxTrees = 1000, maxGenTrees = 00;
 		
 	
 	// rock gen options
-	private int maxGroupSize = 200, maxGroups = 5;
+	private int maxGroupSize = 00, maxGroups = 5;
 
 	private int treeCount = 0, genTrys = 0;;
 
@@ -93,8 +93,8 @@ public class Generate {
 					}
 				}
 
-				float xpos = ((((float) x * 2f) / (float) island.getWidth()) - 1f) * (float)island.getWidth() * (1.0f / 512.0f),
-						zpos = -(((((float) y * 2f) / (float) island.getWidth()) + 1f) * (float)island.getHeight() * (1.0f / 512.0f) - ((((float)island.getHeight()) * (1.0f / 512.0f)) * 2));
+				float xpos = ((((float) x * 2f) / (float) island.getWidth()) - 1f) * (float)island.getWidth() * (1.0f / 256.0f),
+						zpos = -(((((float) y * 2f) / (float) island.getWidth()) + 1f) * (float)island.getHeight() * (1.0f / 256.0f) - ((((float)island.getHeight()) * (1.0f / 256.0f)) * 2));
 
 				if (addRock) {
 					controll.getSpriteList().add(new Rock(controll.getModel("rock"), xpos, 0.0f,zpos, controll));
@@ -141,8 +141,8 @@ public class Generate {
 					.nextInt(island.getHeight());
 
 			Color color = new Color(island.getRGB(x, y));
-			float xpos = ((((float) x * 2f) / (float) island.getWidth()) - 1f) * (((float)island.getWidth()) * (1.0f / 512.0f)),
-					zpos = -(((((float) y * 2f) / (float) island.getWidth()) + 1f) * (((float)island.getHeight()) * (1.0f / 512.0f)) - ((((float)island.getHeight()) * (1.0f / 512.0f)) * 2) );
+			float xpos = ((((float) x * 2f) / (float) island.getWidth()) - 1f) * (((float)island.getWidth()) * (1.0f / 256.0f)),
+					zpos = -(((((float) y * 2f) / (float) island.getWidth()) + 1f) * (((float)island.getHeight()) * (1.0f / 256.0f)) - ((((float)island.getHeight()) * (1.0f / 256.0f)) * 2) );
 			if (color.getRed() == 255 && color.getGreen() == 255
 					&& color.getBlue() == 255) {
 				addTree = true;

@@ -22,8 +22,8 @@ public class Masonry extends Building{
 		super.getResource().get(super.getResource().size() - 1).setXVel(0.0005f);
 	}
 	
-	public void update(){
-		super.update();
+	public void update(long d){
+		super.update(d);
 		
 		for(int i = 0; i < super.getResource().size(); i++){
 			if(super.getResource().get(i).getX() > super.getX() - 0.04f){

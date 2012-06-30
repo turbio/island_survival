@@ -176,12 +176,12 @@ public class Orientation{
 	}
 	
 	//update
-	public void update(){
-		x += xVel;
-		y += yVel;
-		z += zVel;
-		xRot += xRotVel;
-		yRot += yRotVel;
-		zRot += zRotVel;
+	public void update(long d){
+		x += xVel * ((float)d / 20f);
+		y += yVel * ((float)d / 20f);
+		z += zVel * ((float)d / 20f);
+		xRot += xRotVel * ((float)d / 20f);
+		yRot += yRotVel * ((float)d / 20f);
+		zRot += zRotVel * ((float)d / 20f);
 	}
 }

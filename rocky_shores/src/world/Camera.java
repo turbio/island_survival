@@ -18,9 +18,9 @@ public class Camera extends Orientation{
 		return FOV;
 	}
 	
-	public void update(){
+	public void update(long d){
 		
-		super.update();
+		super.update(d);
 		
 		if(super.getXRot() > maxX){
 			super.setXRot(maxX);

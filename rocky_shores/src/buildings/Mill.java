@@ -52,8 +52,8 @@ public class Mill extends Building{
 		prop.setHeight(0.0f);
 	}
 	
-	public void update(){
-		super.update();
+	public void update(long d){
+		super.update(d);
 		
 		if(super.isBuilt() && prop.getWidth() != scale){
 			if(prop.getWidth() < scale){

@@ -109,11 +109,11 @@ public class Peasant extends Mob{
 		}
 	}
 	
-	public void update(){
+	public void update(long delta){
 		//basic movement
 		super.setX(interpolate(originX, desX, d));
 		super.setZ(interpolate(originZ, desZ, d));
-		super.update();
+		super.update(delta);
 		head.setX(super.getX());
 		head.setZ(super.getZ());
 		
@@ -129,7 +129,7 @@ public class Peasant extends Mob{
 		}
 		
 		if(d < 1.0 && walk){
-			d += speed / distance;
+			d += (speed / distance) * ((float)delta / 20f);
 		}else{
 			doTask();
 		}

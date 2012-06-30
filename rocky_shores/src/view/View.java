@@ -43,7 +43,7 @@ public class View {
 			Display.setTitle(title);
 			Display.setResizable(true);
 			Display.create();
-			Display.setVSyncEnabled(true);
+			//Display.setVSyncEnabled(true);
 		}catch(Exception e){}
 		controll = c;
 	}

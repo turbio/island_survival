@@ -29,7 +29,7 @@ public class Loop implements Runnable{
 			
 			if(rc > 0){
 				rc = 0;
-				
+					
 				controll.render();
 			}
 			

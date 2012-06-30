@@ -45,7 +45,7 @@ public class Particle extends Orientation{
 		return alive;
 	}
 	
-	public void update(){
+	public void update(long d){
 		if(dieStill){
 			if(super.getXVel() == 0 && super.getYVel() == 0 
 					&& super.getZVel() == 0 && super.getXRotVel() == 0
@@ -89,7 +89,7 @@ public class Particle extends Orientation{
 			}
 		}
 		
-		super.update();
+		super.update(d);
 		setWidth(getWidth() + scaleVel);
 		setHeight(getHeight() + scaleVel);
 		if(getWidth() < 0){
