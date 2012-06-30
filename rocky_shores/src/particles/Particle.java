@@ -9,7 +9,8 @@ import sprite.Orientation;
 public class Particle extends Orientation{
 	private int currentTexture;
 	private float scaleVel = 0, bounce = 1.0f, gravStrength = 0.001f, textureX1 = 0, textureY1 = 0, textureX2 = 1, textureY2 = 1;
-	private long life = -1, speed, frameTime; //if -1 it will not decrese and there is no life
+	private long speed; //if -1 it will not decrese and there is no life
+	private double frameTime, life = -1;
 	private boolean alive, animate, dieEnd, grav, dieStill, singlePix = false;// isTextured, isSolide;
 	private Random random = new Random();
 	private Texture[] texture;
@@ -74,7 +75,7 @@ public class Particle extends Orientation{
 		
 		if(animate){
 			if(frameTime > 0){
-				frameTime--;
+				frameTime -= ((double)d / 20f);
 			}else{
 				frameTime = speed;
 				if(currentTexture < texture.length - 1 && texture[currentTexture + 1] != null){
@@ -90,14 +91,14 @@ public class Particle extends Orientation{
 		}
 		
 		super.update(d);
-		setWidth(getWidth() + scaleVel);
-		setHeight(getHeight() + scaleVel);
+		setWidth(getWidth() + (scaleVel * ((float)d / 20f)));
+		setHeight(getHeight() + (scaleVel * ((float)d / 20f)));
 		if(getWidth() < 0){
 			alive = false;
 		}
 		
 		if(life > 0){
-			life--;
+			life -= ((double)d / 20f);
 		}
 		if(life == 0){
 			alive = false;
