@@ -3,10 +3,10 @@
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.6"/>
 	<classpathentry kind="lib" path="lwjgl/slick/slick-util.jar"/>
-	<classpathentry kind="lib" path="lwjgl/lwjgl-2.8.3/jar/lwjgl_util.jar"/>
-	<classpathentry kind="lib" path="lwjgl/lwjgl-2.8.3/jar/lwjgl.jar">
+	<classpathentry kind="lib" path="C:/Users/mason/Documents/GitHub/rocky_shores/rocky_shores/lwjgl/lwjg/jar/lwjgl_util.jar"/>
+	<classpathentry kind="lib" path="C:/Users/mason/Documents/GitHub/rocky_shores/rocky_shores/lwjgl/lwjg/jar/lwjgl.jar">
 		<attributes>
-			<attribute name="org.eclipse.jdt.launching.CLASSPATH_ATTR_LIBRARY_PATH_ENTRY" value="rocky_shores/lwjgl/lwjgl-2.8.3/native/windows"/>
+			<attribute name="org.eclipse.jdt.launching.CLASSPATH_ATTR_LIBRARY_PATH_ENTRY" value="rocky_shores/lwjgl/lwjg/native/windows"/>
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="output" path="bin"/>
