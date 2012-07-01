@@ -9,13 +9,13 @@ import sprite.Orientation;
 public class Particle extends Orientation{
 	private int currentTexture;
 	private float scaleVel = 0, bounce = 1.0f, gravStrength = 0.001f, textureX1 = 0, textureY1 = 0, textureX2 = 1, textureY2 = 1;
-	private long speed; //if -1 it will not decrese and there is no life
+	private double speed; //if -1 it will not decrese and there is no life
 	private double frameTime, life = -1;
 	private boolean alive, animate, dieEnd, grav, dieStill, singlePix = false;// isTextured, isSolide;
 	private Random random = new Random();
 	private Texture[] texture;
 	
-	public Particle(float x, float y, float z, float xs, float ys, Texture[] t, int currentTex, boolean anim, long s){
+	public Particle(float x, float y, float z, float xs, float ys, Texture[] t, int currentTex, boolean anim, double s){
 		super(x, y, z);
 		super.setWidth(xs);
 		super.setHeight(xs);
@@ -27,7 +27,7 @@ public class Particle extends Orientation{
 		frameTime = s;
 	}
 	
-	public Particle(float x, float y, float z, float xv, float yv, float zv, float xs, float ys, Texture[] t, int currentTex, boolean anim, long s){
+	public Particle(float x, float y, float z, float xv, float yv, float zv, float xs, float ys, Texture[] t, int currentTex, boolean anim, double s){
 		super(x, y, z);
 		super.setXVel(xv);
 		super.setYVel(yv);
@@ -96,11 +96,10 @@ public class Particle extends Orientation{
 		if(getWidth() < 0){
 			alive = false;
 		}
-		
 		if(life > 0){
-			life -= ((double)d / 20f);
+			life -= d;
 		}
-		if(life == 0){
+		if(life <= 0){
 			alive = false;
 		}
 	}
@@ -151,7 +150,7 @@ public class Particle extends Orientation{
 		speed = s;
 	}
 	
-	public void setLife(long l){
+	public void setLife(double l){
 		life = l;
 	}
 	

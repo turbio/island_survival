@@ -32,7 +32,7 @@ public class Ship extends Sprite{
 		super.setYRot(90);
 		super.cullFace(false);
 		
-		miterRight = new Emitter(x, 0.1f, z, 0.0f, 0.0f, 0.004f, 0.008f, 0.008f, 1, 5, m.getTexture("particles/water1", "particles/water2", "particles/water3"));
+		miterRight = new Emitter(x, 0.1f, z, 0.0f, 0.0f, 0.004f, 0.008f, 0.008f, 1, 50, m.getTexture("particles/water1", "particles/water2", "particles/water3"));
 		miterRight.setRandomTex(true);
 		miterRight.setPhys(true);
 		miterRight.setBounce(0.6f);
@@ -43,7 +43,7 @@ public class Ship extends Sprite{
 		miterRight.setRandomYPos(0.01f);
 		miterRight.setZVel(0.0015f);
 		miterRight.setYVel(0.005f);
-		miterRight.setLife(45);
+		miterRight.setLife(1000);
 		
 		miterLeft = new Emitter(miterRight);
 		miterLeft.setZVel(-0.0015f);
@@ -70,24 +70,24 @@ public class Ship extends Sprite{
 		miterBack.setX(super.getX() - 0.18f);
 		miterBack.setZ(super.getZ() - 0.03f);
 		if(super.getXVel() == 0 && super.getZVel() == 0){
-			miterRight.setInterval(15);
+			miterRight.setInterval(50);
 			miterRight.setRate(2);
 			miterRight.setBounce(0.5f);
-			miterLeft.setInterval(15);
+			miterLeft.setInterval(50);
 			miterLeft.setRate(2);
 			miterLeft.setBounce(0.5f);
-			miterBack.setInterval(15);
+			miterBack.setInterval(50);
 			miterBack.setRate(2);
 			miterBack.setBounce(0.5f);
 		}else{
 			miterRight.setBounce(0.6f);
-			miterRight.setInterval(0);
+			miterRight.setInterval(30);
 			miterRight.setRate(1);
 			miterLeft.setBounce(0.6f);
-			miterLeft.setInterval(0);
+			miterLeft.setInterval(30);
 			miterLeft.setRate(1);
 			miterBack.setBounce(0.6f);
-			miterBack.setInterval(0);
+			miterBack.setInterval(30);
 			miterBack.setRate(1);
 		}
 		if(super.getX() > shipCrashX){

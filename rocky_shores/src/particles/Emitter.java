@@ -10,7 +10,7 @@ public class Emitter{
 	private float xPos, yPos, zPos, xVel = 0, yVel = 0, zVel = 0, xScale, yScale,
 			randomXPos, randomYPos, randomZPos, scaleVel, bounce = 1, grav = 0.001f;
 	private int emitRate = 0;	//particles added per update
-	private long emitInterval = 0, emitTime = emitInterval, particleLife = -1, animateSpeed;
+	private double emitInterval = 0, emitTime = emitInterval, particleLife = -1, animateSpeed;
 	private boolean randomTex, animate, dieOnAnimation = true, phys, dieOnStop = false,
 			alive = true, pendingDeath, active = true, singlePix = false;
 	private Texture[] texture;
@@ -244,7 +244,7 @@ public class Emitter{
 				emitTime = emitInterval;
 				addParticle();
 			}else{
-				emitTime--;
+				emitTime -= d;
 			}
 		}
 	}
