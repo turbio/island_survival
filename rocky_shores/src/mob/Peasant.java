@@ -18,7 +18,7 @@ public class Peasant extends Mob{
 	private Sprite head, rightArm, leftArm, rightLeg, leftLeg, item;
 	private Mesh toolMesh;
 	private double d = 0;
-	private int time = (int) ((Math.random() * 1800) % 1800);
+	private double time = (int) ((Math.random() * 1800) % 1800);
 	private Model model;
 	private boolean faceCam = false, walk = false, idle = false, hitAnime = false, hasResource = false, swim = false;
 	private float desX = 0.0f, desZ = 0.0f, originX = 0, originZ = 0, baseRot, distance, wanderDistance = 0.08f, speed = 0.001f;
@@ -117,7 +117,7 @@ public class Peasant extends Mob{
 		head.setX(super.getX());
 		head.setZ(super.getZ());
 		
-		animate();
+		animate(delta);
 		
 		if(task == Task.NONE){
 			idle = true;
@@ -280,7 +280,7 @@ public class Peasant extends Mob{
 			walk = false;
 			hitAnime = true;
 			if(!((Building) target).isBuilt()){
-				((Building) target).build();
+				((Building) target).build(super.getDelta());
 			}else{
 				findTarget();
 				calcTarget();
@@ -476,7 +476,7 @@ public class Peasant extends Mob{
 		
 	}
 	
-	private void animate(){
+	private void animate(long delta){
 		if(idle){
 			speed = 0.0005f;
 		}else{
@@ -484,7 +484,7 @@ public class Peasant extends Mob{
 		}
 		
 		if(time > 1800) time = 0;
-		else time++;
+		else time += (double)delta / 10.0d;
 		
 		baseRot = (-(float)Math.toDegrees(Math.atan2(originZ - desZ, originX - desX))) - 180;
 		head.setZRot((float) ((float)(Math.sin((float)time / 15) * 5)));

@@ -10,6 +10,10 @@ public class Ship extends Sprite{
 	private final float scale = 0.06f;
 	private float shipCrashX = -0.6f;
 	private float bob = 0;
+	private boolean crash = false;
+	private Mesh shipFront, shipBack;
+	private Sprite shipb;
+	private Model model;
 	
 	//tilt
 	private float tilt = 0, maxTilt = 1f, minTilt = 0f, tiltinc = 0.01f;
@@ -18,7 +22,7 @@ public class Ship extends Sprite{
 	//partileEmitter
 	Emitter miterRight, miterLeft, miterBack;
 	
-	public Ship(Mesh ship, Mesh shipRight, Mesh shipLeft, float x, float y, float z, float xVel, float yVel, float zVel, Model m){
+	public Ship(Mesh ship, Mesh shipF, Mesh shipB, float x, float y, float z, float xVel, float yVel, float zVel, Model m){
 		super(ship);
 		super.setX(x);
 		super.setY(y);
@@ -32,6 +36,9 @@ public class Ship extends Sprite{
 		super.setYRot(90);
 		super.cullFace(false);
 		
+		shipFront = shipF;
+		shipBack = shipB;
+		
 		miterRight = new Emitter(x, 0.1f, z, 0.0f, 0.0f, 0.004f, 0.008f, 0.008f, 1, 50, m.getTexture("particles/water1", "particles/water2", "particles/water3"));
 		miterRight.setRandomTex(true);
 		miterRight.setPhys(true);
@@ -39,11 +46,11 @@ public class Ship extends Sprite{
 		miterRight.setY(0.000001f);
 		miterRight.setRandomXPos(0.2f);
 		miterRight.setRandomZPos(0.02f);
-		miterRight.setGrav(0.0008f);
+		miterRight.setGrav(0.002f);
 		miterRight.setRandomYPos(0.01f);
 		miterRight.setZVel(0.0015f);
 		miterRight.setYVel(0.005f);
-		miterRight.setLife(1000);
+		miterRight.setLife(1500);
 		
 		miterLeft = new Emitter(miterRight);
 		miterLeft.setZVel(-0.0015f);
@@ -58,6 +65,8 @@ public class Ship extends Sprite{
 		m.getMiters().add(miterRight);
 		m.getMiters().add(miterLeft);
 		m.getMiters().add(miterBack);
+		
+		model = m;
 	}
 
 	
@@ -69,15 +78,17 @@ public class Ship extends Sprite{
 		miterLeft.setZ(super.getZ() - 0.05f);
 		miterBack.setX(super.getX() - 0.18f);
 		miterBack.setZ(super.getZ() - 0.03f);
-		if(super.getXVel() == 0 && super.getZVel() == 0){
-			miterRight.setInterval(50);
-			miterRight.setRate(2);
+		if(crash){
+			shipb.setY(((float)Math.sin(bob) * 0.008f) + 0.018f);
+			
+			miterRight.setInterval(100);
+			miterRight.setRate(1);
 			miterRight.setBounce(0.5f);
-			miterLeft.setInterval(50);
-			miterLeft.setRate(2);
+			miterLeft.setInterval(100);
+			miterLeft.setRate(1);
 			miterLeft.setBounce(0.5f);
-			miterBack.setInterval(50);
-			miterBack.setRate(2);
+			miterBack.setInterval(100);
+			miterBack.setRate(1);
 			miterBack.setBounce(0.5f);
 		}else{
 			miterRight.setBounce(0.6f);
@@ -90,8 +101,20 @@ public class Ship extends Sprite{
 			miterBack.setInterval(30);
 			miterBack.setRate(1);
 		}
-		if(super.getX() > shipCrashX){
+		if(super.getX() > shipCrashX && !crash){
+			crash = true;
 			super.setXVel(0.0f);
+			
+			super.setMesh(shipFront);
+			shipb = new Sprite(shipBack);
+			shipb.setX(super.getX());
+			shipb.setZ(super.getZ());
+			shipb.setYRot(super.getYRot());
+			shipb.setWidth(super.getWidth());
+			shipb.setHeight(super.getHeight());
+			shipb.setDepth(super.getDepth());
+			
+			model.getSpriteList().add(shipb);
 		}
 		
 		if(tilt > maxTilt){

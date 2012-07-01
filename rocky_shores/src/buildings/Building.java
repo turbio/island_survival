@@ -11,7 +11,7 @@ import model.Model;
 public class Building extends Sprite{
 	private boolean isBuilt = false;
 	private double buildAmount = 0;	//0 = none, 1 = all
-	private double buildSpeed = 0.0005f;
+	private double buildSpeed = 0.00005f;
 	private int workers = 0, que = 0;
 	private Fence fence = null;
 	private float padding = 0.02f;
@@ -91,12 +91,12 @@ public class Building extends Sprite{
 		workers--;
 	}
 	
-	public void build(){
+	public void build(long amount){
 		if(buildAmount >= 1){
 			buildAmount = 1;
 			isBuilt = true;
 		}else{
-			buildAmount += buildSpeed;
+			buildAmount += buildSpeed * amount;
 		}
 		if(!isBuilt){
 			super.setY(interpolate(-(super.getMesh()[0].getTop() * super.getHeight()) - 0.002, 0.0, buildAmount));

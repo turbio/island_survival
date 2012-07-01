@@ -5,6 +5,7 @@ public class Orientation{
 	private float xRot = 0, yRot = 0, zRot = 0, xRotVel = 0, yRotVel = 0, zRotVel = 0;
 	private float width = 1, height = 1, depth = 1;
 	private float pivotX = 0, pivotY, pivotZ = 0;
+	private long delta = 1;
 	
 	public Orientation(float... f){
 		for(int i = 0; i < f.length; i++){
@@ -66,6 +67,10 @@ public class Orientation{
 	}
 	
 	//get methods
+	public long getDelta(){
+		return delta;
+	}
+	
 	public float getXRot(){
 		return xRot;
 	}
@@ -183,5 +188,6 @@ public class Orientation{
 		xRot += xRotVel * ((float)d / 20f);
 		yRot += yRotVel * ((float)d / 20f);
 		zRot += zRotVel * ((float)d / 20f);
+		delta = d;
 	}
 }

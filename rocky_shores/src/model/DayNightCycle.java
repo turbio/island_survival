@@ -23,11 +23,11 @@ public class DayNightCycle {
 		startTime = System.currentTimeMillis();
 	}
 	
-	public void update(){
+	public void update(long delta){
 		if(Brighten){
-			Time += iterator;
+			Time += iterator * ((float)delta / 100.0f);
 		}else{
-			Time -= iterator;
+			Time -= iterator * ((float)delta / 100.0f);
 		}
 		if(Time > maxTime && Brighten){
 			Brighten = false;

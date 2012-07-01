@@ -56,9 +56,11 @@ public class Particle extends Orientation{
 		}
 		
 		if(grav){
-			super.setYVel(super.getYVel() - gravStrength);
+			super.setYVel(super.getYVel() - (gravStrength * ((float)d / 100.0f)));
 			if(super.getY() <= 0){
 				super.setYVel(super.getYVel() * -bounce);
+				//super.setZVel(super.getZVel() + ((new Random().nextFloat() % 0.001f) - 0.0005f));
+				//super.setXVel(super.getXVel() + ((new Random().nextFloat() % 0.001f) - 0.0005f));
 			}
 			
 			if(super.getZVel() > 0){

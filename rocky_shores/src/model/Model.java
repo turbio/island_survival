@@ -204,7 +204,7 @@ public class Model {
 		camera = new Camera(0.0f, -1.5f, -2.3f, 45.0f, 0.0f, 0.0f, menu.FOV_NORM);
 		
 		//add start ship
-		ship = new Ship(getModel("shipnorm"), null, null, -2.5f, 0.0f, -0.8f, 0.003f, 0, 0, this);
+		ship = new Ship(getModel("shipnorm"), getModel("ship_crash_front"), getModel("ship_crash_back"), -2.5f, 0.0f, -0.8f, 0.003f, 0, 0, this);
 		spriteList.add(ship);
 		
 		//testing
@@ -359,7 +359,7 @@ public class Model {
 		
 		camera.update(d);
 		water.update(d);
-		cycle.update();
+		cycle.update(d);
 		input.update();
 		
 		water.setY(((float)Math.sin((System.currentTimeMillis() - startTime) / 800.0f) / 120.0f) - 0.01f);

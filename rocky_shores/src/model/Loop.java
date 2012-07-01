@@ -27,10 +27,10 @@ public class Loop implements Runnable{
 			
 			controll.update(delta);
 			
-			if(rc > 0){
+			if(rc > 10000){
 				rc = 0;
 					
-				controll.render();
+				//controll.render();
 			}
 			
 			rc++;
