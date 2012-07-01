@@ -203,10 +203,6 @@ public class Model {
 		//camera = new Sprite(texture[0], 0.0f, 0.1f, -2.7f, 45.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f);	//add camera
 		camera = new Camera(0.0f, -1.5f, -2.3f, 45.0f, 0.0f, 0.0f, menu.FOV_NORM);
 		
-		//add start ship
-		ship = new Ship(getModel("shipnorm"), getModel("ship_crash_front"), getModel("ship_crash_back"), -2.5f, 0.0f, -0.8f, 0.003f, 0, 0, this);
-		spriteList.add(ship);
-		
 		//testing
 		for(int i = 0; i < 5; i++){
 			addPeasant(-1.0f, 0.0f, Task.BUILD);
@@ -246,6 +242,11 @@ public class Model {
 		isl.setWidth((float)getMaterial("island").getTexture().getImageWidth() * (1.0f / 256.0f));
 		isl.setDepth((float)getMaterial("island").getTexture().getImageHeight() * (1.0f / 256.0f));
 		spriteList.add(isl);
+		
+		//add start ship
+		ship = new Ship(getModel("shipnorm"), getModel("ship_crash_front"), getModel("ship_crash_back"), -2.5f, 0.0f,
+				-((float)getMaterial("island").getTexture().getImageHeight() * (1.0f / 256.0f)) / 2, 0.003f, 0, 0, this);
+		spriteList.add(ship);
 		
 		//add test buildings
 		

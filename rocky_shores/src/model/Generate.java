@@ -112,11 +112,11 @@ public class Generate {
 			}
 			groups++;
 		}
-		int maxr = random.nextInt(10) + 5;
+		int maxr = random.nextInt(10) + 20;
 		for (int i = 0; i < maxr; i++) {
 			controll.getSpriteList().add(new Rock(controll.getModel("rock"), 
 					(controll.shipCrashX + 0.1f) + (random.nextFloat() % 0.2f) - 0.15f, 0.0f, 
-					(controll.shipCrashY + (random.nextFloat() % 0.2f)) - 0.1f, controll));
+					(-((float)controll.getMaterial("island").getTexture().getImageHeight() * (1.0f / 256.0f)) / 2 + (random.nextFloat() % 0.2f)) - 0.1f, controll));
 			controll.getSpriteList().get(controll.getSpriteList().size() - 1).setHeight(0.015f);
 			controll.getSpriteList().get(controll.getSpriteList().size() - 1).setY(-0.005f);
 		}

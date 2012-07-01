@@ -19,7 +19,7 @@ public class Loop implements Runnable{
 	
 	public void run(){
 		
-		long startTime, endTime, delta = 0;
+		long startTime, endTime, delta = 1;
 		
 		while(running){
 			startTime = System.currentTimeMillis();

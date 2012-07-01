@@ -79,7 +79,6 @@ public class Ship extends Sprite{
 		miterBack.setX(super.getX() - 0.18f);
 		miterBack.setZ(super.getZ() - 0.03f);
 		if(crash){
-			shipb.setY(((float)Math.sin(bob) * 0.008f) + 0.018f);
 			
 			miterRight.setInterval(100);
 			miterRight.setRate(1);
@@ -90,7 +89,19 @@ public class Ship extends Sprite{
 			miterBack.setInterval(100);
 			miterBack.setRate(1);
 			miterBack.setBounce(0.5f);
+			
+			if(shipb.getXRot() > 10){
+				shipb.setXRotVel(0.0f);
+				super.setXRotVel(0.0f);
+				
+				shipb.setYVel(0.0f);
+				super.setYVel(0.0f);
+				
+				shipb.setY(-((float)Math.sin(bob * .5) * 0.008f) - 0.010f);
+				super.setY(((float)Math.sin(bob) * 0.008f) - 0.010f);
+			}
 		}else{
+			super.setY(((float)Math.sin(bob) * 0.008f) + 0.018f);
 			miterRight.setBounce(0.6f);
 			miterRight.setInterval(30);
 			miterRight.setRate(1);
@@ -104,8 +115,10 @@ public class Ship extends Sprite{
 		if(super.getX() > shipCrashX && !crash){
 			crash = true;
 			super.setXVel(0.0f);
-			
 			super.setMesh(shipFront);
+			super.setXRotVel(-0.1f);
+			super.setYVel(-0.00017f);
+			
 			shipb = new Sprite(shipBack);
 			shipb.setX(super.getX());
 			shipb.setZ(super.getZ());
@@ -113,8 +126,11 @@ public class Ship extends Sprite{
 			shipb.setWidth(super.getWidth());
 			shipb.setHeight(super.getHeight());
 			shipb.setDepth(super.getDepth());
+			shipb.setXRotVel(0.1f);
+			shipb.setYVel(-0.0002f);
 			
 			model.getSpriteList().add(shipb);
+			bob = 0;
 		}
 		
 		if(tilt > maxTilt){
@@ -134,7 +150,5 @@ public class Ship extends Sprite{
 		if(bob > 360){
 			bob = 0;
 		}
-		
-		super.setY(((float)Math.sin(bob) * 0.008f) + 0.018f);
 	}
 }
