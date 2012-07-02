@@ -60,7 +60,7 @@ public class Model {
 	private View view;	//holds all render info
 	private Loop loop;	//update loop
 	private Ship ship;	//holds the main ship
-	private Sprite water;	//holds floor
+	private Sprite water, waterTop;	//holds floor
 	private DayNightCycle cycle;	//controls time
 	private Generate gen;	//random world generation
 	private Input input;	//keyboard/ mouse input
@@ -88,7 +88,7 @@ public class Model {
 			"res/water2.png", "res/water3.png", "res/hammer.png", "res/sword.png", "res/woodaxe.png",
 			"res/particles/water1.png", "res/particles/water2.png", "res/particles/water3.png", "res/particles/tree.png",
 			"res/carry.png", "res/gui/in_game_options_bg.png", "res/gui/main_in_game_menu_bg.png", "res/gui/dialhand.png",
-			"res/gui/scrollbar.png", "res/gui/item_bg.png", "res/gui/item_top.png", "res/gui/item_bottom.png"};	//holds textures
+			"res/gui/scrollbar.png", "res/gui/item_bg.png", "res/gui/item_top.png", "res/gui/item_bottom.png", "res/watertop.png"};	//holds textures
 	private Texture texturePack[];	//holds raw texture data
 	private ArrayList<Material> materials;	//holds textures
 	private ArrayList<Material> mobMats = new ArrayList<Material>();
@@ -201,7 +201,9 @@ public class Model {
 		
 		//add island
 		//camera = new Sprite(texture[0], 0.0f, 0.1f, -2.7f, 45.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f);	//add camera
-		camera = new Camera(0.0f, -1.5f, -2.3f, 45.0f, 0.0f, 0.0f, menu.FOV_NORM);
+		if(camera == null){
+			camera = new Camera(0.0f, -1.5f, -2.3f, 45.0f, 0.0f, 0.0f, menu.FOV_NORM);
+		}
 		
 		//testing
 		for(int i = 0; i < 5; i++){
@@ -214,19 +216,27 @@ public class Model {
 		//String[] resPath= {"water1", "water2", "water3"};
 		
 		Mesh m = new Mesh("main_island");
-		Face fa = new Face(new Vertex(-10.0f, 0.0f, -10.0f, 0.0f, 150.0f),
+		Face fa = new Face(
+				new Vertex(-10.0f, 0.0f, -10.0f, 0.0f, 150.0f),
 				new Vertex(10.0f, 0.0f, -10.0f, 150.0f, 150.0f),
 				new Vertex(10.0f, 0.0f, 10.0f, 150.0f, 0.0f),
-				new Vertex(-10.0f, 0.0f, 10.0f, 0.0f, 0.0f)
-		);
+				new Vertex(-10.0f, 0.0f, 10.0f, 0.0f, 0.0f));
 		//m.setMat(getMaterial("water2"));
 		m.addFace(fa);
 		water = new Sprite(m);
 		water.cullFace(false);
-		water.setY(water.getY() - 0.01f);
+		water.setY(water.getY() - 0.02f);
 		water.setTex(getMaterial("water1", "water2", "water3", "water2"));
 		water.autoframe(true, true, 15);
 		spriteList.add(water);
+		
+		waterTop = new Sprite(water.getMesh());
+		waterTop.cullFace(false);
+		waterTop.setY(-0.001f);
+		
+		Material watermat = new Material(getMaterial("watertop").getTexture(), "watermat");
+		waterTop.setTex(watermat);
+		spriteList.add(waterTop);
 		
 		//add island mesh
 		Mesh me = new Mesh("main_island");
@@ -247,6 +257,37 @@ public class Model {
 		ship = new Ship(getModel("shipnorm"), getModel("ship_crash_front"), getModel("ship_crash_back"), -2.5f, 0.0f,
 				-((float)getMaterial("island").getTexture().getImageHeight() * (1.0f / 256.0f)) / 2, 0.003f, 0, 0, this);
 		spriteList.add(ship);
+		
+		//add sky box i don't know why
+		Face frontface = new Face(
+				new Vertex(-8.0f, 0.0f, -8.0f, 0.0f, 150.0f),
+				new Vertex(8.0f, 0.0f, -8.0f, 150.0f, 150.0f),
+				new Vertex(8.0f, 8.0f, -8.0f, 150.0f, 0.0f),
+				new Vertex(-8.0f, 8.0f, -8.0f, 0.0f, 0.0f));
+		Face rigthface = new Face(
+				new Vertex(8.0f, 0.0f, -8.0f, 0.0f, 150.0f),
+				new Vertex(8.0f, 0.0f, 8.0f, 150.0f, 150.0f),
+				new Vertex(8.0f, 8.0f, 8.0f, 150.0f, 0.0f),
+				new Vertex(8.0f, 8.0f, -8.0f, 0.0f, 0.0f));
+		Face leftface = new Face(
+				new Vertex(-8.0f, 0.0f, -8.0f, 0.0f, 150.0f),
+				new Vertex(-8.0f, 0.0f, 8.0f, 150.0f, 150.0f),
+				new Vertex(-8.0f, 8.0f, 8.0f, 150.0f, 0.0f),
+				new Vertex(-8.0f, 8.0f, -8.0f, 0.0f, 0.0f));
+		Face backface = new Face(
+				new Vertex(-8.0f, 0.0f, 8.0f, 0.0f, 150.0f),
+				new Vertex(8.0f, 0.0f, 8.0f, 150.0f, 150.0f),
+				new Vertex(8.0f, 8.0f, 8.0f, 150.0f, 0.0f),
+				new Vertex(-8.0f, 8.0f, 8.0f, 0.0f, 0.0f));
+		Mesh skyMesh = new Mesh();
+		skyMesh.addFace(frontface);
+		skyMesh.addFace(rigthface);
+		skyMesh.addFace(leftface);
+		skyMesh.addFace(backface);
+		Sprite skyBox = new Sprite(skyMesh);
+		skyBox.setTex((new Material(new Color(1.0f / (255 - 20), 1.0f / (255 - 180), 1.0f), "sky_box")));
+		skyBox.cullFace(false);
+		spriteList.add(skyBox);
 		
 		//add test buildings
 		

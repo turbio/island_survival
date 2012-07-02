@@ -15,11 +15,11 @@ public class Generate {
 	// tree gen options
 	private int growTimeMax = 5000, growTimeMin = 1000, lifeTimeMax = 10000,
 		lifeTimeMin = 1000, reprodTimeMax = 3000, reprodTimeMin = 1000,
-		maxReprodChance = 20, maxTrees = 1000, maxGenTrees = 300;
+		maxReprodChance = 20, maxTrees = 1000, maxGenTrees = 000;
 		
 	
 	// rock gen options
-	private int maxGroupSize = 500, maxGroups = 5;
+	private int maxGroupSize = 00, maxGroups = 10;
 
 	private int treeCount = 0, genTrys = 0;;
 
@@ -112,13 +112,15 @@ public class Generate {
 			}
 			groups++;
 		}
-		int maxr = random.nextInt(10) + 20;
+		int maxr = random.nextInt(20) + 20;
 		for (int i = 0; i < maxr; i++) {
 			controll.getSpriteList().add(new Rock(controll.getModel("rock"), 
-					(controll.shipCrashX + 0.1f) + (random.nextFloat() % 0.2f) - 0.15f, 0.0f, 
-					(-((float)controll.getMaterial("island").getTexture().getImageHeight() * (1.0f / 256.0f)) / 2 + (random.nextFloat() % 0.2f)) - 0.1f, controll));
-			controll.getSpriteList().get(controll.getSpriteList().size() - 1).setHeight(0.015f);
-			controll.getSpriteList().get(controll.getSpriteList().size() - 1).setY(-0.005f);
+					(controll.shipCrashX + 0.1f) + (random.nextFloat() % 0.4f) - 0.25f, -0.02f, 
+					(-((float)controll.getMaterial("island").getTexture().getImageHeight() * (1.0f / 256.0f)) / 2 + (random.nextFloat() % 0.4f)) - 0.2f, controll));
+			controll.getSpriteList().get(controll.getSpriteList().size() - 1).setHeight(0.025f);
+			controll.getSpriteList().get(controll.getSpriteList().size() - 1).setWidth(0.02f);
+			controll.getSpriteList().get(controll.getSpriteList().size() - 1).setDepth(0.02f);
+			//controll.getSpriteList().get(controll.getSpriteList().size() - 1).setY(-0.005f);
 		}
 	}
 	

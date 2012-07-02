@@ -94,7 +94,7 @@ public class Sprite extends Orientation{
 				frameTimeRemain = frameTime;
 				nextTexture(loop);
 			}else{
-				frameTimeRemain--;
+				frameTimeRemain -= d;
 			}
 		}
 	}

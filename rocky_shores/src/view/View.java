@@ -159,7 +159,7 @@ public class View {
 		//setup display to render 3d
 		glMatrixMode(GL_PROJECTION);
 		glLoadIdentity();
-		gluPerspective(menu.FOV, (float)Model.width / Model.height, 0.1f, 15.0f);
+		gluPerspective(menu.FOV, (float)Model.width / Model.height, 0.1f, 25.0f);
 		glMatrixMode(GL_MODELVIEW);
 		glLoadIdentity();
 		glEnable(GL_ALPHA_TEST);

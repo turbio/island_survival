@@ -69,13 +69,18 @@ public class Render3dV2 {
 			
 			if(model.getSpriteList().get(i).hasMesh() && model.getSpriteList().get(i).isVisible()){
 				for(int m = 0; m < model.getSpriteList().get(i).getMesh().length; m++){
+					
 					if(model.getSpriteList().get(i).hasMesh() && model.getSpriteList().get(i).getMesh()[0].getMat() != null){
 						model.getSpriteList().get(i).getMesh()[0].getMat().getTexture().bind();
-					}else if(model.getSpriteList().get(i).getTexture() != null){
+					}else if(model.getSpriteList().get(i).getTexture().getTexture() != null){
 						model.getSpriteList().get(i).getTexture().getTexture().bind();
+					}else if(model.getSpriteList().get(i).getTexture().getColor() != null){
+						glDisable(GL_TEXTURE_2D);
+						//glColor3f(0.0f, 0.0f, 0.0f);
 					}else{
 						model.getMaterial("pack").getTexture().bind();
 					}
+					
 					glBegin(GL_QUADS);
 					for(int f = 0; f < model.getSpriteList().get(i).getMesh()[m].getFaces().size(); f++){
 						Face face = model.getSpriteList().get(i).getMesh()[m].getFaces().get(f);

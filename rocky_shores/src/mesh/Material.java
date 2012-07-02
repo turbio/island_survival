@@ -1,13 +1,20 @@
 package mesh;
 
+import org.newdawn.slick.Color;
 import org.newdawn.slick.opengl.Texture;
 
 public class Material {
+	private Color color;
 	private Texture texture;
 	private String name = "";
 	
 	public Material(){
 		
+	}
+	
+	public Material(Color c, String n){
+		color = c;
+		name = n;
 	}
 	
 	public Material(Texture t){
@@ -34,5 +41,9 @@ public class Material {
 	
 	public void setName(String s){
 		name = s;
+	}
+	
+	public Color getColor(){
+		return color;
 	}
 }
