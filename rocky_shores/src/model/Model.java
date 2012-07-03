@@ -227,7 +227,7 @@ public class Model {
 		water.cullFace(false);
 		water.setY(water.getY() - 0.02f);
 		water.setTex(getMaterial("water1", "water2", "water3", "water2"));
-		water.autoframe(true, true, 15);
+		water.autoframe(true, true, 300);
 		spriteList.add(water);
 		
 		waterTop = new Sprite(water.getMesh());

@@ -5,12 +5,12 @@ import static org.lwjgl.opengl.GL11.*;
 import particles.Particle;
 
 import world.Camera;
-import mesh.Face;
 import model.Model;
 
 public class Render3dV2 {
 	private Model model;
 	private Camera camera;
+	private DrawModel draw = new DrawModel();
 	
 	public Render3dV2(Model m, Camera c){
 		model = m;
@@ -68,56 +68,7 @@ public class Render3dV2 {
 			glScalef(model.getSpriteList().get(i).getWidth(), model.getSpriteList().get(i).getHeight(), model.getSpriteList().get(i).getDepth());
 			
 			if(model.getSpriteList().get(i).hasMesh() && model.getSpriteList().get(i).isVisible()){
-				for(int m = 0; m < model.getSpriteList().get(i).getMesh().length; m++){
-					
-					if(model.getSpriteList().get(i).hasMesh() && model.getSpriteList().get(i).getMesh()[0].getMat() != null){
-						model.getSpriteList().get(i).getMesh()[0].getMat().getTexture().bind();
-					}else if(model.getSpriteList().get(i).getTexture().getTexture() != null){
-						model.getSpriteList().get(i).getTexture().getTexture().bind();
-					}else if(model.getSpriteList().get(i).getTexture().getColor() != null){
-						glDisable(GL_TEXTURE_2D);
-						//glColor3f(0.0f, 0.0f, 0.0f);
-					}else{
-						model.getMaterial("pack").getTexture().bind();
-					}
-					
-					glBegin(GL_QUADS);
-					for(int f = 0; f < model.getSpriteList().get(i).getMesh()[m].getFaces().size(); f++){
-						Face face = model.getSpriteList().get(i).getMesh()[m].getFaces().get(f);
-						if(face.isQuad()){
-							for(int v = 0; v < face.getVertex().size(); v++){
-								glTexCoord2f(face.getVertex(v).getTexX(), -face.getVertex(v).getTexY());
-								glVertex3f(face.getVertex(v).getX(), face.getVertex(v).getY(), face.getVertex(v).getZ());
-							}
-						}
-					}
-					glEnd();
-					
-					glBegin(GL_TRIANGLES);
-					for(int f = 0; f < model.getSpriteList().get(i).getMesh()[m].getFaces().size(); f++){
-						Face face = model.getSpriteList().get(i).getMesh()[m].getFaces().get(f);
-						if(face.isTri()){
-							for(int v = 0; v < face.getVertex().size(); v++){
-								glTexCoord2f(face.getVertex(v).getTexX(), -face.getVertex(v).getTexY());
-								glVertex3f(face.getVertex(v).getX(), face.getVertex(v).getY(), face.getVertex(v).getZ());
-							}
-						}
-					}
-					glEnd();
-					/*
-					glBegin(GL_TRIANGLES);
-					for(int f = 0; f < model.getSpriteList().get(i).getMesh()[m].getFaces().size(); f++){
-						Face face = model.getSpriteList().get(i).getMesh()[m].getFaces().get(f);
-						if(face.isTri()){
-							for(int v = 0; v < face.getVertex().size(); v++){
-								glTexCoord2f(face.getVertex(v).getTexX(), -face.getVertex(v).getTexY());
-								glVertex3f(face.getVertex(v).getX(), face.getVertex(v).getY(), face.getVertex(v).getZ());
-							}
-						}
-					}
-					glEnd();
-					*/
-				}
+				draw.Draw(model.getSpriteList().get(i));
 			}
 		}
 		
