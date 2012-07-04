@@ -10,11 +10,12 @@ import model.Model;
 public class Render3dV2 {
 	private Model model;
 	private Camera camera;
-	private DrawModel draw = new DrawModel();
+	private DrawModel draw;
 	
 	public Render3dV2(Model m, Camera c){
 		model = m;
 		camera = c;
+		draw = new DrawModel(model.getMaterial("pack").getTexture());
 	}
 	
 	public void render(){
@@ -68,7 +69,17 @@ public class Render3dV2 {
 			glScalef(model.getSpriteList().get(i).getWidth(), model.getSpriteList().get(i).getHeight(), model.getSpriteList().get(i).getDepth());
 			
 			if(model.getSpriteList().get(i).hasMesh() && model.getSpriteList().get(i).isVisible()){
-				draw.Draw(model.getSpriteList().get(i));
+				for(int m = 0; m < model.getSpriteList().get(i).getMesh().length; m++){
+					if(model.getSpriteList().get(i).getMesh()[m].getIndex() != -1){
+						
+					}else{
+						if(model.getSpriteList().get(i).getTexture() == null){
+							draw.Draw(model.getSpriteList().get(i).getMesh()[m], null);
+						}else{
+							draw.Draw(model.getSpriteList().get(i).getMesh()[m], model.getSpriteList().get(i).getTexture().getTexture());
+						}
+					}
+				}
 			}
 		}
 		

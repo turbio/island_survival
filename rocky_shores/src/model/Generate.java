@@ -15,11 +15,11 @@ public class Generate {
 	// tree gen options
 	private int growTimeMax = 5000, growTimeMin = 1000, lifeTimeMax = 10000,
 		lifeTimeMin = 1000, reprodTimeMax = 3000, reprodTimeMin = 1000,
-		maxReprodChance = 20, maxTrees = 1000, maxGenTrees = 000;
+		maxReprodChance = 20, maxTrees = 1000, maxGenTrees = 3000;
 		
 	
 	// rock gen options
-	private int maxGroupSize = 00, maxGroups = 10;
+	private int maxGroupSize = 500, maxGroups = 10;
 
 	private int treeCount = 0, genTrys = 0;;
 

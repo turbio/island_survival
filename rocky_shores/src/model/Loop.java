@@ -25,11 +25,9 @@ public class Loop implements Runnable{
 			startTime = System.currentTimeMillis();
 			
 			controll.update(delta);
-			
 			controll.render();
 			
 			endTime = System.currentTimeMillis();
-			
 			delta = endTime - startTime;
 			
 			/*

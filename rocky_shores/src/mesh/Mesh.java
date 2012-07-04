@@ -7,6 +7,7 @@ public class Mesh {
 	private String name;
 	private Material mat;
 	private float top, bottom, right, left, front, back;
+	private int index = -1;
 	
 	public Mesh(){
 		faces = new ArrayList<Face>();
@@ -111,5 +112,13 @@ public class Mesh {
 	public float getBack(){
 		setEdges();
 		return back;
+	}
+	
+	public int getIndex(){
+		return index;
+	}
+	
+	public void setIndex(int i){
+		index = i;
 	}
 }

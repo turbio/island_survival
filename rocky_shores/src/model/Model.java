@@ -260,25 +260,25 @@ public class Model {
 		
 		//add sky box i don't know why
 		Face frontface = new Face(
-				new Vertex(-8.0f, 0.0f, -8.0f, 0.0f, 150.0f),
-				new Vertex(8.0f, 0.0f, -8.0f, 150.0f, 150.0f),
-				new Vertex(8.0f, 8.0f, -8.0f, 150.0f, 0.0f),
-				new Vertex(-8.0f, 8.0f, -8.0f, 0.0f, 0.0f));
+				new Vertex(-9.5f, 0.0f, -9.5f, 0.0f, 1.0f),
+				new Vertex(9.5f, 0.0f, -9.5f, 1.0f, 1.0f),
+				new Vertex(9.5f, 9.5f, -9.5f, 1.0f, 0.0f),
+				new Vertex(-9.5f, 9.5f, -9.5f, 0.0f, 0.0f));
 		Face rigthface = new Face(
-				new Vertex(8.0f, 0.0f, -8.0f, 0.0f, 150.0f),
-				new Vertex(8.0f, 0.0f, 8.0f, 150.0f, 150.0f),
-				new Vertex(8.0f, 8.0f, 8.0f, 150.0f, 0.0f),
-				new Vertex(8.0f, 8.0f, -8.0f, 0.0f, 0.0f));
+				new Vertex(9.5f, 0.0f, -9.5f, 0.0f, 1.0f),
+				new Vertex(9.5f, 0.0f, 9.5f, 1.0f, 1.0f),
+				new Vertex(9.5f, 9.5f, 9.5f, 1.0f, 0.0f),
+				new Vertex(9.5f, 9.5f, -9.5f, 0.0f, 0.0f));
 		Face leftface = new Face(
-				new Vertex(-8.0f, 0.0f, -8.0f, 0.0f, 150.0f),
-				new Vertex(-8.0f, 0.0f, 8.0f, 150.0f, 150.0f),
-				new Vertex(-8.0f, 8.0f, 8.0f, 150.0f, 0.0f),
-				new Vertex(-8.0f, 8.0f, -8.0f, 0.0f, 0.0f));
+				new Vertex(-9.5f, 0.0f, -9.5f, 0.0f, 1.0f),
+				new Vertex(-9.5f, 0.0f, 9.5f, 1.0f, 1.0f),
+				new Vertex(-9.5f, 9.5f, 9.5f, 1.0f, 0.0f),
+				new Vertex(-9.5f, 9.5f, -9.5f, 0.0f, 0.0f));
 		Face backface = new Face(
-				new Vertex(-8.0f, 0.0f, 8.0f, 0.0f, 150.0f),
-				new Vertex(8.0f, 0.0f, 8.0f, 150.0f, 150.0f),
-				new Vertex(8.0f, 8.0f, 8.0f, 150.0f, 0.0f),
-				new Vertex(-8.0f, 8.0f, 8.0f, 0.0f, 0.0f));
+				new Vertex(-9.5f, 0.0f, 9.5f, 0.0f, 1.0f),
+				new Vertex(9.5f, 0.0f, 9.5f, 1.0f, 1.0f),
+				new Vertex(9.5f, 9.5f, 9.5f, 1.0f, 0.0f),
+				new Vertex(-9.5f, 9.5f, 9.5f, 0.0f, 0.0f));
 		Mesh skyMesh = new Mesh();
 		skyMesh.addFace(frontface);
 		skyMesh.addFace(rigthface);
