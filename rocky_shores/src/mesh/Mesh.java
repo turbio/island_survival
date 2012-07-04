@@ -2,6 +2,8 @@ package mesh;
 
 import java.util.ArrayList;
 
+import view.DrawModel;
+
 public class Mesh {
 	private ArrayList<Face> faces;
 	private String name;
@@ -115,6 +117,17 @@ public class Mesh {
 	}
 	
 	public int getIndex(){
+		/*
+		if(index == -1){
+			DrawModel draw;
+			if(mat != null){
+				draw = new DrawModel(mat.getTexture());
+			}else{
+				draw = new DrawModel(null);
+			}
+			index = draw.compileList(this);
+		}
+		*/
 		return index;
 	}
 	

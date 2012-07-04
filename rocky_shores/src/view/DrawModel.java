@@ -41,6 +41,8 @@ public class DrawModel {
 			t.bind();
 		}else if(nullTex != null){
 			nullTex.bind();
+		}else{
+			System.out.println(mesh.getName());
 		}
 		
 		glBegin(GL_QUADS);
@@ -83,13 +85,14 @@ public class DrawModel {
 		// }
 	}
 
-	public int compileList() {
+	public int compileList(Mesh m) {
 		int index = GL11.glGenLists(1);
 
 		glNewList(index, GL_COMPILE);
-		// drawModel();
+		
+		Draw(m, null);
+		
 		glEndList();
-		//
 		return index;
 	}
 }

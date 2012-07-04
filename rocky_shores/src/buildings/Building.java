@@ -2,7 +2,6 @@ package buildings;
 
 import java.util.ArrayList;
 
-import mesh.Material;
 import mesh.Mesh;
 import sprite.Sprite;
 import sprite.SpriteTypes;
@@ -19,18 +18,9 @@ public class Building extends Sprite{
 	private Model model;
 	private ArrayList<Sprite> resource = new ArrayList<Sprite>();
 	
-	public Building(BuildingTypes t, Material tex[], float x, float z){
-		super(tex, x, 0.0f, z);
-		super.setType(SpriteTypes.BUILDING);
-	}
-	
-	public Building(BuildingTypes t, Material tex, float x, float z){
-		super(tex, x, 0.0f, z);
-		super.setType(SpriteTypes.BUILDING);
-	}
-	
 	public Building(BuildingTypes t, Mesh m, float x, float z, Model mod, float scale){
 		super(m);
+		//super.getIndex();
 		super.setType(SpriteTypes.BUILDING);
 		super.setMesh(m);
 		super.setX(x);
@@ -49,10 +39,12 @@ public class Building extends Sprite{
 		fence.setYVel(0.001f);
 		
 		buildingTypes = t;
+		
 	}
 	
 	public Building(BuildingTypes t, float x, float z, float scale, Model mod, Mesh... m){
 		super(m);
+		//super.getIndex();
 		super.setType(SpriteTypes.BUILDING);
 		super.setX(x);
 		super.setZ(z);
@@ -70,6 +62,7 @@ public class Building extends Sprite{
 		fence.setYVel(0.001f);
 		
 		buildingTypes = t;
+		
 	}
 	
 	public boolean isBuilt(){

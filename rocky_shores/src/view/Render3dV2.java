@@ -17,7 +17,7 @@ public class Render3dV2 {
 		camera = c;
 		draw = new DrawModel(model.getMaterial("pack").getTexture());
 	}
-	
+	int test = 0;
 	public void render(){
 		//model.getMaterial("matr").getTexture().bind();
 		
@@ -71,10 +71,14 @@ public class Render3dV2 {
 			if(model.getSpriteList().get(i).hasMesh() && model.getSpriteList().get(i).isVisible()){
 				for(int m = 0; m < model.getSpriteList().get(i).getMesh().length; m++){
 					if(model.getSpriteList().get(i).getMesh()[m].getIndex() != -1){
-						
+						glCallList(model.getSpriteList().get(i).getMesh()[m].getIndex());
+						if(model.getSpriteList().get(i).getMesh()[m].getIndex() > test){
+							test = model.getSpriteList().get(i).getMesh()[m].getIndex();
+							System.out.println(test);
+						}
 					}else{
 						if(model.getSpriteList().get(i).getTexture() == null){
-							draw.Draw(model.getSpriteList().get(i).getMesh()[m], null);
+							draw.Draw(model.getSpriteList().get(i).getMesh()[m], model.getMaterial("pack").getTexture());
 						}else{
 							draw.Draw(model.getSpriteList().get(i).getMesh()[m], model.getSpriteList().get(i).getTexture().getTexture());
 						}

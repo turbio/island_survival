@@ -15,7 +15,7 @@ public class Generate {
 	// tree gen options
 	private int growTimeMax = 5000, growTimeMin = 1000, lifeTimeMax = 10000,
 		lifeTimeMin = 1000, reprodTimeMax = 3000, reprodTimeMin = 1000,
-		maxReprodChance = 20, maxTrees = 1000, maxGenTrees = 3000;
+		maxReprodChance = 20, maxTrees = 1000, maxGenTrees = 2000;
 		
 	
 	// rock gen options

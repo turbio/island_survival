@@ -12,5 +12,6 @@ public class TownHall extends Building{
 		super.setWidth(scale);
 		super.setHeight(scale);
 		super.setDepth(scale);
+		super.cullFace(false);
 	}
 }

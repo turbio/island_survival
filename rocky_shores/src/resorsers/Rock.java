@@ -46,6 +46,8 @@ public class Rock extends Resource{
 		//miter.setRandomYPos(0.01f);
 		miter.setRandomZPos(0.015f);
 		m.getMiters().add(miter);
+		
+		super.getIndex();
 	}
 	
 	public void update(long d){

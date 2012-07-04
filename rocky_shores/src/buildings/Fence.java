@@ -36,6 +36,7 @@ public class Fence extends Sprite{
 				new Vertex(x4, 0.0f, z4, 0.0f, 0.0f));
 		m.addFace(face);
 		m.setMat(mat);
+		m.setName("fence");
 		
 		super.setMesh(m);
 		super.cullFace(false);

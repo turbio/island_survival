@@ -1,4 +1,6 @@
 package sprite;
+
+import view.DrawModel;
 import mesh.Material;
 import mesh.Mesh;
 
@@ -342,5 +344,23 @@ public class Sprite extends Orientation{
 	
 	public boolean cullFace(){
 		return cull;
+	}
+	
+	public void getIndex(){
+		DrawModel draw = new DrawModel(null);
+		for(int i = 0; i < mesh.length; i++){
+			if(mesh[i].getIndex() == -1){
+				mesh[i].setIndex(draw.compileList(mesh[i]));
+				
+			}
+		}
+	}
+	
+	public void removeIndex(){
+		for(int i = 0; i < mesh.length; i++){
+			if(mesh[i].getIndex() != -1){
+				mesh[i].setIndex(-1);
+			}
+		}
 	}
 }

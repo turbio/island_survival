@@ -50,7 +50,7 @@ public class Tree extends Resource{
 			super.setYVel((new Random().nextFloat() % 0.0008f) + 0.0002f);
 		}
 		
-		
+		super.getIndex();
 	}
 	
 	public void update(long d){
