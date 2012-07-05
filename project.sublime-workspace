@@ -1,0 +1,529 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"xml",
+				"xmlError"
+			],
+			[
+				"url",
+				"url_header"
+			],
+			[
+				"re",
+				"inherit  (value)"
+			],
+			[
+				"background-",
+				"background-image"
+			],
+			[
+				"vert",
+				"vertical-align:   (property)"
+			],
+			[
+				"backgr",
+				"background	background-color: hex"
+			],
+			[
+				"fixed",
+				"fixed  (value)"
+			],
+			[
+				"simple",
+				"simplexml_load_file"
+			],
+			[
+				"ba",
+				"background	background-color: hex"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "rocky_shores/src/model/Model.java",
+			"settings":
+			{
+				"buffer_size": 21881,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "rocky_shores/src/view/View.java",
+			"settings":
+			{
+				"buffer_size": 4797,
+				"line_ending": "Windows"
+			}
+		}
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 58.0,
+		"selected_items":
+		[
+			[
+				"package control: insta",
+				"Package Control: Install Package"
+			],
+			[
+				"insta",
+				"Package Control: Install Package"
+			],
+			[
+				"insall",
+				"Package Control: Install Package"
+			],
+			[
+				"exit",
+				"Snippet: XML Processing Instruction"
+			]
+		],
+		"width": 400.0
+	},
+	"console":
+	{
+		"height": 125.0
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/C/xampp/htdocs/project.sublime-project",
+		"/C/xampp/htdocs/gameinfo/gamelist.xml",
+		"/C/xampp/htdocs/game.php",
+		"/C/xampp/htdocs/games.php",
+		"/C/xampp/htdocs/index.php",
+		"/C/xampp/htdocs/plusy_header.php",
+		"/C/Users/mason/AppData/Local/Temp/src1BF7.txt",
+		"/C/Users/mason/Downloads/Game.Of.Thrones.S01.2011.720p.BluRay.x264.DTS-HDChina/Come Join Us at publichd.org.txt",
+		"/C/Users/mason/Downloads/Game.Of.Thrones.S01.2011.720p.BluRay.x264.DTS-HDChina/Torrent Downloaded From ExtraTorrent.com.txt",
+		"/C/Users/mason/Documents/GitHub/storage/ascii.txt",
+		"/C/Users/mason/Documents/GitHub/rocky_shores/rocky_shores/res/models/ship/ship.mtl",
+		"/C/Users/mason/Documents/GitHub/rocky_shores/rocky_shores/res/particles/pack.txt",
+		"/C/Games/Toribash-3.99/autoupdate.txt",
+		"/C/xampp/htdocs/plusy_logo.html",
+		"/C/xampp/htdocs/messages.xml",
+		"/C/xampp/htdocs/user.php",
+		"/C/xampp/htdocs/linuxtrue.png",
+		"/C/Users/mason/Documents/GitHub/rocky_shores/rocky_shores/res/models/rock/rock.mtl",
+		"/C/Users/mason/Documents/default_mc_server/banned-players.txt",
+		"/C/Users/mason/Pictures/123d/2012-06-22/Scene_2012_06_22_17_47_01.obj",
+		"/C/Users/mason/Documents/default_mc_server/ops.txt",
+		"/C/Users/mason/Desktop/Untitled-1.png",
+		"/C/Users/mason/Google Drive/cpp_stuff/cpp_stuff/someFile.cpp",
+		"/C/Users/mason/Google Drive/cpp_stuff/cpp_stuff/someFile.h",
+		"/C/Users/mason/Google Drive/cpp_stuff/cpp_stuff/PrimeFinder.cpp",
+		"/C/Users/mason/Google Drive/cpp_stuff/cpp_stuff/main.cpp",
+		"/C/Users/mason/Downloads/tf2.png",
+		"/C/Users/mason/Documents/GitHub/ascii_scroller/text_adv/res/menubg/bg.txt",
+		"/C/Users/mason/AppData/Local/Temp/Rar$DIa0.068/gpl.txt",
+		"/C/Users/mason/Google Drive/cpp_stuff/cpp_stuff/primes.txt",
+		"/C/Users/mason/AppData/Local/Temp/Rar$EXa0.011/readme.html",
+		"/C/Users/mason/Documents/GitHub/plotter/res/gui.xml",
+		"/C/Users/mason/Documents/Brekel_Kinect_Captures/pointCloud_points_0000.obj",
+		"/C/Users/mason/Documents/GitHub/plotter/res/gui",
+		"/C/xampp/htdocs/plusy/404error.php",
+		"/C/xampp/htdocs/plusy/gameinfo/gamelist.xml",
+		"/C/xampp/htdocs/plusy/game.php",
+		"/C/xampp/htdocs/plusy/games.php",
+		"/C/xampp/htdocs/plusy/home.php",
+		"/C/xampp/htdocs/plusy/plusy_header.php",
+		"/C/Users/mason/Documents/minecraft_server/plugins/DeathTpPlus/config.yml",
+		"/C/Users/mason/Documents/minecraft_server/plugins/DeathTpPlus/deathmessages.yml",
+		"/C/Users/mason/Documents/minecraft_server/plugins/Cenotaph/config.yml",
+		"/C/Users/mason/Documents/minecraft_server/plugins/ExpMiner/config.yml",
+		"/C/Users/mason/Documents/minecraft_server/plugins/SafeExplosions/config.yml",
+		"/C/Users/mason/Documents/minecraft_server/plugins/Timber/config.yml",
+		"/C/Users/mason/Documents/minecraft_server/plugins/MineBuilder/ExpConfig.yml",
+		"/C/Users/mason/Documents/minecraft_server/plugins/MonsterFix/config.yml",
+		"/C/Users/mason/Documents/minecraft_server/plugins/PluginMetrics/config.yml",
+		"/C/Users/mason/Documents/minecraft_server/plugins/MineBuilder/PlayerLevelUpMessage.yml",
+		"/C/xampp/htdocs/google4c8a9f7b9d6bf9a0.html",
+		"/C/Users/mason/Documents/GitHub/rocky_shores/rocky_shores/res/models/ship/ship.obj",
+		"/C/xampp/htdocs/plusy/resources.php",
+		"/C/xampp/htdocs/plusy/plusy_logo.html",
+		"/C/xampp/apache/conf/httpd.conf",
+		"/C/Users/mason/Documents/assets/3dmodels/FantasyBoat/abc/FantasyBoat.mtl",
+		"/C/Users/mason/Documents/GitHub/rocky_shores/rocky_shores/res/models/ship/abc/FantasyBoat.obj",
+		"/C/xampp/htdocs/plusy/games",
+		"/C/xampp/htdocs/plusy/user.php",
+		"/C/Users/mason/git/rockey_shores/Rocky_Shores/res/models/rock/rock.obj",
+		"/C/xampp/htdocs/index",
+		"/C/Users/mason/Google Drive/work_space/Rocky_Shores/res/water2.png",
+		"/C/Users/mason/Google Drive/work_space/Rocky_Shores/res/water1.png",
+		"/C/Users/mason/Google Drive/work_space/Rocky_Shores/res/water3.png",
+		"/C/Users/mason/Google Drive/work_space/Rocky_Shores/res/models/mob/mob.obj",
+		"/C/Users/mason/Documents/lesson34_bcb6/Data/Terrain.raw",
+		"/C/Users/mason/Google Drive/work_space/Rocky_Shores/res/models/ship/ship.mtl",
+		"/C/Users/mason/Google Drive/work_space/Rocky_Shores/res/models/barraks/barraks.obj",
+		"/C/Users/mason/Google Drive/work_space/Rocky_Shores/res/models/barraks/barraks.mtl",
+		"/C/Users/mason/Google Drive/work_space/Rocky_Shores/res/models/workshop/workshop.mtl",
+		"/C/Users/mason/Google Drive/work_space/Rocky_Shores/res/models/workshop/workshop.obj",
+		"/C/Users/mason/Google Drive/work_space/Rocky_Shores/res/models/tree/tree.obj",
+		"/C/Users/mason/Google Drive/work_space/Rocky_Shores/res/models/rock/rock.obj",
+		"/C/Users/mason/Google Drive/work_space/Rocky_Shores/res/models/rock/rock.mtl",
+		"/C/Users/mason/Google Drive/work_space/Rocky_Shores/res/models/town_hall/town_hall.mtl",
+		"/C/Users/mason/Google Drive/work_space/Rocky_Shores/res/models/town_hall/town_hall.obj",
+		"/C/Users/mason/Google Drive/work_space/Rocky_Shores/src/mesh/ObjLoader.java",
+		"/C/Users/mason/Google Drive/work_space/Rocky_Shores/src/world/World.java",
+		"/C/Users/mason/Google Drive/work_space/Rocky_Shores/src/world/Camera.java"
+	],
+	"find":
+	{
+		"height": 34.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"9.5f",
+			"                                 |                                                                       |",
+			"\\",
+			"->{'",
+			"e",
+			" e ",
+			"border='1'",
+			"				</",
+			">",
+			"yo",
+			"\\",
+			"%'>",
+			";",
+			"none"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"/",
+			"border='0'",
+			"/"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": false
+	},
+	"groups":
+	[
+		{
+			"selected": 1,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "rocky_shores/src/model/Model.java",
+					"settings":
+					{
+						"buffer_size": 21881,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								8425,
+								8425
+							]
+						],
+						"settings":
+						{
+							"annotations":
+							[
+								"TODO",
+								"README",
+								"FIXME"
+							],
+							"csslint_options":
+							{
+								"adjoining-classes": "warning",
+								"box-model": true,
+								"box-sizing": "warning",
+								"compatible-vendor-prefixes": "warning",
+								"display-property-grouping": true,
+								"duplicate-background-images": "warning",
+								"duplicate-properties": true,
+								"empty-rules": true,
+								"errors": true,
+								"fallback-colors": "warning",
+								"floats": "warning",
+								"font-faces": "warning",
+								"font-sizes": "warning",
+								"gradients": "warning",
+								"ids": "warning",
+								"import": "warning",
+								"important": "warning",
+								"known-properties": true,
+								"outline-none": "warning",
+								"overqualified-elements": "warning",
+								"qualified-headings": "warning",
+								"regex-selectors": "warning",
+								"rules-count": "warning",
+								"shorthand": "warning",
+								"text-indent": "warning",
+								"unique-headings": "warning",
+								"universal-selector": "warning",
+								"vendor-prefix": true,
+								"zero-units": "warning"
+							},
+							"gjslint_ignore":
+							[
+								110
+							],
+							"gjslint_options":
+							[
+							],
+							"javascript_linter": "jshint",
+							"jshint_options":
+							{
+								"browser": true,
+								"evil": true,
+								"regexdash": true,
+								"sub": true,
+								"trailing": true,
+								"wsh": true
+							},
+							"pep8": true,
+							"pep8_ignore":
+							[
+								"E501"
+							],
+							"perl_linter": "perlcritic",
+							"pyflakes_ignore":
+							[
+							],
+							"pyflakes_ignore_import_*": true,
+							"sublimelinter": true,
+							"sublimelinter_delay": 0,
+							"sublimelinter_disable":
+							[
+							],
+							"sublimelinter_executable_map":
+							{
+							},
+							"sublimelinter_fill_outlines": false,
+							"sublimelinter_gutter_marks": false,
+							"sublimelinter_notes": false,
+							"sublimelinter_objj_check_ascii": false,
+							"sublimelinter_popup_errors_on_save": false,
+							"sublimelinter_syntax_map":
+							{
+								"Python Django": "python"
+							},
+							"sublimelinter_wrap_find": true,
+							"syntax": "Packages/Java/Java.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 3522.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "rocky_shores/src/view/View.java",
+					"settings":
+					{
+						"buffer_size": 4797,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1363,
+								1363
+							]
+						],
+						"settings":
+						{
+							"annotations":
+							[
+								"TODO",
+								"README",
+								"FIXME"
+							],
+							"csslint_options":
+							{
+								"adjoining-classes": "warning",
+								"box-model": true,
+								"box-sizing": "warning",
+								"compatible-vendor-prefixes": "warning",
+								"display-property-grouping": true,
+								"duplicate-background-images": "warning",
+								"duplicate-properties": true,
+								"empty-rules": true,
+								"errors": true,
+								"fallback-colors": "warning",
+								"floats": "warning",
+								"font-faces": "warning",
+								"font-sizes": "warning",
+								"gradients": "warning",
+								"ids": "warning",
+								"import": "warning",
+								"important": "warning",
+								"known-properties": true,
+								"outline-none": "warning",
+								"overqualified-elements": "warning",
+								"qualified-headings": "warning",
+								"regex-selectors": "warning",
+								"rules-count": "warning",
+								"shorthand": "warning",
+								"text-indent": "warning",
+								"unique-headings": "warning",
+								"universal-selector": "warning",
+								"vendor-prefix": true,
+								"zero-units": "warning"
+							},
+							"gjslint_ignore":
+							[
+								110
+							],
+							"gjslint_options":
+							[
+							],
+							"javascript_linter": "jshint",
+							"jshint_options":
+							{
+								"browser": true,
+								"evil": true,
+								"regexdash": true,
+								"sub": true,
+								"trailing": true,
+								"wsh": true
+							},
+							"pep8": true,
+							"pep8_ignore":
+							[
+								"E501"
+							],
+							"perl_linter": "perlcritic",
+							"pyflakes_ignore":
+							[
+							],
+							"pyflakes_ignore_import_*": true,
+							"sublimelinter": true,
+							"sublimelinter_delay": 0,
+							"sublimelinter_disable":
+							[
+							],
+							"sublimelinter_executable_map":
+							{
+							},
+							"sublimelinter_fill_outlines": false,
+							"sublimelinter_gutter_marks": false,
+							"sublimelinter_notes": false,
+							"sublimelinter_objj_check_ascii": false,
+							"sublimelinter_popup_errors_on_save": false,
+							"sublimelinter_syntax_map":
+							{
+								"Python Django": "python"
+							},
+							"sublimelinter_wrap_find": true,
+							"syntax": "Packages/Java/Java.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 2070.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 0.0
+	},
+	"input":
+	{
+		"height": 0.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 100.0
+	},
+	"replace":
+	{
+		"height": 62.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+			[
+				"",
+				"/C/xampp/htdocs/gameinfo/gamelist.xml"
+			],
+			[
+				"ga",
+				"/C/xampp/htdocs/gameinfo/gamelist.xml"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"selected_items":
+		[
+		],
+		"width": 380.0
+	},
+	"show_minimap": true,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 189.0,
+	"status_bar_visible": true
+}

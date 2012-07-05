@@ -217,10 +217,10 @@ public class Model {
 		
 		Mesh m = new Mesh("main_island");
 		Face fa = new Face(
-				new Vertex(-10.0f, 0.0f, -10.0f, 0.0f, 150.0f),
-				new Vertex(10.0f, 0.0f, -10.0f, 150.0f, 150.0f),
-				new Vertex(10.0f, 0.0f, 10.0f, 150.0f, 0.0f),
-				new Vertex(-10.0f, 0.0f, 10.0f, 0.0f, 0.0f));
+				new Vertex(-16.0f, 0.0f, -16.0f, 0.0f, 150.0f),
+				new Vertex(16.0f, 0.0f, -16.0f, 150.0f, 150.0f),
+				new Vertex(16.0f, 0.0f, 16.0f, 150.0f, 0.0f),
+				new Vertex(-16.0f, 0.0f, 16.0f, 0.0f, 0.0f));
 		//m.setMat(getMaterial("water2"));
 		m.addFace(fa);
 		water = new Sprite(m);
@@ -260,25 +260,25 @@ public class Model {
 		
 		//add sky box i don't know why
 		Face frontface = new Face(
-				new Vertex(-9.5f, 0.0f, -9.5f, 0.0f, 1.0f),
-				new Vertex(9.5f, 0.0f, -9.5f, 1.0f, 1.0f),
-				new Vertex(9.5f, 9.5f, -9.5f, 1.0f, 0.0f),
-				new Vertex(-9.5f, 9.5f, -9.5f, 0.0f, 0.0f));
+				new Vertex(-15.0f, 0.0f, -15.0f, 0.0f, 1.0f),
+				new Vertex(15.0f, 0.0f, -15.0f, 1.0f, 1.0f),
+				new Vertex(15.0f, 15.0f, -15.0f, 1.0f, 0.0f),
+				new Vertex(-15.0f, 15.0f, -15.0f, 0.0f, 0.0f));
 		Face rigthface = new Face(
-				new Vertex(9.5f, 0.0f, -9.5f, 0.0f, 1.0f),
-				new Vertex(9.5f, 0.0f, 9.5f, 1.0f, 1.0f),
-				new Vertex(9.5f, 9.5f, 9.5f, 1.0f, 0.0f),
-				new Vertex(9.5f, 9.5f, -9.5f, 0.0f, 0.0f));
+				new Vertex(15.0f, 0.0f, -15.0f, 0.0f, 1.0f),
+				new Vertex(15.0f, 0.0f, 15.0f, 1.0f, 1.0f),
+				new Vertex(15.0f, 15.0f, 15.0f, 1.0f, 0.0f),
+				new Vertex(15.0f, 15.0f, -15.0f, 0.0f, 0.0f));
 		Face leftface = new Face(
-				new Vertex(-9.5f, 0.0f, -9.5f, 0.0f, 1.0f),
-				new Vertex(-9.5f, 0.0f, 9.5f, 1.0f, 1.0f),
-				new Vertex(-9.5f, 9.5f, 9.5f, 1.0f, 0.0f),
-				new Vertex(-9.5f, 9.5f, -9.5f, 0.0f, 0.0f));
+				new Vertex(-15.0f, 0.0f, -15.0f, 0.0f, 1.0f),
+				new Vertex(-15.0f, 0.0f, 15.0f, 1.0f, 1.0f),
+				new Vertex(-15.0f, 15.0f, 15.0f, 1.0f, 0.0f),
+				new Vertex(-15.0f, 15.0f, -15.0f, 0.0f, 0.0f));
 		Face backface = new Face(
-				new Vertex(-9.5f, 0.0f, 9.5f, 0.0f, 1.0f),
-				new Vertex(9.5f, 0.0f, 9.5f, 1.0f, 1.0f),
-				new Vertex(9.5f, 9.5f, 9.5f, 1.0f, 0.0f),
-				new Vertex(-9.5f, 9.5f, 9.5f, 0.0f, 0.0f));
+				new Vertex(-15.0f, 0.0f, 15.0f, 0.0f, 1.0f),
+				new Vertex(15.0f, 0.0f, 15.0f, 1.0f, 1.0f),
+				new Vertex(15.0f, 15.0f, 15.0f, 1.0f, 0.0f),
+				new Vertex(-15.0f, 15.0f, 15.0f, 0.0f, 0.0f));
 		Mesh skyMesh = new Mesh();
 		skyMesh.addFace(frontface);
 		skyMesh.addFace(rigthface);
@@ -335,7 +335,10 @@ public class Model {
 		//gui.add(gameMenuBg);
 		
 		spriteList.add(new Sprite(getModel("wheat")));
-		spriteList.get(spriteList.size() - 1).cullFace(false);;
+		spriteList.get(spriteList.size() - 1).cullFace(false);
+		spriteList.get(spriteList.size() - 1).setWidth(0.035f);
+		spriteList.get(spriteList.size() - 1).setHeight(0.035f);
+		spriteList.get(spriteList.size() - 1).setDepth(0.035f);
 		
 		input = new Input(this, gui, cycle, menu);	//call input constructor
 		
@@ -405,8 +408,8 @@ public class Model {
 		input.update();
 		
 		water.setY(((float)Math.sin((System.currentTimeMillis() - startTime) / 800.0f) / 120.0f) - 0.01f);
-		water.setZ((float)Math.sin((System.currentTimeMillis() - startTime) / 5000.0f) / 10.0f);
-		water.setX((float)Math.cos((System.currentTimeMillis() - startTime) / 8000.0f) / 10.0f);
+		water.setZ((float)Math.sin((System.currentTimeMillis() - startTime) / 5000.0f) / 16.0f);
+		water.setX((float)Math.cos((System.currentTimeMillis() - startTime) / 8000.0f) / 16.0f);
 		
 		for(int i = 0; i < spriteList.size(); i++){
 			if(spriteList.get(i) == null){
