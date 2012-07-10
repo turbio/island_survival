@@ -21,7 +21,6 @@ public class Rock extends Resource{
 		//System.out.println((new Random().nextInt(3) + 1));
 		super.setType(SpriteTypes.ROCK);
 		super.setX(x);
-		super.setY(y);
 		super.setZ(z);
 		super.setBoundWidth(1.02f);
 		super.setBoundDepth(1.02f);

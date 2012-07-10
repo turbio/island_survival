@@ -2,10 +2,7 @@
 	"folders":
 	[
 		{
-			"path": "/C/Users/mason/Google Drive/work_space/Rocky_Shores/src/world"
-		},
-		{
-			"path": "rocky_shores/src/resorsers"
+			"path": "rocky_shores/src/model"
 		},
 		{
 			"path": "rocky_shores/src/particles"
@@ -17,16 +14,13 @@
 			"path": "rocky_shores/src/view"
 		},
 		{
-			"path": "rocky_shores/src/world"
-		},
-		{
 			"path": "rocky_shores/src/audio"
 		},
 		{
 			"path": "rocky_shores/src/buildings"
 		},
 		{
-			"path": "rocky_shores/src/depricated"
+			"path": "rocky_shores/src/resorsers"
 		},
 		{
 			"path": "rocky_shores/src/gui"
@@ -38,7 +32,10 @@
 			"path": "rocky_shores/src/mob"
 		},
 		{
-			"path": "rocky_shores/src/model"
+			"path": "rocky_shores/src/world"
+		},
+		{
+			"path": "rocky_shores/src/depricated"
 		}
 	]
 }

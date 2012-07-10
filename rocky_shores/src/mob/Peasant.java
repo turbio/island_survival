@@ -20,7 +20,7 @@ public class Peasant extends Mob{
 	private double d = 0;
 	private double time = (int) ((Math.random() * 1800) % 1800);
 	private Model model;
-	private boolean faceCam = false, walk = false, idle = false, hitAnime = false, hasResource = false, swim = true;
+	private boolean faceCam = false, walk = false, idle = false, hitAnime = false, hasResource = false, swim = false;
 	private float desX = 0.0f, desZ = 0.0f, originX = 0, originZ = 0, baseRot, distance, wanderDistance = 0.08f, speed = 0.001f;
 	private Object target;
 	private Task task = Task.NONE;

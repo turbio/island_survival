@@ -1,17 +1,27 @@
 package buildings;
 
+import java.util.*;
+
+import resorsers.Wheat;
 import sprite.Sprite;
 import mesh.Mesh;
 import model.Model;
 
 public class Farm extends Building{
 	private final static float scale = 0.027f;
-	
+	private ArrayList<Wheat> wheatlist = new ArrayList<Wheat>();
 	private Sprite fence;
-	
-	public Farm(Mesh m, float x, float z, float x2, float z2, Model model) {
-		super(BuildingTypes.FARM, m, x, z, model, scale);
+	private Model model;
+	private long elapsed;
+	private float width, height;
+
+	public Farm(Mesh m, float x, float z, float x2, float z2, Model mod) {
+		super(BuildingTypes.FARM, m, x, z, mod, scale);
+		model = mod;
 		
+		width = x2;
+		height = z2;
+
 		super.setWidth(scale);
 		super.setHeight(scale);
 		super.setDepth(scale);
@@ -42,7 +52,12 @@ public class Farm extends Building{
 		
 		if(super.isBuilt()){
 			fence.setVisible(true);
-			
+
+			elapsed += d;
+			if(elapsed % 100 == 0){
+				addWheat();
+			}
+
 			if(fence.getY() >= 0.0f){
 				fence.setY(0.0f);
 				fence.setYVel(0.0f);
@@ -51,5 +66,12 @@ public class Farm extends Building{
 				fence.setYVel(0.001f);
 			}
 		}
+	}
+
+	private void addWheat(){
+		Wheat w = new Wheat(model, fence.getX(), super.getY(), width, height);
+		wheatlist.add(w);
+		
+		model.getSpriteList().add(w);
 	}
 }

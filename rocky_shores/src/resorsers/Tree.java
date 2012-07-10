@@ -19,7 +19,6 @@ public class Tree extends Resource{
 		//super(SpriteTypes.TREE, t, x, y, z, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.03f, 0.03f, 1.0f);
 		super(c.getModel("tree" + (startTex + 1)), 0.01f);
 		super.setX(x);
-		super.setY(y);
 		super.setZ(z);
 		super.setBoundWidth(1.02f);
 		super.setBoundDepth(1.02f);

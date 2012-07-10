@@ -33,16 +33,7 @@ import org.newdawn.slick.util.ResourceLoader;
 
 import particles.Emitter;
 
-import buildings.Barraks;
-import buildings.Building;
-import buildings.BuildingTypes;
-import buildings.Dock;
-import buildings.Farm;
-import buildings.Masonry;
-import buildings.Mill;
-import buildings.Residence;
-import buildings.TownHall;
-import buildings.WorkShop;
+import buildings.*;
 
 import resorsers.Tree;
 import sprite.Ship;
@@ -334,12 +325,6 @@ public class Model {
 		//gameMenuBg = new ImageIcon((int)(width / 2) - (int)(wid / 2), 0, (int)wid, (int)hei, texture[15][0]);
 		//gui.add(gameMenuBg);
 		
-		spriteList.add(new Sprite(getModel("wheat")));
-		spriteList.get(spriteList.size() - 1).cullFace(false);
-		spriteList.get(spriteList.size() - 1).setWidth(0.035f);
-		spriteList.get(spriteList.size() - 1).setHeight(0.035f);
-		spriteList.get(spriteList.size() - 1).setDepth(0.035f);
-		
 		input = new Input(this, gui, cycle, menu);	//call input constructor
 		
 		
@@ -353,7 +338,7 @@ public class Model {
 		updates++;
 		totalFrames++;
 		int particleCount = 0;
-		for(int i = 0; i < miters.size(); i++){
+		for(int i = 0; i < miters.size(); i++){	
 			particleCount += miters.get(i).getParticle().size();
 		}
 		labels.get(0).setString("FPS: " + ((float)frames / (float)(System.currentTimeMillis() - frameStart)) * 1000);
