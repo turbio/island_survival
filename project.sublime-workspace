@@ -47,7 +47,7 @@
 			"file": "rocky_shores/src/model/Model.java",
 			"settings":
 			{
-				"buffer_size": 21530,
+				"buffer_size": 21528,
 				"line_ending": "Windows"
 			}
 		},
@@ -71,7 +71,7 @@
 			"file": "rocky_shores/src/resorsers/Wheat.java",
 			"settings":
 			{
-				"buffer_size": 211,
+				"buffer_size": 249,
 				"line_ending": "Windows"
 			}
 		},
@@ -128,6 +128,8 @@
 	},
 	"file_history":
 	[
+		"/C/Users/mason/Documents/GitHub/rocky_shores/rocky_shores/bin/model/Model.class",
+		"/C/Users/mason/Documents/mari0/mari0_1.6.exe",
 		"/E/md5sum.txt",
 		"/C/.bzvol/README.txt",
 		"/C/.bzvol/bzvol_id.xml",
@@ -292,7 +294,7 @@
 	"groups":
 	[
 		{
-			"selected": 2,
+			"selected": 1,
 			"sheets":
 			[
 				{
@@ -300,15 +302,15 @@
 					"file": "rocky_shores/src/model/Model.java",
 					"settings":
 					{
-						"buffer_size": 21530,
+						"buffer_size": 21528,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								10764,
-								10764
+								9533,
+								9533
 							]
 						],
 						"settings":
@@ -400,7 +402,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 4377.0,
+						"translation.y": 3852.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -527,8 +529,8 @@
 						"selection":
 						[
 							[
-								1552,
-								1552
+								1346,
+								1346
 							]
 						],
 						"settings":
@@ -620,7 +622,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 900.0,
+						"translation.y": 90.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -630,15 +632,15 @@
 					"file": "rocky_shores/src/resorsers/Wheat.java",
 					"settings":
 					{
-						"buffer_size": 211,
+						"buffer_size": 249,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								206,
-								206
+								0,
+								0
 							]
 						],
 						"settings":

@@ -69,7 +69,7 @@ public class Farm extends Building{
 	}
 
 	private void addWheat(){
-		Wheat w = new Wheat(model, fence.getX(), super.getY(), width, height);
+		Wheat w = new Wheat(model, super.getX(), super.getZ(), width, height);
 		wheatlist.add(w);
 		
 		model.getSpriteList().add(w);

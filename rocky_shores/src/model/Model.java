@@ -284,7 +284,7 @@ public class Model {
 		
 		addBuilding(BuildingTypes.TOWN_HALL, 0.1f, -0.2f);
 		addBuilding(BuildingTypes.WORKSHOP, 0.2f, 0.0f);
-		addBuilding(BuildingTypes.FARM, -0.1f, 0.2f, -0.0f, 0.0f);
+		addBuilding(BuildingTypes.FARM, 0.5f, 0.7f, 0.3f, 0.5f);
 		addBuilding(BuildingTypes.MILL, 0.3f, 0.2f);
 		addBuilding(BuildingTypes.BARRAKS, -0.3f, 0.2f);
 		addBuilding(BuildingTypes.RESIDENCE, 0.1f, 0.2f);
