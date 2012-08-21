@@ -98,4 +98,11 @@ public class Face {
 	public void setNormalZ(float z){
 		normalZ = z;
 	}
+	
+	public void offsetTexture(float x, float y){
+		for(int i = 0; i < vertex.size(); i++){
+			vertex.get(i).setTexX(vertex.get(i).getTexX() + x);
+			vertex.get(i).setTexY(vertex.get(i).getTexY() + y);
+		}
+	}
 }
