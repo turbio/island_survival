@@ -101,8 +101,8 @@ public class Face {
 	
 	public void offsetTexture(float x, float y){
 		for(int i = 0; i < vertex.size(); i++){
-			vertex.get(i).setTexX(vertex.get(i).getTexX() + x);
-			vertex.get(i).setTexY(vertex.get(i).getTexY() + y);
+			vertex.get(i).setOffsetTexX(vertex.get(i).getTexX() + x);
+			vertex.get(i).setOffsetTexY(vertex.get(i).getTexY() + y);
 		}
 	}
 }

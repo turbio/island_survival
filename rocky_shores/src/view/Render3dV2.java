@@ -11,6 +11,7 @@ public class Render3dV2 {
 	private Model model;
 	private Camera camera;
 	private DrawModel draw;
+	private float scale = 1.0f;
 	
 	public Render3dV2(Model m, Camera c){
 		model = m;
@@ -58,7 +59,7 @@ public class Render3dV2 {
 			glRotatef(camera.getYRot(), 0.0f, 1.0f, 0.0f);	//align y rot to camera
 			glTranslatef(camera.getX(), camera.getY(), camera.getZ());	//align cords with floor		
 			
-			glTranslatef(model.getSpriteList().get(i).getX(), model.getSpriteList().get(i).getY(), model.getSpriteList().get(i).getZ());	//translate the object
+			glTranslatef(model.getSpriteList().get(i).getX() * scale, model.getSpriteList().get(i).getY() * scale, model.getSpriteList().get(i).getZ() * scale);	//translate the object
 			if(!model.getSpriteList().get(i).hasMesh()){
 				glRotatef(-camera.getYRot(), 0.0f, 1.0f, 0.0f);	//align y rot to camera
 				glRotatef(-camera.getXRot(), 1.0f, 0.0f, 0.0f);	//align x rot to floor
@@ -67,6 +68,8 @@ public class Render3dV2 {
 			glRotatef(model.getSpriteList().get(i).getXRot(), 1.0f, 0.0f, 0.0f);
 			glRotatef(model.getSpriteList().get(i).getZRot(), 0.0f, 0.0f, 1.0f);
 			glScalef(model.getSpriteList().get(i).getWidth(), model.getSpriteList().get(i).getHeight(), model.getSpriteList().get(i).getDepth());
+			
+			glScalef(scale, scale, scale);
 			
 			if(model.getSpriteList().get(i).hasMesh() && model.getSpriteList().get(i).isVisible()){
 				for(int m = 0; m < model.getSpriteList().get(i).getMesh().length; m++){

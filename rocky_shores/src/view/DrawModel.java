@@ -50,8 +50,8 @@ public class DrawModel {
 			Face face = mesh.getFaces().get(f);
 			if (face.isQuad()) {
 				for (int v = 0; v < face.getVertex().size(); v++) {
-					glTexCoord2f(face.getVertex(v).getTexX(), -face
-							.getVertex(v).getTexY());
+					glTexCoord2f(face.getVertex(v).getOffsetTexX(), -face
+							.getVertex(v).getOffsetTexY());
 					glVertex3f(face.getVertex(v).getX(), face.getVertex(v)
 							.getY(), face.getVertex(v).getZ());
 				}
@@ -64,8 +64,8 @@ public class DrawModel {
 			Face face = mesh.getFaces().get(f);
 			if (face.isTri()) {
 				for (int v = 0; v < face.getVertex().size(); v++) {
-					glTexCoord2f(face.getVertex(v).getTexX(), -face
-							.getVertex(v).getTexY());
+					glTexCoord2f(face.getVertex(v).getOffsetTexX(), -face
+							.getVertex(v).getOffsetTexY());
 					glVertex3f(face.getVertex(v).getX(), face.getVertex(v)
 							.getY(), face.getVertex(v).getZ());
 				}

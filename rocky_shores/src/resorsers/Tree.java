@@ -53,6 +53,9 @@ public class Tree extends Resource{
 	}
 	
 	public void update(long d){
+		super.setWidth(0.025f);
+		super.setHeight(0.04f);
+		super.setDepth(0.025f);
 		super.update(d);
 		if(alive){
 			if(super.getY() >= 0){

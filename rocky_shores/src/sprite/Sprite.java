@@ -1,6 +1,7 @@
 package sprite;
 
 import view.DrawModel;
+import world.Camera;
 import mesh.Material;
 import mesh.Mesh;
 
@@ -13,6 +14,7 @@ public class Sprite extends Orientation{
 	private Mesh[] mesh;
 	private float originalX, originalY, originalZ, originalXR, originalYR, originalZR;
 	private Object subClass;
+	private Camera parentCam;
 	
 	private boolean flipX = false, flipY  = false;
 	
@@ -80,8 +82,12 @@ public class Sprite extends Orientation{
 	}
 	
 	public void update(long d){
-		if(parent == null){
+		if(parent == null && parentCam == null){
 			super.update(d);
+		}else if(parentCam != null){
+			super.setX(-parentCam.getX() + originalX);
+			super.setY(-parentCam.getY() + originalY);
+			super.setZ(-parentCam.getZ() + originalZ);
 		}else{
 			super.setX(parent.getX() + originalX);
 			super.setY(parent.getY() + originalY);
@@ -362,5 +368,9 @@ public class Sprite extends Orientation{
 				mesh[i].setIndex(-1);
 			}
 		}
+	}
+
+	public void setParent(Camera camera) {
+		parentCam = camera;
 	}
 }

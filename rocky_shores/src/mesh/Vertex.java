@@ -3,7 +3,7 @@ package mesh;
 import org.newdawn.slick.Color;
 
 public class Vertex {
-	private float xPos, yPos, zPos, textureX, textureY;
+	private float xPos, yPos, zPos, textureX, textureY, offsetTexX, offsetTexY;
 	private Color color = null;
 	private boolean isTextured;
 	
@@ -21,6 +21,8 @@ public class Vertex {
 		textureX = texX;
 		textureY = texY;
 		isTextured = true;
+		offsetTexX = textureX;
+		offsetTexY = textureY;
 	}
 	
 	public Vertex(float x, float y, float z, Color c){
@@ -49,6 +51,21 @@ public class Vertex {
 	
 	public float getTexY(){
 		return textureY;
+	}
+	
+	public float getOffsetTexX(){
+		return offsetTexX;
+	}
+	
+	public void setOffsetTexX(float x){
+		offsetTexX = x;
+	}
+	public void setOffsetTexY(float y){
+		offsetTexY = y;
+	}
+	
+	public float getOffsetTexY(){
+		return offsetTexY;
 	}
 	
 	public Color getColor(){

@@ -251,23 +251,23 @@ public class Model {
 		
 		//add sky box i don't know why
 		Face frontface = new Face(
-				new Vertex(-15.0f, 0.0f, -15.0f, 0.0f, 1.0f),
-				new Vertex(15.0f, 0.0f, -15.0f, 1.0f, 1.0f),
+				new Vertex(-15.0f, -15.0f, -15.0f, 0.0f, 1.0f),
+				new Vertex(15.0f, -15.0f, -15.0f, 1.0f, 1.0f),
 				new Vertex(15.0f, 15.0f, -15.0f, 1.0f, 0.0f),
 				new Vertex(-15.0f, 15.0f, -15.0f, 0.0f, 0.0f));
 		Face rigthface = new Face(
-				new Vertex(15.0f, 0.0f, -15.0f, 0.0f, 1.0f),
-				new Vertex(15.0f, 0.0f, 15.0f, 1.0f, 1.0f),
+				new Vertex(15.0f, -15.0f, -15.0f, 0.0f, 1.0f),
+				new Vertex(15.0f, -15.0f, 15.0f, 1.0f, 1.0f),
 				new Vertex(15.0f, 15.0f, 15.0f, 1.0f, 0.0f),
 				new Vertex(15.0f, 15.0f, -15.0f, 0.0f, 0.0f));
 		Face leftface = new Face(
-				new Vertex(-15.0f, 0.0f, -15.0f, 0.0f, 1.0f),
-				new Vertex(-15.0f, 0.0f, 15.0f, 1.0f, 1.0f),
+				new Vertex(-15.0f, -15.0f, -15.0f, 0.0f, 1.0f),
+				new Vertex(-15.0f, -15.0f, 15.0f, 1.0f, 1.0f),
 				new Vertex(-15.0f, 15.0f, 15.0f, 1.0f, 0.0f),
 				new Vertex(-15.0f, 15.0f, -15.0f, 0.0f, 0.0f));
 		Face backface = new Face(
-				new Vertex(-15.0f, 0.0f, 15.0f, 0.0f, 1.0f),
-				new Vertex(15.0f, 0.0f, 15.0f, 1.0f, 1.0f),
+				new Vertex(-15.0f, -15.0f, 15.0f, 0.0f, 1.0f),
+				new Vertex(15.0f, -15.0f, 15.0f, 1.0f, 1.0f),
 				new Vertex(15.0f, 15.0f, 15.0f, 1.0f, 0.0f),
 				new Vertex(-15.0f, 15.0f, 15.0f, 0.0f, 0.0f));
 		Mesh skyMesh = new Mesh();
@@ -279,6 +279,7 @@ public class Model {
 		skyBox.setTex((new Material(new Color(1.0f / (255 - 20), 1.0f / (255 - 180), 1.0f), "sky_box")));
 		skyBox.cullFace(false);
 		spriteList.add(skyBox);
+		skyBox.setParent(camera);
 		
 		//add test buildings
 		
@@ -398,7 +399,8 @@ public class Model {
 		waterTop.setX(-camera.getX());
 		waterTop.setZ(-camera.getZ());
 		
-		water.getMesh()[0].getFaces().get(0).offsetTexture(camera.getX(), 0);
+		water.getMesh()[0].getFaces().get(0).offsetTexture(-camera.getX() * 4.65f,
+				camera.getZ() * 4.65f);
 		//water.getMesh()[0].getFaces().get(0).getVertex(0).setTexX(camera.getX());
 		//water.getMesh()[0].getFaces().get(0).getVertex(1).setTexX(camera.getX());
 		//water.getMesh()[0].getFaces().get(0).getVertex(2).setTexX(camera.getX());
