@@ -20,30 +20,6 @@ public class Render3dV2 {
 	}
 	int test = 0;
 	public void render(){
-		//model.getMaterial("matr").getTexture().bind();
-		
-		/*
-		glTranslatef(camera.getX(), camera.getY(), camera.getZ());	//align cords with floor		
-		glRotatef(camera.getXRot(), 1.0f, 0.0f, 0.0f);	//align x rot to camera
-		glRotatef(camera.getYRot(), 0.0f, 1.0f, 0.0f);	//align y rot to camera
-		
-		for(int i = 0; i < model.getMobList().size(); i++){
-			glShadeModel(GL_SMOOTH);
-			glDisable(GL_LIGHTING);
-			glDisable(GL_BLEND);
-			glLineWidth(0.5f);
-			glColor3f(1.0f, 0.0f, 0.0f);
-			
-			glBegin(GL_LINES);
-				glVertex3f(model.getMobList().get(i).getX(), 0.005f, model.getMobList().get(i).getZ());
-				glVertex3f(model.getMobList().get(i).getDesX(), 0.005f, model.getMobList().get(i).getDesZ());
-			glEnd();
-		}
-		glBegin(GL_LINES);
-			glVertex3f(-1.0f, 0.005f, -0.3f);
-			glVertex3f(1.0f, 0.005f, -0.3f);
-		glEnd();
-		*/
 		glEnable(GL_LIGHTING);
 		glEnable(GL_BLEND);
 		for(int i = 0; i < model.getSpriteList().size(); i++){
@@ -57,9 +33,15 @@ public class Render3dV2 {
 			
 			glRotatef(camera.getXRot(), 1.0f, 0.0f, 0.0f);	//align x rot to camera
 			glRotatef(camera.getYRot(), 0.0f, 1.0f, 0.0f);	//align y rot to camera
-			glTranslatef(camera.getX(), camera.getY(), camera.getZ());	//align cords with floor		
+			glTranslatef(camera.getX() * scale, camera.getY() * scale, camera.getZ() * scale);	//align cords with floor
+			if(!model.getSpriteList().get(i).camPar()){
+				glTranslatef(model.getSpriteList().get(i).getX() * scale,
+						model.getSpriteList().get(i).getY() * scale,
+						model.getSpriteList().get(i).getZ() * scale);	//translate the object
+			}else{
+				glTranslatef(model.getSpriteList().get(i).getX(), model.getSpriteList().get(i).getY(), model.getSpriteList().get(i).getZ());	//translate the object
+			}
 			
-			glTranslatef(model.getSpriteList().get(i).getX() * scale, model.getSpriteList().get(i).getY() * scale, model.getSpriteList().get(i).getZ() * scale);	//translate the object
 			if(!model.getSpriteList().get(i).hasMesh()){
 				glRotatef(-camera.getYRot(), 0.0f, 1.0f, 0.0f);	//align y rot to camera
 				glRotatef(-camera.getXRot(), 1.0f, 0.0f, 0.0f);	//align x rot to floor
@@ -67,7 +49,9 @@ public class Render3dV2 {
 			glRotatef(model.getSpriteList().get(i).getYRot(), 0.0f, 1.0f, 0.0f);
 			glRotatef(model.getSpriteList().get(i).getXRot(), 1.0f, 0.0f, 0.0f);
 			glRotatef(model.getSpriteList().get(i).getZRot(), 0.0f, 0.0f, 1.0f);
-			glScalef(model.getSpriteList().get(i).getWidth(), model.getSpriteList().get(i).getHeight(), model.getSpriteList().get(i).getDepth());
+			glScalef(model.getSpriteList().get(i).getWidth(),
+					model.getSpriteList().get(i).getHeight(),
+					model.getSpriteList().get(i).getDepth());
 			
 			glScalef(scale, scale, scale);
 			

@@ -394,17 +394,12 @@ public class Model {
 		input.update();
 		
 		water.setY(((float)Math.sin((System.currentTimeMillis() - startTime) / 800.0f) / 120.0f) - 0.01f);
-		water.setZ((float)Math.sin((System.currentTimeMillis() - startTime) / 5000.0f) / 16.0f - camera.getZ());
-		water.setX((float)Math.cos((System.currentTimeMillis() - startTime) / 8000.0f) / 16.0f - camera.getX());
-		waterTop.setX(-camera.getX());
-		waterTop.setZ(-camera.getZ());
+		water.setZ((float)Math.sin((System.currentTimeMillis() - startTime) / 5000.0f) / 16.0f);
+		water.setX((float)Math.cos((System.currentTimeMillis() - startTime) / 8000.0f) / 16.0f);
+		waterTop.setParent(camera);
+		water.setParent(camera);
 		
-		water.getMesh()[0].getFaces().get(0).offsetTexture(-camera.getX() * 4.65f,
-				camera.getZ() * 4.65f);
-		//water.getMesh()[0].getFaces().get(0).getVertex(0).setTexX(camera.getX());
-		//water.getMesh()[0].getFaces().get(0).getVertex(1).setTexX(camera.getX());
-		//water.getMesh()[0].getFaces().get(0).getVertex(2).setTexX(camera.getX());
-		//water.getMesh()[0].getFaces().get(0).getVertex(3).setTexX(camera.getX());
+		water.getMesh()[0].getFaces().get(0).offsetTexture(-camera.getX() * 4.65f, camera.getZ() * 4.65f);
 		
 		for(int i = 0; i < spriteList.size(); i++){
 			if(spriteList.get(i) == null){
